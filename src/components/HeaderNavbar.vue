@@ -104,14 +104,14 @@ export default {
 
         background: linear-gradient(
           to bottom,
-          transparent 62px,
-          $main_gray 62px 100%,
+          transparent 42px,
+          $main_gray 42px 100%,
         );
       
         position: absolute;
         min-width: 250px;
 
-        top:0;
+        top:20px;
         right:0;
 
         padding-top: 62px;
