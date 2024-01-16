@@ -193,6 +193,29 @@ export default {
       </div>
     </section>
 
+    <!-- Counter (Guitar) -->
+    <section class="counter">
+      <div class="card">
+        <i class="fa-solid fa-child-reaching"></i>
+        <h2>900</h2>
+        <h3>CONCERTS</h3>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-rocket"></i>
+        <h2>800</h2>
+        <h3>HAPPY CLIENTS</h3>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-trophy"></i>
+        <h2>400</h2>
+        <h3>MUSIC AWARDS</h3>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-music"></i>
+        <h2>1001</h2>
+        <h3>TOTAL SONGS</h3>
+      </div>
+    </section>
   </main>
 </template>
 
@@ -404,6 +427,32 @@ main {
       color: #fff;
       font-size: 7rem;
       margin-bottom: 2rem;
+    }
+  }
+}
+
+.counter {
+  background-image: url(../assets/img/counter_parallax.jpg);
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: 0 3rem;
+  text-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .card {
+    color: #fff;
+    width: calc(25% - 2rem);
+    margin: 0 1rem;
+    text-align: center;
+
+    i {
+      font-size: 4rem;
     }
   }
 }
