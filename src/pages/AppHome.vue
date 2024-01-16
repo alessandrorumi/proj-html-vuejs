@@ -3,31 +3,55 @@
 import home1 from '../assets/img/carousel/home-1.png';
 import home2 from '../assets/img/carousel/home-2.png';
 
-import musicblog1 from '../assets/img/music-blog/1.jpg';
-import musicblog2 from '../assets/img/music-blog/2.jpg';
-import musicblog3 from '../assets/img/music-blog/3.jpg';
-import musicblog4 from '../assets/img/music-blog/4.jpg';
-import musicblog5 from '../assets/img/music-blog/5.jpg';
-import musicblog6 from '../assets/img/music-blog/6.jpg';
-import musicblog7 from '../assets/img/music-blog/7.jpg';
-
 export default {
   name: 'AppHome',
   data() {
     return {
       homeImages: [home1, home2],
-      musicBlogImages: [musicblog1, musicblog2, musicblog3, musicblog4, musicblog5, musicblog6, musicblog7],
       blog: [
         {
           title: 'HIP HOP WIRED TO DANCE MAKE',
           date: '06 November  2021',
-          description: 'Driving short distances music is a music genre that includes traditional folk music and the contemporary genre that evolved from the former'
+          description: 'Driving short distances music is a music genre that includes traditional folk music and the contemporary genre that evolved from the former',
+          image: 'public/music-blog/1.jpg'
         },
         {
           title: 'MUSIC BUSINESS WORLDWIDE',
           date: '27 May  2022',
-          description: 'Accelerate work and drive productivity The Beatles experimentation and creative freedom led other bands to experiment in various ways as well.'
-        }
+          description: 'Accelerate work and drive productivity The Beatles experimentation and creative freedom led other bands to experiment in various ways as well.',
+          image: 'public/music-blog/2.jpg'
+          
+        },
+        {
+          title: 'GIVEAWAYS ROCK TO ALL',
+          date: '07 May  2022',
+          description: 'Signs Your Car Battery Has To Be Replaced When the dashboard lights start flashing, this is a sign the battery is dying. Several issues arise and.',
+          image: 'public/music-blog/3.jpg'
+        },
+        {
+          title: 'DROWNED IN SOUND FEEL JOY',
+          date: '10 April  2022',
+          description: 'Different Types of Music Content For most music creators, they take their work very seriously because of the emotional attachment they may harbor.',
+          image: 'public/music-blog/4.jpg'
+        },
+        {
+          title: 'DANCING ASTRONAUT BOUNCE IPSUM',
+          date: '01 March  2022',
+          description: 'Signs Your Car Battery Has To Be Replaced When the dashboard lights start flashing, this is a sign the battery is dying. Several issues arise and.',
+          image: 'public/music-blog/5.jpg'
+        },
+        {
+          title: 'CONSEQUENCE OF SOUNDMAKE US',
+          date: '14 February  2022',
+          description: 'Electronic Dance Music Rhythm and Blues Before this, R & B was known as ‘race music,’ a term that originated in the African American',
+          image: 'public/music-blog/6.jpg'
+        },
+        {
+          title: 'ARTIST DEVELOPMENT AND PRODUCTION',
+          date: '07 December  2021',
+          description: 'Characterised by its own beat patterns, the lyrics feature what is often extreme violence snd talk of criminal acts. As a result, there’s been',
+          image: 'public/music-blog/7.jpg'
+        },
       ],
       homeIndex: 0,
       musicBlogIndex: 0,
@@ -38,7 +62,7 @@ export default {
       return this.homeImages[this.homeIndex];
     },
     activeMusicBlogImages() {
-      return this.musicBlogImages; // DEVE VISUALIZZARE 3 IMGS
+    return this.blog.slice(this.musicBlogIndex, this.musicBlogIndex + 3);
     }
   },
   methods: {
@@ -60,11 +84,11 @@ export default {
       if (this.musicBlogIndex > 0) {
         this.musicBlogIndex--;
       } else {
-        this.musicBlogIndex = this.musicBlogImages.length - 3;
+        this.musicBlogIndex = this.blog.length - 3;
       }
     },
     nextMusicBlogImage() {
-      if (this.musicBlogIndex < this.musicBlogImages.length - 3) {
+      if (this.musicBlogIndex < this.blog.length - 3) {
         this.musicBlogIndex++;
       } else {
         this.musicBlogIndex = 0;
@@ -258,12 +282,12 @@ export default {
       <h4>MUSIC BLOG</h4>
       <h3>BEST MUSIC BLOG</h3>
       <div class="carousel-blog">
-        <div v-for="image in activeMusicBlogImages" class="card">
-          <img :src="image" alt="">
+        <div v-for="musicBlog in activeMusicBlogImages" class="card">
+          <img :src="musicBlog.image" alt="">
           <div class="text">
-            <h3>
-
-            </h3>
+            <h4>{{ musicBlog.title }}</h4>
+            <h5>{{ musicBlog.date }}</h5>
+            <p>{{ musicBlog.description }}</p>
           </div>
         </div>
       </div>
@@ -550,6 +574,26 @@ main {
       flex-shrink: 0;
       flex-basis: calc((100% / 3) - 2rem);
       margin: 0 1rem;
+
+      .text {
+        text-align: start;
+
+        h4 {
+          color: #fff;
+          padding: 0;
+          font-size: 1.5rem;
+        }
+
+        h5 {
+          color: $main_orange;
+          margin: 1rem 0;
+        }
+
+        p {
+        color: #b9b9b9;
+        }
+      }
+
 
       img {
         width: 100%;
