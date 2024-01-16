@@ -1,13 +1,31 @@
 <script>
 import HeaderNavbar from './HeaderNavbar.vue'
+import SideNavbar from './SideNavbar.vue'
 
 export default {
   name: 'AppHeader',
 
+  data() {
+    return {
+      showEventsSideNav: false,
+    };
+  },
+
   components: {
     HeaderNavbar,
-  }
+    SideNavbar,
+  },
 
+  
+  
+  methods: {
+    toggleSideNav() {
+      this.showEventsSideNav = !this.showEventsSideNav;
+    },
+    hideSideNav() {
+      this.showEventsSideNav = false;
+    },
+  },
  
 }
 </script>
@@ -17,7 +35,8 @@ export default {
     <img src="../assets/img/Logo.png" alt="">
     
     <HeaderNavbar class="header_navbar" />
-    <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+    <i @click="toggleSideNav" class="fa-solid fa-bars"  style="color: #ffffff;" v-show="!showEventsSideNav"></i>
+    <SideNavbar v-show="showEventsSideNav" @close="hideSideNav" />
     
   </header>
 </template>
