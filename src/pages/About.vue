@@ -22,7 +22,7 @@ export default {
           <span>WHO WE ARE</span>
           <h2>SENSE THE JAZZ</h2>
           <p>The story of Jazz and Blues Society is the story of determination, passion, idealism, music. Founded in 1985 and incorporated in 1986, as a community based, not-for organization located in Vancouver, British Columbia, the society, from the very begi to establish Vancouver as a centre for the creation and exchange of sounds</p>
-          <button>READ MORE</button>
+          <a href="#" class="btn">READ MORE</a>
         </div>
         <div class="col-image">
           <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/about_img.jpg" alt="img_1">
@@ -34,7 +34,7 @@ export default {
       <div class="about-album">
         <span>INSTRUMENTAL ROCK</span>
         <h1>ALBUM OUT NOW</h1>
-        <button>READ MORE</button>
+        <a href="#" class="btn">READ MORE</a>
       </div>
     </section>
     <!-- 4 FAQ -->
@@ -44,33 +44,80 @@ export default {
           <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/Img-02.jpg" alt="img_2">
         </div>
         <div class="col-text">
-          <div class="accordion">CAN I SPECIFY A DELIERY DATE WHEN ORDERING? <i class="fa-solid fa-angles-down" style="color: #ffffff;"></i></div>
+          <div class="accordion">
+            <h4>CAN I SPECIFY A DELIERY DATE WHEN ORDERING? </h4><i class="fa-solid fa-angles-down" style="color: #ffffff;"></i>
+          </div>
           <div class="panel">
             <p>Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa</p>
           </div>
 
-          <div class="accordion">HOW INVESTING IN DEPENDEND INCER <i class="fa-solid fa-angles-down" style="color: #ffffff;"></i></div>
+          <div class="accordion">
+            <h4>HOW INVESTING IN DEPENDEND INCER </h4><i class="fa-solid fa-angles-down" style="color: #ffffff;"></i>
+          </div>
           <div class="panel">
             <p>Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa</p>
           </div>
 
-          <div class="accordion">ASING TO BUSINESS SECURITY <i class="fa-solid fa-angles-down" style="color: #ffffff;"></i></div>
+          <div class="accordion">
+            <h4>ASING TO BUSINESS SECURITY </h4><i class="fa-solid fa-angles-down" style="color: #ffffff;"></i>
+          </div>
           <div class="panel">
             <p>Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa</p>
           </div>
 
-          <div class="accordion">ELEMENT OR PAGE BUILDER USED <i class="fa-solid fa-angles-down" style="color: #ffffff;"></i></div>
+          <div class="accordion">
+            <h4>ELEMENT OR PAGE BUILDER USED </h4><i class="fa-solid fa-angles-down" style="color: #ffffff;"></i>
+          </div>
           <div class="panel">
             <p>Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa</p>
           </div>
         </div>
       </div>
     </section>
+    <!-- counter -->
+    <section class="prova">
+      <!-- (da prendere in comune) -->
+      <h1>Numeri</h1>
+    </section>
+    <section>
+      
+    </section>
   </main>
 </template>
 
 <style lang="scss" scoped>
 @import '../styles/partials/_partials.scss';
+
+/* general styles */
+
+/*buttons */
+.btn {
+  text-align: center;
+  width: 175px;
+  padding: 15px 20px;
+  border: 1px solid $main-orange;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: $main-orange;
+  transition: all 0.3s;
+}
+
+/*texts */
+
+h1,
+h2,
+h4,
+span,
+p {
+  color: #fff;
+  letter-spacing: 1px;
+}
 
 /*section 1 */
 .about-background {
@@ -83,6 +130,7 @@ export default {
 }
 
 .about-entry {
+  margin-top: 100px;
   height: 300px;
   background-color: $main_gray;
   display: flex;
@@ -93,7 +141,6 @@ export default {
 
   h1 {
     font-size: 60px;
-    color: #fff;
   }
 
   span,
@@ -101,6 +148,7 @@ export default {
     color: #fff;
     letter-spacing: 2px;
     padding-top: 10px;
+    background-color: transparent;
   }
 
   .link:hover {
@@ -117,7 +165,7 @@ export default {
   display: flex;
   width: 75%;
   margin: 0 auto;
-  min-height: 485px;
+  min-height: 500px;
 
   .col-text {
   width: 50%;
@@ -136,36 +184,23 @@ export default {
       margin-right: 50px;
     }
 
-    h2,
-    p,
-    button {
-      color: #fff;
-      letter-spacing: 1px;
-    }
-
-    button {
-      width: 175px;
-      padding: 15px 20px;
-      background-color: transparent;
-      border-color: $main-orange;
-      font-size: 16px;
-    }
-
     span,
     h2,
-    p,
-    button {
+    p {
       margin-bottom: 25px;
     } 
   }
   .col-image {
     width: 50%;
   }
+  img {
+    width: 100%;
+  }
 }
 
 /*section 3 */
 .about-album {
-  min-height: 465px;
+  min-height: 850px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -179,20 +214,6 @@ export default {
 
   h1 {
     font-size: 100px;
-    color: #fff;
-  }
-
-  button {
-    color: #fff;
-    letter-spacing: 1px;
-  }
-
-  button {
-    width: 175px;
-    padding: 15px 20px;
-    background-color: transparent;
-    border-color: $main-orange;
-    font-size: 16px;
   }
 }
 
@@ -200,18 +221,24 @@ export default {
 .accordion {
   display: flex;
   justify-content: space-between;
-  color: #fff;
   cursor: pointer;
   padding: 18px 0;
   width: 85%;
   border-bottom: 1px solid #222222;
   font-size: 20PX;
   font-weight: bold;
+  margin-left: 100px;
 }
 
 .panel {
   width: 85%;
   padding: 18px 0;
-  /*display: none;*/
+  /*display: none; */
+  margin-left: 100px;
+}
+
+/*prova per counter */
+.prova {
+  height: 500px;
 }
 </style>
