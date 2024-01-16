@@ -47,7 +47,7 @@ export default {
         <div class="titles">
           <h3>INSTRUMENTAL ROCK</h3>
           <h1>MUSIC</h1>
-          <a href="read-more">READ MORE</a>
+          <a href="">READ MORE</a>
         </div>
         <button class="prev" @click="prevImage"><i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i></button>
         <button class="next" @click="nextImage"><i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></button>
@@ -88,13 +88,13 @@ export default {
       </div>
     </section>
 
-    <!-- Who We Are -->
-    <section class="who-we-are">
-      <div class="text">
+    <!-- Who We Are (Intro)-->
+    <section class="who-we-are-intro">
+      <div class="text sense-jazz">
         <h3>WHO WE ARE</h3>
         <h2>SENSE THE JAZZ</h2>
         <p>The story of Jazz and Blues Society is the story of determination, passion, idealism, community, and of course, music. Founded in 1985 and incorporated in 1986, as a community based, not-for-profit, charitable arts organization located in Vancouver, British Columbia, the society, from the very beginning, has worked diligently to establish Vancouver as a centre for the creation and exchange of sounds and ideas between the local, national and international music communities. </p>
-        <a href="read-more">READ MORE</a>
+        <a href="">READ MORE</a>
       </div>
     </section>
 
@@ -107,6 +107,84 @@ export default {
         </div>
       </a>
     </section>
+
+    <!-- Who We Are (Main)-->
+    <section class="who-we-are-main">
+      <div class="text sense-jazz">
+        <h3>WHO WE ARE</h3>
+        <h2>SENSE THE JAZZ</h2>
+        <div class="cards-main">
+          <div class="card-main">
+            <img src="../assets/img/who-we-are-main/gallery1.jpg" alt="">
+            <h4>A ROLL AND BANG ON THE FLOOR</h4>
+            <p>Stream On:
+              <i class="fa-brands fa-spotify" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-youtube" style="color: #ffffff;"></i>
+              <i class="fa-solid fa-music" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-soundcloud" style="color: #ffffff;"></i>
+              <i class="fa-solid fa-compass" style="color: #ffffff;"></i>
+            </p>
+          </div>
+          <div class="card-main">
+            <img src="../assets/img/who-we-are-main/gallery2.jpg" alt="">
+            <h4>A ROLL AND BANG ON THE FLOOR</h4>
+            <p>Stream On:
+              <i class="fa-brands fa-spotify" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-youtube" style="color: #ffffff;"></i>
+              <i class="fa-solid fa-music" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-soundcloud" style="color: #ffffff;"></i>
+              <i class="fa-solid fa-compass" style="color: #ffffff;"></i>
+            </p>
+          </div>
+          <div class="card-main">
+            <img src="../assets/img/who-we-are-main/gallery3.jpg" alt="">
+            <h4>A ROLL AND BANG ON THE FLOOR</h4>
+            <p>Stream On:
+              <i class="fa-brands fa-spotify" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-youtube" style="color: #ffffff;"></i>
+              <i class="fa-solid fa-music" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-soundcloud" style="color: #ffffff;"></i>
+              <i class="fa-solid fa-compass" style="color: #ffffff;"></i>
+            </p>
+          </div>
+          <div class="card-main">
+            <img src="../assets/img/who-we-are-main/gallery4.jpg" alt="">
+            <h4>A ROLL AND BANG ON THE FLOOR</h4>
+            <p>Stream On:
+              <i class="fa-brands fa-spotify" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-youtube" style="color: #ffffff;"></i>
+              <i class="fa-solid fa-music" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-soundcloud" style="color: #ffffff;"></i>
+              <i class="fa-solid fa-compass" style="color: #ffffff;"></i>
+            </p>
+          </div>
+          <div class="card-main">
+            <img src="../assets/img/who-we-are-main/gallery5.jpg" alt="">
+            <h4>A ROLL AND BANG ON THE FLOOR</h4>
+            <p>Stream On:
+              <i class="fa-brands fa-spotify" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-youtube" style="color: #ffffff;"></i>
+              <i class="fa-solid fa-music" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-soundcloud" style="color: #ffffff;"></i>
+              <i class="fa-solid fa-compass" style="color: #ffffff;"></i>
+            </p>
+          </div>
+          <div class="card-main">
+            <img src="../assets/img/who-we-are-main/gallery6.jpg" alt="">
+            <h4>A ROLL AND BANG ON THE FLOOR</h4>
+            <p>Stream On:
+              <i class="fa-brands fa-spotify" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-youtube" style="color: #ffffff;"></i>
+              <i class="fa-solid fa-music" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-soundcloud" style="color: #ffffff;"></i>
+              <i class="fa-solid fa-compass" style="color: #ffffff;"></i>
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
   </main>
 </template>
 
@@ -116,10 +194,24 @@ export default {
 
 main {
   background-color: #000;
+  text-align: center;
 
   h2 {
     color: #fff;
     font-size: 4rem;
+  }
+
+  .sense-jazz {
+    h3 {
+      color: $main_orange;
+      margin: 6rem 0 1rem;
+    }
+  
+    p {
+      color: #b9b9b9;
+      line-height: 1.75rem;
+      margin: 2rem 0 4rem;
+    }
   }
 }
 .carousel {
@@ -132,7 +224,7 @@ main {
   top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
+  
   h3 {
     color: $main_orange;
   }
@@ -178,7 +270,6 @@ main {
   padding: 0 3rem;
   display: flex;
   flex-wrap: wrap;
-  text-align: center;
   color: #fff;
   .card {
     background-color: $main_gray;
@@ -209,22 +300,10 @@ main {
   }
 }
 
-.who-we-are {
+.who-we-are-intro {
   height: 500px;
-  text-align: center;
   width: 50%;
   margin: 0 auto;
-
-  h3 {
-    color: $main_orange;
-    margin: 6rem 0 1.5rem;
-  }
-
-  p {
-    color: #b9b9b9;
-    line-height: 1.75rem;
-    margin: 2rem 0 4rem;
-  }
 
   a {
     @include btn-standard;
@@ -246,8 +325,40 @@ main {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      text-align: center;
+  
     }
   }
 }
+
+.who-we-are-main {
+  padding: 3rem 0 5rem;
+
+  h2 {
+    margin-bottom: 2rem;
+  }
+  .cards-main {
+    padding: 0 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    .card-main {
+      width: calc((100% / 3) - 2rem);
+      margin: 0 1em;
+
+      h4 {
+      color: #fff;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      }
+
+      p {
+        margin: 0 0 2rem;
+      }
+
+      i {
+        margin: 0 .5rem;
+      }
+    }
+  }
+}
+
 </style>
