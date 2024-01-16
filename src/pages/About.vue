@@ -131,7 +131,9 @@ export default {
       <h1>ALBUM OUT NOW</h1>
       <div class="row">
         <div v-for="(staff, i) in staffs" :key="i" class="col">
-          <img :src="staff.photo" :alt="staff.name">
+          <div class="staff-photo">
+            <img :src="staff.photo" :alt="staff.name">
+          </div>
           <h2>{{ staff.name }}</h2>
           <span class="role">{{ staff.role }}</span>
         </div>
@@ -318,6 +320,9 @@ i {
     justify-content: space-between;
     .col {
       width: calc((100% / 4) - 20px);
+
+      /*da vedere per la transizione delle immagini */
+      overflow: hidden;
     }
 
     h2,
@@ -343,5 +348,17 @@ i {
     text-align: center;
     margin-bottom: 20px;
   }
+}
+
+
+
+
+/*da vedere per la transizione delle immagini */
+.col .staff-photo {
+  transition: 0.3s ease-in-out;
+}
+
+.col .staff-photo:hover {
+  transform: scale(1.05);
 }
 </style>
