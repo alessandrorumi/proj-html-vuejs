@@ -97,6 +97,16 @@ export default {
         <a href="read-more">READ MORE</a>
       </div>
     </section>
+
+    <!-- Music Video -->
+    <section class="music-video">
+      <a href="https://www.youtube.com/watch?v=lTZLlzLJ68o&t=2s">
+        <div class="text">
+          <i class="fa-regular fa-circle-play" style="color: #F2870C; font-size: 10rem;"></i>
+          <h2>NEW MUSIC VIDEO</h2>
+        </div>
+      </a>
+    </section>
   </main>
 </template>
 
@@ -106,6 +116,11 @@ export default {
 
 main {
   background-color: #000;
+
+  h2 {
+    color: #fff;
+    font-size: 4rem;
+  }
 }
 .carousel {
   position: relative;
@@ -205,11 +220,6 @@ main {
     margin: 6rem 0 1.5rem;
   }
 
-  h2 {
-    color: #fff;
-    font-size: 4rem;
-  }
-
   p {
     color: #b9b9b9;
     line-height: 1.75rem;
@@ -220,5 +230,24 @@ main {
     @include btn-standard;
   }
 }
+.music-video {
+  background-image: url(../assets/img/Video-2.jpg);
+  background-position: center;
+  height: 540px;
+  position: relative;
 
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    .text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  }
+}
 </style>
