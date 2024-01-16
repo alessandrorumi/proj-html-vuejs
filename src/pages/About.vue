@@ -1,6 +1,52 @@
 <script>
 export default {
-  name: 'About'
+  name: 'About',
+  data() {
+    return {
+      //section 4 "faqs"
+      faqs: [
+        {
+          question: 'CAN I SPECIFY A DELIERY DATE WHEN ORDERING?',
+        },
+        {
+          question: 'HOW INVESTING IN DEPENDEND INCER',
+        },
+        {
+          question: 'ASING TO BUSINESS SECURITY',
+        },
+        {
+          question: 'ELEMENT OR PAGE BUILDER USED',
+        }
+      ],
+      answer: 'Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa',
+
+      //section 6 staffs"
+      staffs: [
+        {
+          photo: "https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_01.jpg",
+          name: 'LEO MASSI',
+          role: 'Musician'
+        },
+        {
+          photo: "https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_02.jpg",
+          name: 'ANNA PERRY',
+          role: 'Drums'
+        },
+        {
+          photo: "https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_03.jpg",
+          name: 'KAL PELU',
+          role: 'Cello'
+        },
+        {
+          photo: "https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_04.jpg",
+          name: 'SADA DESU',
+          role: 'Guitar'
+        }
+      ]
+    };
+  },
+  methods: {
+  }
 }
 </script>
 
@@ -44,32 +90,13 @@ export default {
           <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/Img-02.jpg" alt="img_2">
         </div>
         <div class="col-text">
-          <div class="accordion">
-            <h4>CAN I SPECIFY A DELIERY DATE WHEN ORDERING? </h4><i class="fa-solid fa-angles-down" style="color: #ffffff;"></i>
-          </div>
-          <div class="panel">
-            <p>Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa</p>
-          </div>
-
-          <div class="accordion">
-            <h4>HOW INVESTING IN DEPENDEND INCER </h4><i class="fa-solid fa-angles-down" style="color: #ffffff;"></i>
-          </div>
-          <div class="panel">
-            <p>Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa</p>
-          </div>
-
-          <div class="accordion">
-            <h4>ASING TO BUSINESS SECURITY </h4><i class="fa-solid fa-angles-down" style="color: #ffffff;"></i>
-          </div>
-          <div class="panel">
-            <p>Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa</p>
-          </div>
-
-          <div class="accordion">
-            <h4>ELEMENT OR PAGE BUILDER USED </h4><i class="fa-solid fa-angles-down" style="color: #ffffff;"></i>
-          </div>
-          <div class="panel">
-            <p>Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa</p>
+          <div v-for="(faq, i) in faqs" :key="i" class="faqs">
+            <div class="accordion">
+              <h4>{{ faq.question }}</h4><i class="fa-solid fa-angles-down" style="color: #ffffff;"></i>
+            </div>
+            <div class="panel">
+              <p>{{ answer }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -83,35 +110,11 @@ export default {
     <section class="staff-container">
       <span>INSTRUMENTAL ROCK</span>
       <h1>ALBUM OUT NOW</h1>
-
       <div class="row">
-        <div class="col">
-          
-          <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_01.jpg" alt="">
-          <h2>andrea</h2>
-          <span class="role">musician</span>
-          
-        </div>
-        <div class="col">
-          
-          <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_01.jpg" alt="">
-          <h2>andrea</h2>
-          <span class="role">musician</span>
-  
-        </div>
-        <div class="col">
-          
-          <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_01.jpg" alt="">
-          <h2>andrea</h2>
-          <span class="role">musician</span>
-          
-        </div>
-        <div class="col">
-          
-          <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_01.jpg" alt="">
-          <h2>andrea</h2>
-          <span class="role">musician</span>
-          
+        <div v-for="(staff, i) in staffs" :key="i" class="col">
+          <img :src="staff.photo" :alt="staff.name">
+          <h2>{{ staff.name }}</h2>
+          <span class="role">{{ staff.role }}</span>
         </div>
       </div>
     </section>
