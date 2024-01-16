@@ -7,18 +7,25 @@ export default {
       faqs: [
         {
           question: 'CAN I SPECIFY A DELIERY DATE WHEN ORDERING?',
+          answer: 'Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa',
+          visibility: false
         },
         {
           question: 'HOW INVESTING IN DEPENDEND INCER',
+          answer: 'Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa',
+          visibility: false
         },
         {
           question: 'ASING TO BUSINESS SECURITY',
+          answer: 'Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa',
+          visibility: false
         },
         {
           question: 'ELEMENT OR PAGE BUILDER USED',
+          answer: 'Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa',
+          visibility: false
         }
       ],
-      answer: 'Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa',
 
       //section 6 staffs"
       staffs: [
@@ -46,6 +53,9 @@ export default {
     };
   },
   methods: {
+    toggleAnswer(index) {
+      this.faqs[index].isOpen = !this.faqs[index].isOpen;
+    },
   }
 }
 </script>
@@ -90,12 +100,16 @@ export default {
           <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/Img-02.jpg" alt="img_2">
         </div>
         <div class="col-text">
-          <div v-for="(faq, i) in faqs" :key="i" class="faqs">
-            <div class="accordion">
-              <h4>{{ faq.question }}</h4><i class="fa-solid fa-angles-down" style="color: #ffffff;"></i>
+          <div class="faqs" v-for="(faq, i) in faqs" :key="i" @click="toggleAnswer(i)">
+            <div class="accordion" :class="{ 'no-border': faq.isOpen }">
+              <h4 :class="{ 'open': faq.isOpen }">{{ faq.question }}</h4>
+              <div class="icons">
+                <i v-if="!faq.isOpen" class="fa-solid fa-angles-down closed"></i>
+                <i v-else="faq.isOpen" class="fa-solid fa-angles-up open"></i>
+              </div>
             </div>
-            <div class="panel">
-              <p>{{ answer }}</p>
+            <div class="panel" v-show="faq.isOpen">
+              <p>{{ faq.answer }}</p>
             </div>
           </div>
         </div>
@@ -148,7 +162,8 @@ h1,
 h2,
 h4,
 span,
-p {
+p,
+i {
   color: #fff;
   letter-spacing: 1px;
 }
@@ -265,11 +280,22 @@ p {
   margin-left: 100px;
 }
 
+.no-border {
+  border-bottom: none;
+}
+
 .panel {
   width: 85%;
   padding: 18px 0;
-  /*display: none; */
   margin-left: 100px;
+}
+
+.open {
+  color: $main-orange;
+}
+
+.closed {
+  color: #fff;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////
 /*prova per counter */
