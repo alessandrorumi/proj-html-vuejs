@@ -74,13 +74,46 @@ export default {
         </div>
       </div>
     </section>
-    <!-- counter -->
+    <!-- 5 counter -->
     <section class="prova">
       <!-- (da prendere in comune) -->
       <h1>Numeri</h1>
     </section>
-    <section>
-      
+    <!-- 6 staff--->
+    <section class="staff-container">
+      <span>INSTRUMENTAL ROCK</span>
+      <h1>ALBUM OUT NOW</h1>
+
+      <div class="row">
+        <div class="col">
+          
+          <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_01.jpg" alt="">
+          <h2>andrea</h2>
+          <span class="role">musician</span>
+          
+        </div>
+        <div class="col">
+          
+          <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_01.jpg" alt="">
+          <h2>andrea</h2>
+          <span class="role">musician</span>
+  
+        </div>
+        <div class="col">
+          
+          <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_01.jpg" alt="">
+          <h2>andrea</h2>
+          <span class="role">musician</span>
+          
+        </div>
+        <div class="col">
+          
+          <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_01.jpg" alt="">
+          <h2>andrea</h2>
+          <span class="role">musician</span>
+          
+        </div>
+      </div>
     </section>
   </main>
 </template>
@@ -89,7 +122,6 @@ export default {
 @import '../styles/partials/_partials.scss';
 
 /* general styles */
-
 /*buttons */
 .btn {
   text-align: center;
@@ -109,7 +141,6 @@ a:hover {
 }
 
 /*texts */
-
 h1,
 h2,
 h4,
@@ -118,7 +149,7 @@ p {
   color: #fff;
   letter-spacing: 1px;
 }
-
+//////////////////////////////////////////////////////////////////////////////////////////////
 /*section 1 */
 .about-background {
   background-image: url(../assets/img/cms_parallax.jpg); //probabilmente da applicare al body, da parlarne insieme
@@ -155,9 +186,10 @@ p {
     color: $main_orange;
   }
 }
-
+//////////////////////////////////////////////////////////////////////////////////////////////
 /*section 2/4 */
-.container {
+.container,
+.staff-container {
   background-color: #000;
   padding: 100px 0;
 }
@@ -197,7 +229,7 @@ p {
     width: 100%;
   }
 }
-
+//////////////////////////////////////////////////////////////////////////////////////////////
 /*section 3 */
 .about-album {
   min-height: 850px;
@@ -216,7 +248,7 @@ p {
     font-size: 100px;
   }
 }
-
+//////////////////////////////////////////////////////////////////////////////////////////////
 /*text FAQs section 4 */
 .accordion {
   display: flex;
@@ -236,9 +268,46 @@ p {
   /*display: none; */
   margin-left: 100px;
 }
-
+//////////////////////////////////////////////////////////////////////////////////////////////
 /*prova per counter */
 .prova {
   height: 500px;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+/*staff section 6 */ 
+
+.staff-container {
+  border-bottom: 1px solid #222222;
+
+  .row {
+    justify-content: space-between;
+    .col {
+      width: calc((100% / 4) - 20px);
+    }
+
+    h2,
+    span {
+      text-align: center;
+      display: block;
+    }
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  span {
+    text-align: center;
+    color: $main-orange;
+    display: block;
+  }
+
+  h1,
+  .role {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+  }
 }
 </style>

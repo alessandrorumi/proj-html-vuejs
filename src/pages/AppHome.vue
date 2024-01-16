@@ -53,6 +53,38 @@ export default {
           image: 'public/music-blog/7.jpg'
         },
       ],
+      intagram: [
+        {
+          image: 'public/ig-images/instagram_img1.jpg'
+        },
+        {
+          image: 'public/ig-images/instagram_img2.jpg'
+        },
+        {
+          image: 'public/ig-images/instagram_img3.jpg'
+        },
+        {
+          image: 'public/ig-images/instagram_img4.jpg'
+        },
+        {
+          image: 'public/ig-images/instagram_img5.jpg'
+        },
+        {
+          image: 'public/ig-images/instagram_img6.jpg'
+        },
+        {
+          image: 'public/ig-images/instagram_img7.jpg'
+        },
+        {
+          image: 'public/ig-images/instagram_img8.jpg'
+        },
+        {
+          image: 'public/ig-images/instagram_img9.jpg'
+        },
+        {
+          image: 'public/ig-images/instagram_img10.jpg'
+        }
+      ],
       homeIndex: 0,
       musicBlogIndex: 0,
     }
@@ -293,6 +325,13 @@ export default {
       </div>
       <button class="prev" @click="prevMusicBlogImage"><i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i></button>
       <button class="next" @click="nextMusicBlogImage"><i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></button>
+    </section>
+
+    <!-- Instagram Images -->
+    <section class="ig-images">
+      <div class="images" v-for="igImages in intagram">
+        <img :src="igImages.image" alt="">
+      </div>
     </section>
   </main>
 </template>
@@ -546,7 +585,7 @@ main {
 }
 
 .music-blog {
-  padding-bottom: 5rem;
+  padding-bottom: 7rem;
   h4 {
       color: $main_orange;
       padding-top: 5rem;
@@ -582,6 +621,11 @@ main {
           color: #fff;
           padding: 0;
           font-size: 1.5rem;
+
+          &:hover {
+            color: $main_orange;
+            cursor: pointer;
+          }
         }
 
         h5 {
@@ -598,6 +642,17 @@ main {
       img {
         width: 100%;
       }
+    }
+  }
+}
+
+.ig-images {
+  display: flex;
+  .images {
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
   }
 }
