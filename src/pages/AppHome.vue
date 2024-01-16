@@ -1,37 +1,73 @@
 <script>
+// Import Img
 import home1 from '../assets/img/carousel/home-1.png';
 import home2 from '../assets/img/carousel/home-2.png';
+
+import musicblog1 from '../assets/img/music-blog/1.jpg';
+import musicblog2 from '../assets/img/music-blog/2.jpg';
+import musicblog3 from '../assets/img/music-blog/3.jpg';
+import musicblog4 from '../assets/img/music-blog/4.jpg';
+import musicblog5 from '../assets/img/music-blog/5.jpg';
+import musicblog6 from '../assets/img/music-blog/6.jpg';
+import musicblog7 from '../assets/img/music-blog/7.jpg';
 
 export default {
   name: 'AppHome',
   data() {
     return {
-      images: [home1, home2],
-      index: 0
+      homeImages: [home1, home2],
+      musicBlogImages: [musicblog1, musicblog2, musicblog3, musicblog4, musicblog5, musicblog6, musicblog7],
+      blog: [
+        {
+          title: 'HIP HOP WIRED TO DANCE MAKE',
+          date: '06 November  2021',
+          description: 'Driving short distances music is a music genre that includes traditional folk music and the contemporary genre that evolved from the former'
+        },
+        {
+          title: 'MUSIC BUSINESS WORLDWIDE',
+          date: '27 May  2022',
+          description: 'Accelerate work and drive productivity The Beatles experimentation and creative freedom led other bands to experiment in various ways as well.'
+        }
+      ],
+      homeIndex: 0,
+      musicBlogIndex: 0,
     }
   },
-  computed: {
-    currentImage() {
-      return this.images[this.index];
+    computed: {
+    currentHomeImage() {
+      return this.homeImages[this.homeIndex];
+    },
+    activeMusicBlogImages() {
+      return this.musicBlogImages; // DEVE VISUALIZZARE 3 IMGS
     }
   },
   methods: {
-
-    // carousel previous image
-    prevImage() {
-      if (this.index === 0)
-      this.index = 1
-      else {
-        this.index--
+    prevHomeImage() {
+      if (this.homeIndex > 0) {
+        this.homeIndex--;
+      } else {
+        this.homeIndex = this.homeImages.length - 1;
       }
     },
-
-    // carousel next image
-    nextImage() {
-      if (this.index === 1)
-      this.index = 0
-      else {
-        this.index++
+    nextHomeImage() {
+      if (this.homeIndex < this.homeImages.length - 1) {
+        this.homeIndex++;
+      } else {
+        this.homeIndex = 0;
+      }
+    },
+    prevMusicBlogImage() {
+      if (this.musicBlogIndex > 0) {
+        this.musicBlogIndex--;
+      } else {
+        this.musicBlogIndex = this.musicBlogImages.length - 3;
+      }
+    },
+    nextMusicBlogImage() {
+      if (this.musicBlogIndex < this.musicBlogImages.length - 3) {
+        this.musicBlogIndex++;
+      } else {
+        this.musicBlogIndex = 0;
       }
     }
   }
@@ -43,14 +79,14 @@ export default {
     <!-- Carousel -->
     <section class="carousel">
       <div class="item">
-        <img :src="currentImage" alt="">
+        <img :src="currentHomeImage" alt="">
         <div class="titles">
           <h3>INSTRUMENTAL ROCK</h3>
           <h1>MUSIC</h1>
           <a href="">READ MORE</a>
         </div>
-        <button class="prev" @click="prevImage"><i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i></button>
-        <button class="next" @click="nextImage"><i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></button>
+        <button class="prev" @click="prevHomeImage"><i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i></button>
+        <button class="next" @click="nextHomeImage"><i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></button>
       </div>
     </section>
 
@@ -216,6 +252,24 @@ export default {
         <h3>TOTAL SONGS</h3>
       </div>
     </section>
+
+    <!-- Music Blog -->
+    <section class="music-blog">
+      <h4>MUSIC BLOG</h4>
+      <h3>BEST MUSIC BLOG</h3>
+      <div class="carousel-blog">
+        <div v-for="image in activeMusicBlogImages" class="card">
+          <img :src="image" alt="">
+          <div class="text">
+            <h3>
+
+            </h3>
+          </div>
+        </div>
+      </div>
+      <button class="prev" @click="prevMusicBlogImage"><i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i></button>
+      <button class="next" @click="nextMusicBlogImage"><i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></button>
+    </section>
   </main>
 </template>
 
@@ -227,6 +281,16 @@ main {
   background-color: #000;
   text-align: center;
   padding-top: 100px;
+
+  button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: $main_gray;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
   h2 {
     color: #fff;
@@ -306,7 +370,7 @@ main {
   .card {
     background-color: $main_gray;
     width: calc((100% / 3) - 2rem);
-    margin: 0 1em;
+    margin: 0 1rem;
     height: 350px;
     padding: 4rem;
 
@@ -453,6 +517,43 @@ main {
 
     i {
       font-size: 4rem;
+    }
+  }
+}
+
+.music-blog {
+  padding-bottom: 5rem;
+  h4 {
+      color: $main_orange;
+      padding-top: 5rem;
+  }
+
+  h3 {
+      color: #fff;
+      font-size: 4rem;
+      padding-bottom: 2rem;
+  }
+
+  // DEBUG
+  button {
+      position: relative;
+    }
+
+  .carousel-blog {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    justify-content: center;
+    .card {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: calc((100% / 3) - 2rem);
+      margin: 0 1rem;
+
+      img {
+        width: 100%;
+      }
     }
   }
 }
