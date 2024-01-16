@@ -54,6 +54,11 @@ export default {
   },
   methods: {
     toggleAnswer(index) {
+      this.faqs.forEach((faq, i) => {
+        if (i !== index) {
+          faq.isOpen = false;
+        }
+      });
       this.faqs[index].isOpen = !this.faqs[index].isOpen;
     },
   }
