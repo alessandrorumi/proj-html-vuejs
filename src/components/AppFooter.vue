@@ -6,10 +6,13 @@ export default {
 
 <template>
   <footer>
-    <div class="container">
-      <div>
+    <section class="first_section">
+      <div class="container">
+      <div class="col">
         <h3>Bookings</h3>
-        <p>
+        <i class="fa-solid fa-chevron-down"></i>
+        <div class="dropdown">
+          <p>
           502 New Design Str, Melbourne, San Francisco, CA 94110, United States of America​ Australia
           
           <div>T: 1 123-456-789</div>
@@ -25,12 +28,16 @@ export default {
           </div>
           
         </p>
-        <div></div>
+        
+        </div>
+       
       </div>
     
-      <div>
+      <div class="col">
         <h3>Information</h3>
-      <ul>
+        <i class="fa-solid fa-chevron-down"></i>
+        <div class="dropdown">
+          <ul>
         <li>
           <a href="">Product Support</a>
         </li>
@@ -47,12 +54,16 @@ export default {
           <a href="">Order Status</a>
         </li>
       </ul>
+        </div>
+      
       </div>
 
-      <div>
-        <div>
+      <div class="col">
+       
         <h3>Support</h3>
-      <ul>
+        <i class="fa-solid fa-chevron-down"></i>
+        <div class="dropdown">
+          <ul>
         <li>
           <a href="">Policies & Rules</a>
         </li>
@@ -69,20 +80,34 @@ export default {
           <a href="">Locality</a>
         </li>
       </ul>
-      </div>
+        </div>
+     
+      
       </div>
 
-      <div class="input_container">
+      <div class=" col">
         <h3>Newsletter</h3>
-        <form action="">
+        <i class="fa-solid fa-chevron-down"></i>
+        <div class="dropdown">
+          <form class="input_container" action="">
           <input  type="email" name="EMAIL" placeholder="Email" required="">
           <textarea  rows="4"  placeholder="Message"></textarea>
           <button>Send Message</button>
         </form>
+        </div>
+       
         
       </div>
 
     </div>
+  </section>
+  <div class="last_section">
+    <span>
+      © 2024 All Rights Reserved. Developed By TemplateMela
+    </span>
+   
+  </div>
+  
   </footer>
   
 </template>
@@ -93,7 +118,8 @@ $transition-duration: 0.3s;
 
 footer{
   background-color: black;
-
+section{
+  border-bottom: 1px solid rgb(71, 71, 71);
   .container{
     color: white;
     max-width: 1448px;
@@ -102,6 +128,13 @@ footer{
     display: flex;
     justify-content: space-between;
 
+
+    .dropdown{
+      width: 100%;
+      div{
+        white-space: nowrap; 
+      }
+    }
 
     .social{
       padding-top: 25px;
@@ -129,8 +162,9 @@ footer{
 
             div{
               padding-bottom: 15px;
-              white-space: nowrap; 
+               
                 a{
+                  
                   color: white;
                   text-decoration: none;
                   transition: color $transition-duration ease;
@@ -189,5 +223,60 @@ footer{
 }
   }
 }
+
+.last_section{
+  color: white;
+  text-align: center;
+  min-height: 80px;
+  
+  span{ 
+   line-height: 80px;
+  }
+  
+ 
+}
+  
+
+
+  .fa-chevron-down {
+    display: none; 
+    font-size: 20px;
+  
+    margin-left: 5px;
+  }
+
+  @media (max-width: 1024px) {
+    .container{
+      flex-direction: column;
+      h3{
+          display: inline;
+        }
+        .col{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 5px 40px;
+         
+      
+    }
+    .fa-chevron-down {
+      text-align: end;
+      display: inline; 
+      
+    }
+
+    .dropdown {
+      display: none; 
+    }
+
+   
+  }
+
+  
+}
+
+}
+
 
 </style>
