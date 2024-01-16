@@ -1,4 +1,5 @@
 <script>
+// Import Img
 import home1 from '../assets/img/carousel/home-1.png';
 import home2 from '../assets/img/carousel/home-2.png';
 
@@ -6,32 +7,91 @@ export default {
   name: 'AppHome',
   data() {
     return {
-      images: [home1, home2],
-      index: 0
+      homeImages: [home1, home2],
+      blog: [
+        {
+          title: 'HIP HOP WIRED TO DANCE MAKE',
+          date: '06 November  2021',
+          description: 'Driving short distances music is a music genre that includes traditional folk music and the contemporary genre that evolved from the former',
+          image: 'public/music-blog/1.jpg'
+        },
+        {
+          title: 'MUSIC BUSINESS WORLDWIDE',
+          date: '27 May  2022',
+          description: 'Accelerate work and drive productivity The Beatles experimentation and creative freedom led other bands to experiment in various ways as well.',
+          image: 'public/music-blog/2.jpg'
+          
+        },
+        {
+          title: 'GIVEAWAYS ROCK TO ALL',
+          date: '07 May  2022',
+          description: 'Signs Your Car Battery Has To Be Replaced When the dashboard lights start flashing, this is a sign the battery is dying. Several issues arise and.',
+          image: 'public/music-blog/3.jpg'
+        },
+        {
+          title: 'DROWNED IN SOUND FEEL JOY',
+          date: '10 April  2022',
+          description: 'Different Types of Music Content For most music creators, they take their work very seriously because of the emotional attachment they may harbor.',
+          image: 'public/music-blog/4.jpg'
+        },
+        {
+          title: 'DANCING ASTRONAUT BOUNCE IPSUM',
+          date: '01 March  2022',
+          description: 'Signs Your Car Battery Has To Be Replaced When the dashboard lights start flashing, this is a sign the battery is dying. Several issues arise and.',
+          image: 'public/music-blog/5.jpg'
+        },
+        {
+          title: 'CONSEQUENCE OF SOUNDMAKE US',
+          date: '14 February  2022',
+          description: 'Electronic Dance Music Rhythm and Blues Before this, R & B was known as ‘race music,’ a term that originated in the African American',
+          image: 'public/music-blog/6.jpg'
+        },
+        {
+          title: 'ARTIST DEVELOPMENT AND PRODUCTION',
+          date: '07 December  2021',
+          description: 'Characterised by its own beat patterns, the lyrics feature what is often extreme violence snd talk of criminal acts. As a result, there’s been',
+          image: 'public/music-blog/7.jpg'
+        },
+      ],
+      homeIndex: 0,
+      musicBlogIndex: 0,
     }
   },
-  computed: {
-    currentImage() {
-      return this.images[this.index];
+    computed: {
+    currentHomeImage() {
+      return this.homeImages[this.homeIndex];
+    },
+    activeMusicBlogImages() {
+    return this.blog.slice(this.musicBlogIndex, this.musicBlogIndex + 3);
     }
   },
   methods: {
-
-    // carousel previous image
-    prevImage() {
-      if (this.index === 0)
-      this.index = 1
-      else {
-        this.index--
+    prevHomeImage() {
+      if (this.homeIndex > 0) {
+        this.homeIndex--;
+      } else {
+        this.homeIndex = this.homeImages.length - 1;
       }
     },
-
-    // carousel next image
-    nextImage() {
-      if (this.index === 1)
-      this.index = 0
-      else {
-        this.index++
+    nextHomeImage() {
+      if (this.homeIndex < this.homeImages.length - 1) {
+        this.homeIndex++;
+      } else {
+        this.homeIndex = 0;
+      }
+    },
+    prevMusicBlogImage() {
+      if (this.musicBlogIndex > 0) {
+        this.musicBlogIndex--;
+      } else {
+        this.musicBlogIndex = this.blog.length - 3;
+      }
+    },
+    nextMusicBlogImage() {
+      if (this.musicBlogIndex < this.blog.length - 3) {
+        this.musicBlogIndex++;
+      } else {
+        this.musicBlogIndex = 0;
       }
     }
   }
@@ -43,14 +103,14 @@ export default {
     <!-- Carousel -->
     <section class="carousel">
       <div class="item">
-        <img :src="currentImage" alt="">
+        <img :src="currentHomeImage" alt="">
         <div class="titles">
           <h3>INSTRUMENTAL ROCK</h3>
           <h1>MUSIC</h1>
           <a href="">READ MORE</a>
         </div>
-        <button class="prev" @click="prevImage"><i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i></button>
-        <button class="next" @click="nextImage"><i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></button>
+        <button class="prev" @click="prevHomeImage"><i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i></button>
+        <button class="next" @click="nextHomeImage"><i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></button>
       </div>
     </section>
 
@@ -216,6 +276,24 @@ export default {
         <h3>TOTAL SONGS</h3>
       </div>
     </section>
+
+    <!-- Music Blog -->
+    <section class="music-blog">
+      <h4>MUSIC BLOG</h4>
+      <h3>BEST MUSIC BLOG</h3>
+      <div class="carousel-blog">
+        <div v-for="musicBlog in activeMusicBlogImages" class="card">
+          <img :src="musicBlog.image" alt="">
+          <div class="text">
+            <h4>{{ musicBlog.title }}</h4>
+            <h5>{{ musicBlog.date }}</h5>
+            <p>{{ musicBlog.description }}</p>
+          </div>
+        </div>
+      </div>
+      <button class="prev" @click="prevMusicBlogImage"><i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i></button>
+      <button class="next" @click="nextMusicBlogImage"><i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></button>
+    </section>
   </main>
 </template>
 
@@ -227,6 +305,16 @@ main {
   background-color: #000;
   text-align: center;
   padding-top: 100px;
+
+  button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: $main_gray;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
   h2 {
     color: #fff;
@@ -306,7 +394,7 @@ main {
   .card {
     background-color: $main_gray;
     width: calc((100% / 3) - 2rem);
-    margin: 0 1em;
+    margin: 0 1rem;
     height: 350px;
     padding: 4rem;
 
@@ -453,6 +541,63 @@ main {
 
     i {
       font-size: 4rem;
+    }
+  }
+}
+
+.music-blog {
+  padding-bottom: 5rem;
+  h4 {
+      color: $main_orange;
+      padding-top: 5rem;
+  }
+
+  h3 {
+      color: #fff;
+      font-size: 4rem;
+      padding-bottom: 2rem;
+  }
+
+  // DEBUG
+  button {
+      position: relative;
+    }
+
+  .carousel-blog {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    justify-content: center;
+    .card {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: calc((100% / 3) - 2rem);
+      margin: 0 1rem;
+
+      .text {
+        text-align: start;
+
+        h4 {
+          color: #fff;
+          padding: 0;
+          font-size: 1.5rem;
+        }
+
+        h5 {
+          color: $main_orange;
+          margin: 1rem 0;
+        }
+
+        p {
+        color: #b9b9b9;
+        }
+      }
+
+
+      img {
+        width: 100%;
+      }
     }
   }
 }
