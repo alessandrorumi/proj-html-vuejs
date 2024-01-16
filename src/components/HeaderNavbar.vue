@@ -6,6 +6,7 @@ export default {
       showEventsDropdown: false,
       showShopDropdown: false,
       showPTypeDropleft: false,
+      showSPageDropleft: false,
     };
   },
   methods: {
@@ -26,6 +27,12 @@ export default {
     },
     hidePTypeMenu() {
       this.showPTypeDropleft = false;
+    },
+    showSPageMenu() {
+      this.showSPageDropleft = true;
+    },
+    hideSPageMenu() {
+      this.showSPageDropleft = false;
     },
   },
 }
@@ -66,9 +73,9 @@ export default {
           <a href="#">Shop <i class="fa-solid fa-chevron-down"></i></a>
           <div v-show="showShopDropdown" class="shop_submenu submenu">
             <ul>
-              <li @mouseover="showPTypeMenu" @mouseleave="hidePTypeMenu"><a href="#"><i class="fa-solid fa-angle-left"></i> Product type</a></li>
-              <li><a href="#"><i class="fa-solid fa-angle-left"></i> Shop Page</a>
-              <ul v-show="showPTypeDropleft" class="ptype_submenu submenu">
+              <li @mouseover="showPTypeMenu" @mouseleave="hidePTypeMenu"><a href="#"><i class="fa-solid fa-angle-left"></i> Product type</a>
+              
+                <ul v-show="showPTypeDropleft" class="ptype_submenu submenu">
                 <li>
                   <a href="">Simple product</a>
                 </li>
@@ -87,6 +94,24 @@ export default {
                 <li>
                   <a href="">Variavle product</a>
                 </li>
+            </ul></li>
+              <li @mouseover="showSPageMenu" @mouseleave="hideSPageMenu"><a href="#"><i class="fa-solid fa-angle-left"></i> Shop Page</a>
+             
+
+            <ul v-show="showSPageDropleft" class="spage_submenu submenu">
+                <li>
+                  <a href="">ceck out</a>
+                </li>
+                <li>
+                  <a href="">cart</a>
+                </li>
+                <li>
+                  <a href="">downloads</a>
+                </li>
+                <li>
+                  <a href="">my account</a>
+                </li>
+                
             </ul>
               </li>
             </ul>
@@ -172,16 +197,14 @@ export default {
         right:0;
       }
 
-      .ptype_submenu{
+      .ptype_submenu, .spage_submenu{
         background-color: $main_gray;
-        top:-59px;
+        top: 0px;
         right: 250px;
         padding: 7px 5px;
       }
 
-
-
-
+     
       }
 
     
