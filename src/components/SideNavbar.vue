@@ -144,7 +144,8 @@ div {
   }
 
     i{
-        padding: 10px 20px;
+        padding-top: 40px;
+        padding-right: 40px;
     }
 
     ul{

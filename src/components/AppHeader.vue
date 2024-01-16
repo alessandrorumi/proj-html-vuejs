@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       showEventsSideNav: false,
+      showBurgerMenu:false
     };
   },
 
@@ -22,12 +23,13 @@ export default {
     toggleSideNav() {
       this.showEventsSideNav = !this.showEventsSideNav;
       setTimeout(() => {
+        this.showBurgerMenu = !this.showBurgerMenu;
     document.querySelector('.side-navbar').classList.toggle('open');
   }, 200);
     },
     hideSideNav() {
       document.querySelector('.side-navbar').classList.remove('open');
-      
+      this.showBurgerMenu = !this.showBurgerMenu;
       setTimeout(() => {
         this.showEventsSideNav = false;;
   }, 200);
@@ -42,7 +44,7 @@ export default {
     <img src="../assets/img/Logo.png" alt="">
     
     <HeaderNavbar class="header_navbar" />
-    <i @click="toggleSideNav" class="fa-solid fa-bars"  style="color: #ffffff;" v-show="!showEventsSideNav"></i>
+    <i @click="toggleSideNav" class="fa-solid fa-bars"  style="color: #ffffff;" v-show="!showBurgerMenu"></i>
     <SideNavbar v-show="showEventsSideNav" @close="hideSideNav"  />
     
   </header>
