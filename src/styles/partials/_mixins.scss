@@ -1,0 +1,12 @@
+@import './partials';
+
+@mixin btn-standard {
+  padding: .35rem 2rem;
+  border: 1px solid $main_orange;
+  color: #fff;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $main_orange;
+  }
+}
