@@ -21,9 +21,16 @@ export default {
   methods: {
     toggleSideNav() {
       this.showEventsSideNav = !this.showEventsSideNav;
+      setTimeout(() => {
+    document.querySelector('.side-navbar').classList.toggle('open');
+  }, 200);
     },
     hideSideNav() {
-      this.showEventsSideNav = false;
+      document.querySelector('.side-navbar').classList.remove('open');
+      
+      setTimeout(() => {
+        this.showEventsSideNav = false;;
+  }, 200);
     },
   },
  
@@ -36,7 +43,7 @@ export default {
     
     <HeaderNavbar class="header_navbar" />
     <i @click="toggleSideNav" class="fa-solid fa-bars"  style="color: #ffffff;" v-show="!showEventsSideNav"></i>
-    <SideNavbar v-show="showEventsSideNav" @close="hideSideNav"  :isOpen="showEventsSideNav" />
+    <SideNavbar v-show="showEventsSideNav" @close="hideSideNav"  />
     
   </header>
 </template>

@@ -35,7 +35,7 @@ export default {
 </script>
 
 <template>
-    <div>
+    <div class="side-navbar">
         <i @click="closeSideNav" class="fa-solid fa-x"></i>
 
         <nav>
@@ -132,11 +132,16 @@ export default {
 div {
   position: fixed;
   top: 0;
-  right: 0; 
+  right: -75%; 
   height: 100vh;
   width: 75%;
   background-color:#090c10;
-    text-align: end;
+  text-align: end;
+  transition: right 0.3s ease ;
+
+  .open{
+    right: 0;
+  }
 
     i{
         padding: 10px 20px;
