@@ -32,8 +32,8 @@ export default {
 <template>
   <section class="first_section">
       <div class="container">
-      <div class="col" @click="toggleDropdown('bookings')">
-        <h3>Bookings <i class="fa-solid fa-chevron-down"></i></h3>
+      <div class="col" >
+        <h3 @click="toggleDropdown('bookings')">Bookings <i class="fa-solid fa-chevron-down"></i></h3>
         
         <div class="dropdown" v-show="activeDropdown === 'bookings'">
           <p>
@@ -57,8 +57,8 @@ export default {
        
       </div>
     
-      <div class="col" @click="toggleDropdown('information')">
-        <h3>Information  <i class="fa-solid fa-chevron-down"></i></h3>
+      <div class="col" >
+        <h3 @click="toggleDropdown('information')">Information  <i class="fa-solid fa-chevron-down"></i></h3>
        
         <div class="dropdown" v-show="activeDropdown === 'information'">
           <ul>
@@ -82,9 +82,9 @@ export default {
       
       </div>
 
-      <div class="col" @click="toggleDropdown('support')">
+      <div class="col" >
        
-        <h3>Support <i class="fa-solid fa-chevron-down"></i></h3>
+        <h3 @click="toggleDropdown('support')">Support <i class="fa-solid fa-chevron-down"></i></h3>
         
         <div class="dropdown" v-show="activeDropdown === 'support'">
           <ul>
@@ -109,8 +109,8 @@ export default {
       
       </div>
 
-      <div class=" col" @click="toggleDropdown('newsletter')">
-        <h3>Newsletter <i class="fa-solid fa-chevron-down"></i></h3>
+      <div class=" col" >
+        <h3 @click="toggleDropdown('newsletter')" >Newsletter <i class="fa-solid fa-chevron-down"></i></h3>
         
         <div class="dropdown" v-show="activeDropdown === 'newsletter'">
           <form class="input_container" action="">
@@ -235,6 +235,7 @@ footer {
       .input_container {
         textarea,
         input {
+            color: white;
           width: 100%;
           background-color: black;
           border: 1px solid rgb(71, 71, 71);
