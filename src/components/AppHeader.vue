@@ -26,6 +26,10 @@ export default {
  
 
 header{
+  position: fixed;
+  top:0;
+  width: 100%;
+  z-index: 5001;
   padding: 0 35px;
   height: 100px;
   background-color: black;

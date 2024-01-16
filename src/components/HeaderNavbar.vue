@@ -5,6 +5,7 @@ export default {
     return {
       showEventsDropdown: false,
       showShopDropdown: false,
+      showPTypeDropleft: false,
     };
   },
   methods: {
@@ -19,6 +20,12 @@ export default {
     },
     hideShopMenu() {
       this.showShopDropdown = false;
+    },
+    showPTypeMenu() {
+      this.showPTypeDropleft = true;
+    },
+    hidePTypeMenu() {
+      this.showPTypeDropleft = false;
     },
   },
 }
@@ -59,8 +66,29 @@ export default {
           <a href="#">Shop <i class="fa-solid fa-chevron-down"></i></a>
           <div v-show="showShopDropdown" class="shop_submenu submenu">
             <ul>
-              <li><a href="#">Product type</a></li>
-              <li><a href="#">Shop Page</a></li>
+              <li @mouseover="showPTypeMenu" @mouseleave="hidePTypeMenu"><a href="#"><i class="fa-solid fa-angle-left"></i> Product type</a></li>
+              <li><a href="#"><i class="fa-solid fa-angle-left"></i> Shop Page</a>
+              <ul v-show="showPTypeDropleft" class="ptype_submenu submenu">
+                <li>
+                  <a href="">Simple product</a>
+                </li>
+                <li>
+                  <a href="">external/affiliate product</a>
+                </li>
+                <li>
+                  <a href="">downloadable product</a>
+                </li>
+                <li>
+                  <a href="">Group product</a>
+                </li>
+                <li>
+                  <a href="">In stock product</a>
+                </li>
+                <li>
+                  <a href="">Variavle product</a>
+                </li>
+            </ul>
+              </li>
             </ul>
           </div>
         </li>
@@ -100,21 +128,20 @@ export default {
         color: $main_orange;
       }
 
-      .submenu{
 
-        background: linear-gradient(
-          to bottom,
-          transparent 42px,
-          $main_gray 42px 100%,
-        );
+    
+
+
+      .submenu{
+        z-index: 500;
+      
       
         position: absolute;
         min-width: 250px;
 
-        top:20px;
-        right:0;
+       
 
-        padding-top: 62px;
+        
 
         ul{
           flex-direction: column;
@@ -124,6 +151,7 @@ export default {
             width: 100%;
             padding: 7px 5px;
             border-bottom:1px solid rgb(71, 71, 71) ;
+            padding-left: 10px;
           }
           li:last-of-type{
             border-bottom:none ;
@@ -131,6 +159,28 @@ export default {
         }
     
       }
+
+
+      .shop_submenu, .events_submenu{
+        background: linear-gradient(
+          to bottom,
+          transparent 42px,
+          $main_gray 42px 100%,
+        );
+        padding-top: 62px;
+        top:20px;
+        right:0;
+      }
+
+      .ptype_submenu{
+        background-color: $main_gray;
+        top:-59px;
+        right: 250px;
+        padding: 7px 5px;
+      }
+
+
+
 
       }
 
