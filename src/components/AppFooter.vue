@@ -1,6 +1,8 @@
 <script>
 export default {
-  name: 'AppFooter'
+  name: 'AppFooter',
+  
+  
 }
 </script>
 
@@ -199,7 +201,7 @@ section{
     }
   }
     .input_container{
-      width: 30%;
+     
       textarea, input{
         width: 100%;
         background-color: black;
