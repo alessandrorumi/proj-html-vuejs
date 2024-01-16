@@ -1,3 +1,5 @@
+<!-- Da Sistemare: click invece che hover su side submenu / hover orange su sidemebu / bordi di sidesmenu / subsubmenu -->
+
 <script>
 
 export default {
@@ -7,8 +9,8 @@ export default {
     return {
       showEventsDropdown: false,
       showShopDropdown: false,
-      showPTypeDropleft: false,
-      showSPageDropleft: false,
+      showPTypeDropdown: false,
+      showSPageDropdown: false,
     };
   },
 
@@ -16,29 +18,17 @@ export default {
     closeSideNav() {
       this.$emit('close');
     },
-    showEventsMenu() {
-      this.showEventsDropdown = true;
+    toggleEventsMenu() {
+      this.showEventsDropdown = !this.showEventsDropdown;
     },
-    hideEventsMenu() {
-      this.showEventsDropdown = false;
+    toggleShopMenu() {
+      this.showShopDropdown = !this.showShopDropdown;
     },
-    showShopMenu() {
-      this.showShopDropdown = true;
+    togglePTypeMenu() {
+      this.showPTypeDropdown = !this.showPTypeDropdown;
     },
-    hideShopMenu() {
-      this.showShopDropdown = false;
-    },
-    showPTypeMenu() {
-      this.showPTypeDropleft = true;
-    },
-    hidePTypeMenu() {
-      this.showPTypeDropleft = false;
-    },
-    showSPageMenu() {
-      this.showSPageDropleft = true;
-    },
-    hideSPageMenu() {
-      this.showSPageDropleft = false;
+    toggleSPageMenu() {
+      this.showSPageDropdown = !this.showSPageDropdown;
     },
   }
   }
@@ -57,7 +47,7 @@ export default {
         <a href="*">Blog</a>
       </li>
       <li class="menu_li" >
-          <a href="#">Events <i @mouseover="showEventsMenu" @mouseleave="hideEventsMenu" class="fa-solid fa-chevron-down"></i></a>
+          <a @click="toggleEventsMenu" href="#">Events <i  class="fa-solid fa-chevron-down"></i></a>
           
             <ul v-show="showEventsDropdown" class="events_submenu submenu">
               <li><a href="#">choral music</a></li>
@@ -78,12 +68,12 @@ export default {
         <router-link :to="{ name: 'contact' }">Contact</router-link>
       </li>
       <li class="menu_li" >
-          <a  href="#">Shop <i @mouseover="showShopMenu" @mouseleave="hideShopMenu" class="fa-solid fa-chevron-down"></i></a>
+          <a @click="toggleShopMenu" href="#">Shop <i  class="fa-solid fa-chevron-down"></i></a>
           
             <ul v-show="showShopDropdown" class="shop_submenu submenu">
-              <li @mouseover="showPTypeMenu" @mouseleave="hidePTypeMenu"><a href="#"><i class="fa-solid fa-angle-left"></i> Product type</a>
+              <li @click="togglePTypeMenu"><a href="#"> Product type <i  class="fa-solid fa-chevron-down"></i></a>
               
-                <ul v-show="showPTypeDropleft" class="ptype_submenu submenu">
+                <ul v-show="showPTypeDropdown" class="ptype_submenu submenu">
                 <li>
                   <a href="">Simple product</a>
                 </li>
@@ -103,10 +93,10 @@ export default {
                   <a href="">Variavle product</a>
                 </li>
             </ul></li>
-              <li @mouseover="showSPageMenu" @mouseleave="hideSPageMenu"><a href="#"><i class="fa-solid fa-angle-left"></i> Shop Page</a>
+              <li @click="toggleSPageMenu"><a href="#"> Shop Page <i  class="fa-solid fa-chevron-down"></i></a>
              
 
-            <ul v-show="showSPageDropleft" class="spage_submenu submenu">
+            <ul v-show="showSPageDropdown" class="spage_submenu submenu">
                 <li>
                   <a href="">ceck out</a>
                 </li>
@@ -136,6 +126,9 @@ export default {
 <style scoped lang="scss">
 @import '../styles/partials/_partials.scss';
 
+
+
+
 div {
   position: fixed;
   top: 0;
@@ -150,29 +143,42 @@ div {
     }
 
     ul{
+      
         text-align: start;
         list-style-type: none;
         text-decoration: none;
-        padding: 40px 10px;
-        
+        border-bottom:1px solid rgb(71, 71, 71) ; 
         li{
-            padding: 9px 10px;
+          line-height: 50px;
             position: relative;
             border-bottom:1px solid rgb(71, 71, 71) ; 
             a{
+              padding-left: 20px;
+              text-transform: capitalize;
             text-decoration: none;
             color: white;
             display: flex;
             justify-content: space-between;
             i{
-                border-left:1px solid rgb(71, 71, 71) ; ;
+                border-left:1px solid rgb(71, 71, 71) ; 
+                line-height: 25px;
             }
 
-            a:hover{
+
+          
+        }
+        a:hover{
              color: $main_orange;
             }
 
-        }
+
+            ul{
+              border-top: 1px solid rgb(71, 71, 71) ;
+              
+            }
+    }
+    li:last-of-type{
+      border-bottom:none ; 
     }
 }
  
