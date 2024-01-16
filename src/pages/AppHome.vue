@@ -118,73 +118,81 @@ export default {
             <img src="../assets/img/who-we-are-main/gallery1.jpg" alt="">
             <h4>A ROLL AND BANG ON THE FLOOR</h4>
             <p>Stream On:
-              <i class="fa-brands fa-spotify" style="color: #ffffff;"></i>
-              <i class="fa-brands fa-youtube" style="color: #ffffff;"></i>
-              <i class="fa-solid fa-music" style="color: #ffffff;"></i>
-              <i class="fa-brands fa-soundcloud" style="color: #ffffff;"></i>
-              <i class="fa-solid fa-compass" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-spotify"></i>
+              <i class="fa-brands fa-youtube"></i>
+              <i class="fa-solid fa-music"></i>
+              <i class="fa-brands fa-soundcloud"></i>
+              <i class="fa-solid fa-compass"></i>
             </p>
           </div>
           <div class="card-main">
             <img src="../assets/img/who-we-are-main/gallery2.jpg" alt="">
             <h4>A ROLL AND BANG ON THE FLOOR</h4>
             <p>Stream On:
-              <i class="fa-brands fa-spotify" style="color: #ffffff;"></i>
-              <i class="fa-brands fa-youtube" style="color: #ffffff;"></i>
-              <i class="fa-solid fa-music" style="color: #ffffff;"></i>
-              <i class="fa-brands fa-soundcloud" style="color: #ffffff;"></i>
-              <i class="fa-solid fa-compass" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-spotify"></i>
+              <i class="fa-brands fa-youtube"></i>
+              <i class="fa-solid fa-music"></i>
+              <i class="fa-brands fa-soundcloud"></i>
+              <i class="fa-solid fa-compass"></i>
             </p>
           </div>
           <div class="card-main">
             <img src="../assets/img/who-we-are-main/gallery3.jpg" alt="">
             <h4>A ROLL AND BANG ON THE FLOOR</h4>
             <p>Stream On:
-              <i class="fa-brands fa-spotify" style="color: #ffffff;"></i>
-              <i class="fa-brands fa-youtube" style="color: #ffffff;"></i>
-              <i class="fa-solid fa-music" style="color: #ffffff;"></i>
-              <i class="fa-brands fa-soundcloud" style="color: #ffffff;"></i>
-              <i class="fa-solid fa-compass" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-spotify"></i>
+              <i class="fa-brands fa-youtube"></i>
+              <i class="fa-solid fa-music"></i>
+              <i class="fa-brands fa-soundcloud"></i>
+              <i class="fa-solid fa-compass"></i>
             </p>
           </div>
           <div class="card-main">
             <img src="../assets/img/who-we-are-main/gallery4.jpg" alt="">
             <h4>A ROLL AND BANG ON THE FLOOR</h4>
             <p>Stream On:
-              <i class="fa-brands fa-spotify" style="color: #ffffff;"></i>
-              <i class="fa-brands fa-youtube" style="color: #ffffff;"></i>
-              <i class="fa-solid fa-music" style="color: #ffffff;"></i>
-              <i class="fa-brands fa-soundcloud" style="color: #ffffff;"></i>
-              <i class="fa-solid fa-compass" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-spotify"></i>
+              <i class="fa-brands fa-youtube"></i>
+              <i class="fa-solid fa-music"></i>
+              <i class="fa-brands fa-soundcloud"></i>
+              <i class="fa-solid fa-compass"></i>
             </p>
           </div>
           <div class="card-main">
             <img src="../assets/img/who-we-are-main/gallery5.jpg" alt="">
             <h4>A ROLL AND BANG ON THE FLOOR</h4>
             <p>Stream On:
-              <i class="fa-brands fa-spotify" style="color: #ffffff;"></i>
-              <i class="fa-brands fa-youtube" style="color: #ffffff;"></i>
-              <i class="fa-solid fa-music" style="color: #ffffff;"></i>
-              <i class="fa-brands fa-soundcloud" style="color: #ffffff;"></i>
-              <i class="fa-solid fa-compass" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-spotify"></i>
+              <i class="fa-brands fa-youtube"></i>
+              <i class="fa-solid fa-music"></i>
+              <i class="fa-brands fa-soundcloud"></i>
+              <i class="fa-solid fa-compass"></i>
             </p>
           </div>
           <div class="card-main">
             <img src="../assets/img/who-we-are-main/gallery6.jpg" alt="">
             <h4>A ROLL AND BANG ON THE FLOOR</h4>
             <p>Stream On:
-              <i class="fa-brands fa-spotify" style="color: #ffffff;"></i>
-              <i class="fa-brands fa-youtube" style="color: #ffffff;"></i>
-              <i class="fa-solid fa-music" style="color: #ffffff;"></i>
-              <i class="fa-brands fa-soundcloud" style="color: #ffffff;"></i>
-              <i class="fa-solid fa-compass" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-spotify"></i>
+              <i class="fa-brands fa-youtube"></i>
+              <i class="fa-solid fa-music"></i>
+              <i class="fa-brands fa-soundcloud"></i>
+              <i class="fa-solid fa-compass"></i>
             </p>
           </div>
-
         </div>
       </div>
-
     </section>
+
+    <!-- Album Out Now -->
+    <section class="album-out-now">
+      <div class="text">
+        <h3>INSTRUMENTAL ROCK</h3>
+        <h2>ALBUM OUT NOW</h2>
+        <a href="">READ MORE</a>
+      </div>
+    </section>
+
   </main>
 </template>
 
@@ -195,10 +203,15 @@ export default {
 main {
   background-color: #000;
   text-align: center;
+  padding-top: 100px;
 
   h2 {
     color: #fff;
     font-size: 4rem;
+  }
+
+  a {
+    @include btn-standard;
   }
 
   .sense-jazz {
@@ -257,10 +270,6 @@ main {
       cursor: pointer;
     }
   }
-
-  a {
-    @include btn-standard;
-  }
 }
 
 .cards {
@@ -285,6 +294,11 @@ main {
 
       img {
         height: 125px;
+        filter: invert(1);
+
+        &:hover {
+          filter: invert(57%) sepia(67%) saturate(1247%) hue-rotate(352deg) brightness(95%) contrast(101%);
+        }
       }
     }
 
@@ -304,10 +318,6 @@ main {
   height: 500px;
   width: 50%;
   margin: 0 auto;
-
-  a {
-    @include btn-standard;
-  }
 }
 .music-video {
   background-image: url(../assets/img/Video-2.jpg);
@@ -319,13 +329,17 @@ main {
     display: block;
     width: 100%;
     height: 100%;
+    border: none;
+
+    &:hover {
+      background-color: transparent;
+    }
 
     .text {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-  
     }
   }
 }
@@ -356,7 +370,40 @@ main {
 
       i {
         margin: 0 .5rem;
+        color: #fff;
+
+        &:hover {
+          color: $main_orange;
+        }
       }
+    }
+  }
+}
+
+.album-out-now {
+  background-image: url(../assets/img/cms_parallax.jpg);
+  min-height: 850px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: 0 3rem;
+  text-align: start;
+
+  .text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    h3 {
+      color: $main_orange;
+    }
+
+    h2 {
+      color: #fff;
+      font-size: 7rem;
+      margin-bottom: 2rem;
     }
   }
 }
