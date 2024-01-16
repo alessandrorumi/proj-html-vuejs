@@ -130,6 +130,7 @@ export default {
 
 
 div {
+  overflow-y: auto;
   position: fixed;
   top: 0;
   right: -85%; 
@@ -144,7 +145,7 @@ div {
     filter: opacity(100%);
   }
 
-    i{
+    .fa-x{
         padding-top: 40px;
         padding-right: 40px;
     }
@@ -166,9 +167,11 @@ div {
             color: white;
             display: flex;
             justify-content: space-between;
-            i{
+            .fa-chevron-down{
                 border-left:1px solid rgb(71, 71, 71) ; 
-                line-height: 25px;
+                line-height: 50px;
+                padding: 0 15px;
+
             }
 
 
