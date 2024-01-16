@@ -131,163 +131,146 @@ export default {
 @import '../styles/partials/_partials.scss';
 $transition-duration: 0.3s;
 
-footer{
+footer {
   background-color: black;
   color: white;
-section{
-  border-bottom: 1px solid rgb(71, 71, 71);
-  .container{
-    flex-direction: column;
-    color: white;
-    max-width: 1448px;
-    max-height: 508px;
-    margin: 0 auto;
-    padding: 50px 0;
-    display: flex;
-    justify-content: space-between;
 
-    .col{
+  section {
+    border-bottom: 1px solid rgb(71, 71, 71);
+    .container {
+      flex-direction: column;
+      color: white;
+      max-width: 1448px;
+      max-height: 508px;
+      margin: 0 auto;
+      padding: 50px 0;
+      display: flex;
+      justify-content: space-between;
+
+      .col {
         width: 100%;
         padding: 5px 40px;
-        
+
         h3 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 24px;
-    text-transform: uppercase;
-    font-weight: bold;
-    padding-bottom: 25px;
-    margin: 0; // Rimuovi il margine predefinito
-    white-space: nowrap;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 24px;
+          text-transform: uppercase;
+          font-weight: bold;
+          padding-bottom: 25px;
+          margin: 0;
+          white-space: nowrap;
 
-    i {
-      font-size: 20px;
-      margin-left: 5px;
-    }
-  }
-       
-    }
-
-    .dropdown{
-        // display: none;
-      width: 100%;
-      div{
-        white-space: nowrap; 
-      }
-    }
-
-    .social{
-      padding-top: 25px;
-      i{
-        font-size: 17px;
-        padding-right: 20px;
-        transition: color $transition-duration ease;
-      }
-      i:hover{
-        color: $main_orange;
-      }
-    }
-    div{
-      width: 20%;
-      h3{
-        display: inline;
-        font-size: 24px;
-        text-transform: uppercase;
-        font-weight:bold ;
-        padding-bottom: 25px;
+          i {
+            font-size: 20px;
+            margin-left: 5px;
+          }
+        }
       }
 
-      p{
-                padding-bottom: 15px;
-            }
-
-            div{
-              padding-bottom: 15px;
-               
-                a{
-                  
-                  color: white;
-                  text-decoration: none;
-                  transition: color $transition-duration ease;
-                }
-                a:hover{
-                  color: $main_orange;
-                  
-                }
-            }
-      ul{
+      .dropdown {
         width: 100%;
-          li{
-          width: 100%;
-          list-style-type: none;
-          padding-bottom: 20px;
+        div {
+          white-space: nowrap;
+        }
+      }
 
-            
+      .social {
+        padding-top: 25px;
+        i {
+          font-size: 17px;
+          padding-right: 20px;
+          transition: color $transition-duration ease;
+          &:hover {
+            color: $main_orange;
+          }
+        }
+      }
 
+      div {
+        width: 20%;
+
+        h3 {
+          display: inline;
+          font-size: 24px;
+          text-transform: uppercase;
+          font-weight: bold;
+          padding-bottom: 25px;
+        }
+
+        p,
+        div {
+          padding-bottom: 15px;
           a {
-            white-space: nowrap; 
             color: white;
             text-decoration: none;
             transition: color $transition-duration ease;
-           
-           
+            &:hover {
+              color: $main_orange;
+            }
+          }
         }
-        a:hover{
-          color: $main_orange;
+
+        ul {
+          width: 100%;
+          li {
+            width: 100%;
+            list-style-type: none;
+            padding-bottom: 20px;
+
+            a {
+              white-space: nowrap;
+              color: white;
+              text-decoration: none;
+              transition: color $transition-duration ease;
+              &:hover {
+                color: $main_orange;
+              }
+            }
+          }
         }
       }
-      
+
+      .input_container {
+        textarea,
+        input {
+          width: 100%;
+          background-color: black;
+          border: 1px solid rgb(71, 71, 71);
+          margin-bottom: 20px;
+          padding: 5px;
+        }
+
+        button {
+          font-size: 20px;
+          background-color: black;
+          padding: 10px 40px;
+          color: white;
+          border: 1px solid $main_orange;
+          transition: background-color $transition-duration ease;
+          &:hover {
+            background-color: $main-orange;
+          }
+        }
+      }
     }
   }
-    .input_container{
-     
-      textarea, input{
-        width: 100%;
-        background-color: black;
-        border: 1px solid  rgb(71, 71, 71) ;
-        margin-bottom: 20px;
-        padding: 5px;
-      }
 
-      button{
-        font-size: 20px;
-        background-color: black;
-        padding: 10px 40px;
-        color: white;
-        border: 1px solid $main_orange;
-        transition: background-color $transition-duration ease;
-      }
-
-      button:hover{
-        background-color: $main-orange;
-      }
-}
+  .last_section {
+    color: white;
+    text-align: center;
+    min-height: 80px;
+    span {
+      line-height: 80px;
+    }
   }
-}
-
-.last_section{
-  color: white;
-  text-align: center;
-  min-height: 80px;
-  
-  span{ 
-   line-height: 80px;
-  }
-  
- 
-}
-  
-
 
   .fa-chevron-down {
     font-size: 20px;
     text-align: end;
-      display: inline; 
+    display: inline;
     margin-left: 5px;
   }
-
- 
-
 }
 </style>
