@@ -141,7 +141,7 @@ footer {
       flex-direction: column;
       color: white;
       max-width: 1448px;
-      max-height: 508px;
+      max-height: 580px;
       margin: 0 auto;
       padding: 50px 0;
       display: flex;
