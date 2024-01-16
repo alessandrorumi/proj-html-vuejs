@@ -132,15 +132,16 @@ export default {
 div {
   position: fixed;
   top: 0;
-  right: -75%; 
+  right: -85%; 
   height: 100vh;
-  width: 75%;
+  width: 85%;
   background-color:#090c10;
   text-align: end;
-  transition: right 0.3s ease ;
-
+  transition:all 0.3s ease ;
+  filter: opacity(0);
   .open{
     right: 0;
+    filter: opacity(100%);
   }
 
     i{
