@@ -43,10 +43,18 @@ export default {
   <header>
     <img src="../assets/img/Logo.png" alt="">
     
-    <HeaderNavbar class="header_navbar" />
-    <i @click="toggleSideNav" class="fa-solid fa-bars"  style="color: #ffffff;" v-show="!showBurgerMenu"></i>
-    <SideNavbar v-show="showEventsSideNav" @close="hideSideNav"  />
     
+   
+    <div> 
+      <HeaderNavbar class="header_navbar" />
+      <i @click="toggleSideNav" class="fa-solid fa-bars"  style="color: #ffffff;" v-show="!showBurgerMenu"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+   
+    <SideNavbar v-show="showEventsSideNav" @close="hideSideNav"  />
+    <button @click="hideSideNav" class="close-sidenav" v-show="showEventsSideNav" @close="hideSideNav">
+
+</button>
   </header>
 </template>
 
@@ -70,11 +78,16 @@ header{
   
   .fa-bars{
     display: none;
+    padding-right: 5px;
+  
   }
+  .header_navbar{
+    display: inline-block;
+    }
 
   @media screen and (max-width: 1024px) {
     .fa-bars{
-      display: block;
+      display: inline-block;
     }
     .header_navbar{
     display: none;
@@ -82,7 +95,21 @@ header{
   }
 }
 
-// ===MQ====
+.close-sidenav{
+  width: 15%;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: transparent;
+  border: none;
+
+}
+
+.fa-magnifying-glass{
+  padding-left: 10px;
+}
+
 
 
 </style>

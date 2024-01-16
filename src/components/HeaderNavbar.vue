@@ -120,7 +120,7 @@ export default {
       
     </ul>
     </nav>
-    <i class="fa-solid fa-magnifying-glass"></i>
+   
     </div>
 </template>
 
@@ -214,7 +214,7 @@ export default {
   }
 
   i{
-        margin: 0 10px;
+        margin-left:10px
       }
 
       i:hover{
