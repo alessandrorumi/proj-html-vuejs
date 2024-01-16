@@ -207,7 +207,9 @@ export default {
         <h2>SENSE THE JAZZ</h2>
         <div class="cards-main">
           <div class="card-main">
-            <img src="../assets/img/who-we-are-main/gallery1.jpg" alt="">
+            <div class="image">
+              <img src="../assets/img/who-we-are-main/gallery1.jpg" alt="">
+            </div>
             <h4>A ROLL AND BANG ON THE FLOOR</h4>
             <p>Stream On:
               <i class="fa-brands fa-spotify"></i>
@@ -218,7 +220,9 @@ export default {
             </p>
           </div>
           <div class="card-main">
-            <img src="../assets/img/who-we-are-main/gallery2.jpg" alt="">
+            <div class="image">
+              <img src="../assets/img/who-we-are-main/gallery2.jpg" alt="">
+            </div>
             <h4>A ROLL AND BANG ON THE FLOOR</h4>
             <p>Stream On:
               <i class="fa-brands fa-spotify"></i>
@@ -229,7 +233,9 @@ export default {
             </p>
           </div>
           <div class="card-main">
-            <img src="../assets/img/who-we-are-main/gallery3.jpg" alt="">
+            <div class="image">
+              <img src="../assets/img/who-we-are-main/gallery3.jpg" alt="">
+            </div>
             <h4>A ROLL AND BANG ON THE FLOOR</h4>
             <p>Stream On:
               <i class="fa-brands fa-spotify"></i>
@@ -240,7 +246,9 @@ export default {
             </p>
           </div>
           <div class="card-main">
-            <img src="../assets/img/who-we-are-main/gallery4.jpg" alt="">
+            <div class="image">
+              <img src="../assets/img/who-we-are-main/gallery4.jpg" alt="">
+            </div>
             <h4>A ROLL AND BANG ON THE FLOOR</h4>
             <p>Stream On:
               <i class="fa-brands fa-spotify"></i>
@@ -251,7 +259,9 @@ export default {
             </p>
           </div>
           <div class="card-main">
-            <img src="../assets/img/who-we-are-main/gallery5.jpg" alt="">
+            <div class="image">
+              <img src="../assets/img/who-we-are-main/gallery5.jpg" alt="">
+            </div>
             <h4>A ROLL AND BANG ON THE FLOOR</h4>
             <p>Stream On:
               <i class="fa-brands fa-spotify"></i>
@@ -262,7 +272,9 @@ export default {
             </p>
           </div>
           <div class="card-main">
-            <img src="../assets/img/who-we-are-main/gallery6.jpg" alt="">
+            <div class="image">
+              <img src="../assets/img/who-we-are-main/gallery6.jpg" alt="">
+            </div>
             <h4>A ROLL AND BANG ON THE FLOOR</h4>
             <p>Stream On:
               <i class="fa-brands fa-spotify"></i>
@@ -506,7 +518,23 @@ main {
     flex-wrap: wrap;
     .card-main {
       width: calc((100% / 3) - 2rem);
-      margin: 0 1em;
+      margin: 0 1rem;
+
+      .image {
+        overflow: hidden;
+
+        img {
+          display: block;
+          transition: 0.3s ease-in-out;
+          transform-origin: center center;
+
+          &:hover {
+            transform: scale(1.05);
+            transition-duration: 0.3s;
+            cursor: pointer;
+          }
+        }
+      }
 
       h4 {
       color: #fff;

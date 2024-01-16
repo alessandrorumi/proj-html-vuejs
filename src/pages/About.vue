@@ -1,6 +1,67 @@
 <script>
 export default {
-  name: 'About'
+  name: 'About',
+  data() {
+    return {
+      //section 4 "faqs"
+      faqs: [
+        {
+          question: 'CAN I SPECIFY A DELIERY DATE WHEN ORDERING?',
+          answer: 'Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa',
+          visibility: false
+        },
+        {
+          question: 'HOW INVESTING IN DEPENDEND INCER',
+          answer: 'Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa',
+          visibility: false
+        },
+        {
+          question: 'ASING TO BUSINESS SECURITY',
+          answer: 'Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa',
+          visibility: false
+        },
+        {
+          question: 'ELEMENT OR PAGE BUILDER USED',
+          answer: 'Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa',
+          visibility: false
+        }
+      ],
+
+      //section 6 staffs"
+      staffs: [
+        {
+          photo: "https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_01.jpg",
+          name: 'LEO MASSI',
+          role: 'Musician'
+        },
+        {
+          photo: "https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_02.jpg",
+          name: 'ANNA PERRY',
+          role: 'Drums'
+        },
+        {
+          photo: "https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_03.jpg",
+          name: 'KAL PELU',
+          role: 'Cello'
+        },
+        {
+          photo: "https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_04.jpg",
+          name: 'SADA DESU',
+          role: 'Guitar'
+        }
+      ]
+    };
+  },
+  methods: {
+    toggleAnswer(index) {
+      this.faqs.forEach((faq, i) => {
+        if (i !== index) {
+          faq.isOpen = false;
+        }
+      });
+      this.faqs[index].isOpen = !this.faqs[index].isOpen;
+    },
+  }
 }
 </script>
 
@@ -44,32 +105,17 @@ export default {
           <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/Img-02.jpg" alt="img_2">
         </div>
         <div class="col-text">
-          <div class="accordion">
-            <h4>CAN I SPECIFY A DELIERY DATE WHEN ORDERING? </h4><i class="fa-solid fa-angles-down" style="color: #ffffff;"></i>
-          </div>
-          <div class="panel">
-            <p>Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa</p>
-          </div>
-
-          <div class="accordion">
-            <h4>HOW INVESTING IN DEPENDEND INCER </h4><i class="fa-solid fa-angles-down" style="color: #ffffff;"></i>
-          </div>
-          <div class="panel">
-            <p>Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa</p>
-          </div>
-
-          <div class="accordion">
-            <h4>ASING TO BUSINESS SECURITY </h4><i class="fa-solid fa-angles-down" style="color: #ffffff;"></i>
-          </div>
-          <div class="panel">
-            <p>Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa</p>
-          </div>
-
-          <div class="accordion">
-            <h4>ELEMENT OR PAGE BUILDER USED </h4><i class="fa-solid fa-angles-down" style="color: #ffffff;"></i>
-          </div>
-          <div class="panel">
-            <p>Sed ut perspiciatis unde omnis i natus error voluptatem accusantium doloremque laudantium, tota aperiam, eaque ipsa</p>
+          <div class="faqs" v-for="(faq, i) in faqs" :key="i" @click="toggleAnswer(i)">
+            <div class="accordion" :class="{ 'no-border': faq.isOpen }">
+              <h4 :class="{ 'open': faq.isOpen }">{{ faq.question }}</h4>
+              <div class="icons">
+                <i v-if="!faq.isOpen" class="fa-solid fa-angles-down closed"></i>
+                <i v-else="faq.isOpen" class="fa-solid fa-angles-up open"></i>
+              </div>
+            </div>
+            <div class="panel" v-show="faq.isOpen">
+              <p>{{ faq.answer }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -83,35 +129,13 @@ export default {
     <section class="staff-container">
       <span>INSTRUMENTAL ROCK</span>
       <h1>ALBUM OUT NOW</h1>
-
       <div class="row">
-        <div class="col">
-          
-          <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_01.jpg" alt="">
-          <h2>andrea</h2>
-          <span class="role">musician</span>
-          
-        </div>
-        <div class="col">
-          
-          <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_01.jpg" alt="">
-          <h2>andrea</h2>
-          <span class="role">musician</span>
-  
-        </div>
-        <div class="col">
-          
-          <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_01.jpg" alt="">
-          <h2>andrea</h2>
-          <span class="role">musician</span>
-          
-        </div>
-        <div class="col">
-          
-          <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/team_01.jpg" alt="">
-          <h2>andrea</h2>
-          <span class="role">musician</span>
-          
+        <div v-for="(staff, i) in staffs" :key="i" class="col">
+          <div class="staff-photo">
+            <img :src="staff.photo" :alt="staff.name">
+          </div>
+          <h2>{{ staff.name }}</h2>
+          <span class="role">{{ staff.role }}</span>
         </div>
       </div>
     </section>
@@ -145,7 +169,8 @@ h1,
 h2,
 h4,
 span,
-p {
+p,
+i {
   color: #fff;
   letter-spacing: 1px;
 }
@@ -262,11 +287,22 @@ p {
   margin-left: 100px;
 }
 
+.no-border {
+  border-bottom: none;
+}
+
 .panel {
   width: 85%;
   padding: 18px 0;
-  /*display: none; */
   margin-left: 100px;
+}
+
+.open {
+  color: $main-orange;
+}
+
+.closed {
+  color: #fff;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////
 /*prova per counter */
@@ -284,6 +320,9 @@ p {
     justify-content: space-between;
     .col {
       width: calc((100% / 4) - 20px);
+
+      /*da vedere per la transizione delle immagini */
+      overflow: hidden;
     }
 
     h2,
@@ -310,4 +349,33 @@ p {
     margin-bottom: 20px;
   }
 }
+
+
+
+
+/*da vedere per la transizione delle immagini */
+.col .staff-photo {
+  transition: 0.3s ease-in-out;
+}
+
+.col .staff-photo:hover {
+  transform: scale(1.05);
+}
+
+// Soluzione Hover Img (.image è il div dentro cui è l'img)
+// .image {
+//         overflow: hidden;
+
+//         img {
+//           display: block;
+//           transition: 0.3s ease-in-out;
+//           transform-origin: center center;
+
+//           &:hover {
+//             transform: scale(1.05);
+//             transition-duration: 0.3s;
+//             cursor: pointer;
+//           }
+//         }
+//       }
 </style>
