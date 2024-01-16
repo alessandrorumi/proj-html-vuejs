@@ -36,7 +36,7 @@ export default {
     
     <HeaderNavbar class="header_navbar" />
     <i @click="toggleSideNav" class="fa-solid fa-bars"  style="color: #ffffff;" v-show="!showEventsSideNav"></i>
-    <SideNavbar v-show="showEventsSideNav" @close="hideSideNav" />
+    <SideNavbar v-show="showEventsSideNav" @close="hideSideNav"  :isOpen="showEventsSideNav" />
     
   </header>
 </template>
