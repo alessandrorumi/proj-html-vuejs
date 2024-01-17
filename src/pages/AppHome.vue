@@ -487,11 +487,33 @@ main {
     margin: 0 1rem;
     height: 350px;
     padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 
     .image {
       display: flex;
       justify-content: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      width: 125px;
+      height: 125px;
+      border-radius: 50%;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        top: 0;
+        left: 0;
+      }
+
+      &:hover::before {
+        animation: sonar-effect 1s ease-in-out .1s infinite;
+      }
 
       img {
         height: 125px;
@@ -500,6 +522,21 @@ main {
         &:hover {
           filter: invert(57%) sepia(67%) saturate(1247%) hue-rotate(352deg) brightness(95%) contrast(101%);
         }
+      }
+    }
+
+    @keyframes sonar-effect {
+      0% {
+        opacity: 0.3;
+      }
+      40% {
+        opacity: 0.5;
+        box-shadow: 0 0 0 5px #fff, 0 0 10px 10px #fff, 0 0 0 10px #fff;
+      }
+      100% {
+        box-shadow: 0 0 0 5px #fff, 0 0 10px 10px #fff, 0 0 0 10px #fff;
+        transform: scale(1.5);
+        opacity: 0;
       }
     }
 
