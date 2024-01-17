@@ -49,8 +49,77 @@ export default {
     </form> 
          
         </div>
-        <div class="story-col-image">
-          <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/about_img.jpg" alt="img_1">
+        <div class="story-col-text">
+          <span>GET IN TOUCH</span>
+          <h2>GET LATEST UPDATE</h2>
+
+          <div>
+            <div class="info_box">
+              <i class="fa-solid fa-location-dot" style="color:white;"></i>
+
+              <div>
+              <h3> Address info</h3>
+           <ul>
+            <li>
+              502 New Design Str, Melbourne, 
+            </li>
+            <li>
+              San Francisco, CA 94110,  
+            </li>
+            <li>
+              United States of America​ Australia 
+            </li>
+           </ul>
+            </div>
+            </div>
+           
+           
+           
+          </div>
+
+          <div>
+            <div class="info_box">
+              <i class="fa-solid fa-clock" style="color:white;"></i>
+
+              <div>
+              <h3> Contact Info </h3>
+            <ul>
+            <li>
+              068 26589 996
+            </li>
+            <li>
+              demo@example.com 
+            </li>
+            
+           </ul>
+            </div>
+
+            </div>
+            
+            
+          </div>
+
+          <div>
+            <div class="info_box">
+              <i class="fa-solid fa-phone" style="color:white;"></i> 
+
+              <div>
+              <h3>Address info</h3>
+            <ul>
+            <li>
+              Open: 8:00AM – Close: 18:00PM
+            </li>
+            <li>
+              Saturday – Sunday: Close 
+            </li>
+            
+           </ul>
+            </div>
+            </div>
+           
+           
+          </div>
+          
         </div>
       </div>
     </section>
@@ -517,47 +586,87 @@ i {
 
 // miei
 
-label{
+.story-col-text{
   color: white;
-  margin-bottom: 10px;
-}
+
+    label{
+    color: white;
+    margin-bottom: 10px;
+  }
 
 
-form{
-  display: flex;
-  border: 1px solid rgb(71, 71, 71);
-  padding: 25px; 
-  margin-right: 30px;
-  height: 100%;
-  flex-wrap: wrap;
+  .info_box{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 
-
+    i{
+      font-size: 23px;
+      padding-top: 5px;
+      padding-right: 15px;
+    }
+  }
 div{
-  width: 100%;
-}
-.row{
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  gap: 20px;
-}
+  padding-bottom: 10px;
+ 
+  h3{
+      text-transform: uppercase;
+      font-size: 24px;
+    }
+    ul{
+      list-style-type: none;
+     
 
-.btn{
-  margin-top: 20px;
-  max-height: 80px;
-  line-height:40px ;
+      li{
+        padding: 5px;
+        font-weight: 100;
+      }
+    }
 }
+  .btn{
+    margin-top: 20px;
+    max-height: 60px;
+    line-height:30px ;
+    width: 100%;
+  }
 
-      textarea,
-        input {
-          width: 100%;
-          background-color: black;
-          border: 1px solid rgb(71, 71, 71);
-          margin-bottom: 20px;
-          margin-top: 10px;
-          padding: 5px;
-          color: white;
-        }
+        
+  }
+  
+
+  form{
+    display: flex;
+    border: 1px solid rgb(71, 71, 71);
+    padding: 25px; 
+    margin-right: 30px;
+    height: 100%;
+    flex-wrap: wrap;
+
+
+  div{
+    width: 100%;
+    padding-bottom: 0px;
+   
+  }
+  .row{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+  }
+
+
+
+        textarea,
+          input {
+            width: 100%;
+            background-color: black;
+            border: 1px solid rgb(71, 71, 71);
+            margin-top: 10px;
+            padding: 5px;
+            color: white;
+            min-height:calc(100% - 50px);
+          }
 
        
 }
