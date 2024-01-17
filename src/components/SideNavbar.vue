@@ -1,4 +1,4 @@
-<!-- Da Sistemare: click invece che hover su side submenu / hover orange su sidemebu / bordi di sidesmenu / subsubmenu -->
+
 
 <script>
 export default {
@@ -6,6 +6,7 @@ export default {
   data() {
     return {
       showSubMenu: null,
+      showSubSubMenu: null,
     };
   },
   methods: {
@@ -14,6 +15,11 @@ export default {
     },
     toggleSubMenu(index) {
       this.showSubMenu = this.showSubMenu === index ? null : index;
+      // Reset showSubSubMenu when toggling main submenu
+      this.showSubSubMenu = null;
+    },
+    toggleSubSubMenu(subIndex) {
+      this.showSubSubMenu = this.showSubSubMenu === subIndex ? null : subIndex;
     },
   },
 };
@@ -29,7 +35,12 @@ export default {
           <a v-else href="#" @click="toggleSubMenu(index)">{{ menuItem.name }} <i v-if="menuItem.subItems" class="fa-solid fa-chevron-down"></i></a>
           <ul v-if="menuItem.subItems && showSubMenu === index" class="submenu">
             <li v-for="(subItem, subIndex) in menuItem.subItems" :key="subIndex">
-              <a href="#">{{ subItem.name || subItem }}</a>
+              <a href="#" @click="toggleSubSubMenu(subIndex)">{{ subItem.name || subItem }} <i v-if="subItem.subItems" class="fa-solid fa-chevron-down"></i></a>
+              <ul v-if="subItem.subItems && showSubSubMenu === subIndex" class="sub_submenu" >
+                <li v-for="(subSubMenu, subSubMenuIndex) in subItem.subItems" :key="subSubMenuIndex">
+                  <a href="#">{{ subSubMenu.name || subSubMenu }}</a>
+                </li>
+              </ul>
             </li>
           </ul>
         </li>
