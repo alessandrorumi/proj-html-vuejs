@@ -124,7 +124,7 @@ export default {
       </div>
     </section>
     <!-- 5 counter -->
-    <section class="counter">
+    <section class="background-scroll">
       <Counter />
     </section>
     <!-- 6 staff--->
@@ -483,8 +483,12 @@ i {
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 /*section 5 prova per counter */
-.counter {
-  min-height: 500px;
+.background-scroll {
+  background-image: url(../assets/img/counter_parallax.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////

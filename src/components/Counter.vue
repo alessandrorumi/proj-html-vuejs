@@ -98,7 +98,7 @@ export default {
 
 <template>
   <!-- Counter (Guitar) -->
-  <section class="counter" ref="counterSection">
+  <div class="counter" ref="counterSection">
     <div class="card">
       <i class="fa-solid fa-child-reaching"></i>
       <h2>{{ start1 }}</h2>
@@ -119,7 +119,7 @@ export default {
       <h2>{{ start4 }}</h2>
       <h3>TOTAL SONGS</h3>
     </div>
-  </section>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -127,12 +127,7 @@ export default {
 @import '../styles/partials/mixins';
 
 .counter {
-  background-image: url(../assets/img/counter_parallax.jpg);
   min-height: 500px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
   padding: 0 3rem;
   text-align: start;
@@ -156,6 +151,25 @@ export default {
       &:hover {
         color: $main_orange;
       }
+    }
+  }
+}
+
+/*background responsive */
+@media all and (max-width: 1365px) {
+  .counter {
+    background-image: url(../assets/img/counter_parallax.jpg);
+    background-position: center;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .counter {
+    flex-direction: column;
+
+    .card {
+      padding: 25px 0;
+      width: 100%;
     }
   }
 }
