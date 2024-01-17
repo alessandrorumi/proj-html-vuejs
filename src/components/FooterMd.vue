@@ -7,26 +7,60 @@ export default {
 
   
 
-  data() {
+    data() {
     return {
-      activeDropdown: null
+      dropdowns: {
+        bookings: false,
+        information: false,
+        support: false,
+        newsletter: false,
+      },
+      isWideScreen: window.innerWidth > 1024,
     };
   },
   methods: {
     toggleDropdown(column) {
-      if (this.activeDropdown === column) {
-        // Chiudi il dropdown se è già aperto
-        this.activeDropdown = null;
+      if (this.isWideScreen) {
+        // Se lo schermo è largo, apri automaticamente il dropdown
+        this.dropdowns[column] = !this.dropdowns[column];
       } else {
-        // Apri il dropdown della colonna cliccata
-        this.activeDropdown = column;
+        // Chiudi gli altri dropdown e apri solo quello cliccato
+        for (const key in this.dropdowns) {
+          if (key !== column) {
+            this.dropdowns[key] = false;
+          }
+        }
+        this.dropdowns[column] = !this.dropdowns[column];
+      }
+    },
+    handleResize() {
+    // Aggiorna lo stato isWideScreen quando la finestra viene ridimensionata
+    this.isWideScreen = window.innerWidth > 1024;
+
+    // Aggiorna lo stato dei dropdown in base alla larghezza della finestra
+    for (const key in this.dropdowns) {
+      if (this.isWideScreen) {
+        // Se lo schermo è largo, apri automaticamente tutti i dropdown
+        this.dropdowns[key] = true;
+      } else {
+        // Se lo schermo è stretto, chiudi tutti i dropdown
+        this.dropdowns[key] = false;
       }
     }
-  }
+  },
+  },
+  mounted() {
+  // Aggiungi un listener per gestire il ridimensionamento della finestra
+  window.addEventListener('resize', this.handleResize);
 
-  
-  
+  // Inizializza lo stato dei dropdown in base alla larghezza iniziale della finestra
+  this.isWideScreen = window.innerWidth > 1024;
+  for (const key in this.dropdowns) {
+    this.dropdowns[key] = this.isWideScreen;
   }
+},
+};
+  
 </script>
 
 <template>
@@ -35,7 +69,7 @@ export default {
       <div class="col" >
         <h3 @click="toggleDropdown('bookings')">Bookings <i class="fa-solid fa-chevron-down"></i></h3>
         
-        <div class="dropdown" v-show="activeDropdown === 'bookings'">
+        <div class="dropdown" v-show="dropdowns['bookings']">
           <p>
           502 New Design Str, Melbourne, San Francisco, CA 94110, United States of America​ Australia
           
@@ -60,7 +94,7 @@ export default {
       <div class="col" >
         <h3 @click="toggleDropdown('information')">Information  <i class="fa-solid fa-chevron-down"></i></h3>
        
-        <div class="dropdown" v-show="activeDropdown === 'information'">
+        <div class="dropdown" v-show="dropdowns['information']">
           <ul>
         <li>
           <a href="">Product Support</a>
@@ -86,7 +120,7 @@ export default {
        
         <h3 @click="toggleDropdown('support')">Support <i class="fa-solid fa-chevron-down"></i></h3>
         
-        <div class="dropdown" v-show="activeDropdown === 'support'">
+        <div class="dropdown" v-show="dropdowns['support']">
           <ul>
         <li>
           <a href="">Policies & Rules</a>
@@ -112,7 +146,7 @@ export default {
       <div class=" col" >
         <h3 @click="toggleDropdown('newsletter')" >Newsletter <i class="fa-solid fa-chevron-down"></i></h3>
         
-        <div class="dropdown" v-show="activeDropdown === 'newsletter'">
+        <div class="dropdown" v-show="dropdowns['newsletter']">
           <form class="input_container" action="">
           <input  type="email" name="EMAIL" placeholder="Email" required="">
           <textarea  rows="4"  placeholder="Message"></textarea>
@@ -130,6 +164,126 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/partials/_partials.scss';
 $transition-duration: 0.3s;
+
+footer {
+  background-color: black;
+  color: white;
+
+  section {
+    border-bottom: 1px solid rgb(71, 71, 71);
+    .container {
+      color: white;
+      max-width: 1448px;
+      margin: 0 auto;
+      padding: 100px 0;
+      display: flex;
+      justify-content: space-between;
+
+      .dropdown {
+        width: 100%;
+        div {
+          white-space: nowrap;
+        }
+      }
+
+      .social {
+        padding-top: 25px;
+        i {
+          font-size: 17px;
+          padding-right: 20px;
+          transition: color $transition-duration ease;
+          &:hover {
+            color: $main_orange;
+          }
+        }
+      }
+
+      div {
+        width: 20%;
+
+        h3 {
+          font-size: 24px;
+          text-transform: uppercase;
+          font-weight: bold;
+          padding-bottom: 25px;
+        }
+
+        p,
+        div {
+          padding-bottom: 15px;
+          a {
+            color: white;
+            text-decoration: none;
+            transition: color $transition-duration ease;
+            &:hover {
+              color: $main_orange;
+            }
+          }
+        }
+
+        ul {
+          width: 100%;
+          li {
+            width: 100%;
+            list-style-type: none;
+            padding-bottom: 20px;
+
+            a {
+              white-space: nowrap;
+              color: white;
+              text-decoration: none;
+              transition: color $transition-duration ease;
+              &:hover {
+                color: $main_orange;
+              }
+            }
+          }
+        }
+      }
+
+      .input_container {
+        textarea,
+        input {
+          width: 100%;
+          background-color: black;
+          border: 1px solid rgb(71, 71, 71);
+          margin-bottom: 20px;
+          padding: 5px;
+          color: white;
+        }
+
+        button {
+          font-size: 20px;
+          background-color: black;
+          padding: 10px 40px;
+          color: white;
+          border: 1px solid $main_orange;
+          transition: background-color $transition-duration ease;
+          &:hover {
+            background-color: $main-orange;
+          }
+        }
+      }
+    }
+  }
+
+  .last_section {
+    color: white;
+    text-align: center;
+    min-height: 80px;
+    span {
+      line-height: 80px;
+    }
+  }
+
+  .fa-chevron-down {
+    display: none;
+    font-size: 20px;
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: 1024px) {
 
 footer {
   background-color: black;
@@ -273,5 +427,6 @@ footer {
     display: inline;
     margin-left: 5px;
   }
+}
 }
 </style>

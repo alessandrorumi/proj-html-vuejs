@@ -20,7 +20,7 @@ export default {
 <template>
   <footer>
 
-  <FooterLg class="footer_lg"/>
+  <!-- <FooterLg class="footer_lg"/> -->
   <FooterMd class="footer_md"/>
   <div class="last_section">
     <span>
@@ -56,45 +56,45 @@ footer {
     margin-left: 5px;
   }
 
-  @media (max-width: 1024px) {
-    .container {
-      flex-direction: column;
+  // @media (max-width: 1024px) {
+  //   .container {
+  //     flex-direction: column;
 
-      .col {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 5px 40px;
-      }
+  //     .col {
+  //       width: 100%;
+  //       display: flex;
+  //       align-items: center;
+  //       justify-content: space-between;
+  //       padding: 5px 40px;
+  //     }
 
-      h3 {
-        display: inline;
-      }
+  //     h3 {
+  //       display: inline;
+  //     }
 
-      .fa-chevron-down {
-        text-align: end;
-        display: inline;
-      }
+  //     .fa-chevron-down {
+  //       text-align: end;
+  //       display: inline;
+  //     }
 
-      .dropdown {
-        display: none;
-      }
-    }
-  }
+  //     .dropdown {
+  //       display: none;
+  //     }
+  //   }
+  // }
 
-  .footer_md {
-    display: none;
+  // .footer_md {
+  //   display: none;
 
-    @media (max-width: 1024px) {
-      display: block;
-    }
-  }
+    // @media (max-width: 1024px) {
+    //   display: block;
+    // }
+  // }
 
-  .footer_lg {
-    @media (max-width: 1024px) {
-      display: none;
-    }
-  }
+  // .footer_lg {
+  //   @media (max-width: 1024px) {
+  //     display: none;
+  //   }
+  // }
 }
 </style>
