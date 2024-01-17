@@ -1,6 +1,9 @@
 <script>
+import Counter from '../components/Counter.vue';
+
 export default {
   name: 'About',
+  components: { Counter },
   data() {
     return {
       //section 4 "faqs"
@@ -121,9 +124,8 @@ export default {
       </div>
     </section>
     <!-- 5 counter -->
-    <section class="prova">
-      <!-- (da prendere in comune) -->
-      <h1>Numeri</h1>
+    <section class="counter">
+      <Counter />
     </section>
     <!-- 6 staff--->
     <section class="staff-container">
@@ -481,8 +483,8 @@ i {
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 /*section 5 prova per counter */
-.prova {
-  height: 500px;
+.counter {
+  min-height: 500px;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////
