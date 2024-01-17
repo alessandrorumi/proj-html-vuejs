@@ -71,14 +71,27 @@ export default {
   },
   mounted() {
     // Utilizzo dell'Intersection Observer per rilevare quando l'elemento è nella viewport
+    // La costante options contiene le opzioni di configurazione per l'oggetto IntersectionObserver, che è utilizzato per rilevare quando un elemento entra o esce dalla viewport. Ecco cosa fanno le varie opzioni:
     const options = {
+      // root: L'elemento che è utilizzato come area di visualizzazione per l'intersezione. Se null, l'intersezione viene rilevata rispetto alla viewport del documento.
       root: null,
+      // rootMargin: Margine intorno all'elemento root. Puoi pensarci come a un'estensione della root. Ad esempio, se rootMargin è impostato su '10px', l'intersezione sarà rilevata quando l'elemento target entra nella viewport o si trova a meno di 10 pixel all'esterno della root.
       rootMargin: '0px',
+      // threshold: La soglia di intersezione, espressa come valore compreso tra 0 e 1. Questo rappresenta la percentuale di visibilità dell'elemento target necessaria per scatenare la callback. Un valore di 0.5 significa che almeno il 50% dell'elemento deve essere visibile.
       threshold: 0.5, // Modifica se necessario
+      // Nel tuo caso, con threshold impostato su 0.5, la callback (il metodo handleIntersection nel tuo codice) verrà chiamata quando almeno il 50% dell'elemento target è visibile nella viewport. Puoi modificare questo valore in base alle tue esigenze, ad esempio, impostandolo su 0.8 per richiedere che almeno l'80% dell'elemento sia visibile per attivare la callback.
     };
 
+    // Questa parte del codice crea un nuovo oggetto IntersectionObserver e lo utilizza per osservare l'elemento referenziato da this.$refs.counterSection. Ecco cosa fanno le due linee di codice:
+
+
+    // const observer = new IntersectionObserver(this.handleIntersection, options);: Qui stai istanziando un nuovo oggetto IntersectionObserver. Questo oggetto richiede due argomenti principali:
+    // this.handleIntersection: Questo è il callback che verrà chiamato ogni volta che l'elemento target entra o esce dalla viewport, o quando cambia il suo stato di intersezione. Nel tuo caso, il callback è il metodo handleIntersection definito nel componente.
+    // options: Questo è l'oggetto di opzioni che hai definito precedentemente, contenente informazioni sulla configurazione dell'IntersectionObserver.
     const observer = new IntersectionObserver(this.handleIntersection, options);
+    // observer.observe(this.$refs.counterSection);: Qui stai dicendo all'IntersectionObserver di iniziare ad osservare l'elemento referenziato da this.$refs.counterSection. Quando questo elemento entra o esce dalla viewport o cambia il suo stato di intersezione rispetto alle opzioni specificate, il callback handleIntersection verrà chiamato.
     observer.observe(this.$refs.counterSection);
+    // In sostanza, questa configurazione consente di eseguire una certa logica (definita nel metodo handleIntersection) quando l'elemento con riferimento a this.$refs.counterSection diventa visibile nella viewport o cambia il suo stato di intersezione rispetto alle opzioni specificate. In questo contesto specifico, la logica che viene eseguita quando l'elemento è nella viewport è quella di impostare la proprietà isInViewport su true e chiamare il metodo animateIfInViewport, che a sua volta può attivare l'animazione del contatore (animateCounter).
   },
 };
 </script>
