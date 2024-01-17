@@ -355,27 +355,17 @@ i {
 
 /*da vedere per la transizione delle immagini */
 .col .staff-photo {
-  transition: 0.3s ease-in-out;
+  overflow: hidden;
+
+  img {
+    display: block;
+    transition: 0.3s ease-in-out;
+    transform-origin: center center;
+
+    &:hover {
+      transform: scale(1.05);
+      transition-duration: 0.3s;
+    }
+  }
 }
-
-.col .staff-photo:hover {
-  transform: scale(1.05);
-}
-
-// Soluzione Hover Img (.image è il div dentro cui è l'img)
-// .image {
-//         overflow: hidden;
-
-//         img {
-//           display: block;
-//           transition: 0.3s ease-in-out;
-//           transform-origin: center center;
-
-//           &:hover {
-//             transform: scale(1.05);
-//             transition-duration: 0.3s;
-//             cursor: pointer;
-//           }
-//         }
-//       }
 </style>
