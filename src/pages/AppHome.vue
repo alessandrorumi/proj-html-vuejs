@@ -1,13 +1,23 @@
 <script>
-// Import Img
-import home1 from '../assets/img/carousel/home-1.png';
-import home2 from '../assets/img/carousel/home-2.png';
 
 export default {
   name: 'AppHome',
   data() {
     return {
-      homeImages: [home1, home2],
+
+      // Array di oggetti (Home)
+      homeCarousel: [
+        {
+          title: 'MUSIC OF THE SPIRIT',
+          image: 'public/carousel/home-1.png'
+        },
+        {
+          title: 'MUSIC IN THIS VIDEO',
+          image: 'public/carousel/home-2.png'
+        }
+      ],
+
+      // Array di oggetti (Blog)
       blog: [
         {
           title: 'HIP HOP WIRED TO DANCE MAKE',
@@ -53,6 +63,8 @@ export default {
           image: 'public/music-blog/7.jpg'
         },
       ],
+
+      // Array Img (Instagram)
       intagram: [
         {
           image: 'public/ig-images/instagram_img1.jpg'
@@ -89,29 +101,37 @@ export default {
       musicBlogIndex: 0,
     }
   },
-    computed: {
-    currentHomeImage() {
-      return this.homeImages[this.homeIndex];
-    },
+
+  computed: {
     activeMusicBlogImages() {
     return this.blog.slice(this.musicBlogIndex, this.musicBlogIndex + 3);
     }
   },
+
+  // All'avvio dell'app
+  created() {
+    // Gestione cambio img Home Carousel ogni 5 sec
+    setInterval(this.nextHomeImage, 5000);
+  },
+
   methods: {
+    // Img precendente Home Carousel
     prevHomeImage() {
       if (this.homeIndex > 0) {
         this.homeIndex--;
       } else {
-        this.homeIndex = this.homeImages.length - 1;
+        this.homeIndex = this.homeCarousel.length - 1;
       }
     },
+    // Img successiva (Home Carousel)
     nextHomeImage() {
-      if (this.homeIndex < this.homeImages.length - 1) {
+      if (this.homeIndex < this.homeCarousel.length - 1) {
         this.homeIndex++;
       } else {
         this.homeIndex = 0;
       }
     },
+    // Img precendente (Blog carousel)
     prevMusicBlogImage() {
       if (this.musicBlogIndex > 0) {
         this.musicBlogIndex--;
@@ -119,6 +139,7 @@ export default {
         this.musicBlogIndex = this.blog.length - 3;
       }
     },
+    // Img successiva (Blog carousel)
     nextMusicBlogImage() {
       if (this.musicBlogIndex < this.blog.length - 3) {
         this.musicBlogIndex++;
@@ -134,11 +155,11 @@ export default {
   <main>
     <!-- Carousel -->
     <section class="carousel">
-      <div class="item">
-        <img :src="currentHomeImage" alt="">
+      <div v-for="(carouselItem, index) in homeCarousel" :key="index" class="item" :class="{ active: index === homeIndex }">
+        <img :src="carouselItem.image" alt="">
         <div class="titles">
           <h3>INSTRUMENTAL ROCK</h3>
-          <h1>MUSIC</h1>
+          <h1>{{ carouselItem.title }}</h1>
           <a href="">READ MORE</a>
         </div>
         <button class="prev" @click="prevHomeImage"><i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i></button>
@@ -327,7 +348,9 @@ export default {
       <h3>BEST MUSIC BLOG</h3>
       <div class="carousel-blog">
         <div v-for="musicBlog in activeMusicBlogImages" class="card">
-          <img :src="musicBlog.image" alt="">
+          <div class="image">
+            <img :src="musicBlog.image" alt="">
+          </div>
           <div class="text">
             <h4>{{ musicBlog.title }}</h4>
             <h5>{{ musicBlog.date }}</h5>
@@ -341,7 +364,7 @@ export default {
 
     <!-- Instagram Images -->
     <section class="ig-images">
-      <div class="images" v-for="igImages in intagram">
+      <div class="image" v-for="igImages in intagram">
         <img :src="igImages.image" alt="">
       </div>
     </section>
@@ -391,10 +414,26 @@ main {
 }
 .carousel {
   position: relative;
+  height: 700px;
+
+  .item {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .active {
+    opacity: 1;
+  }
+
   img {
     width: 100%;
   }
 .titles {
+  width: 100%;
   position: absolute;
   top: 35%;
   left: 50%;
@@ -448,11 +487,33 @@ main {
     margin: 0 1rem;
     height: 350px;
     padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 
     .image {
       display: flex;
       justify-content: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      width: 125px;
+      height: 125px;
+      border-radius: 50%;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        top: 0;
+        left: 0;
+      }
+
+      &:hover::before {
+        animation: sonar-effect 1s ease-in-out .1s infinite;
+      }
 
       img {
         height: 125px;
@@ -461,6 +522,21 @@ main {
         &:hover {
           filter: invert(57%) sepia(67%) saturate(1247%) hue-rotate(352deg) brightness(95%) contrast(101%);
         }
+      }
+    }
+
+    @keyframes sonar-effect {
+      0% {
+        opacity: 0.3;
+      }
+      40% {
+        opacity: 0.5;
+        box-shadow: 0 0 0 5px #fff, 0 0 10px 10px #fff, 0 0 0 10px #fff;
+      }
+      100% {
+        box-shadow: 0 0 0 5px #fff, 0 0 10px 10px #fff, 0 0 0 10px #fff;
+        transform: scale(1.5);
+        opacity: 0;
       }
     }
 
@@ -642,6 +718,22 @@ main {
       flex-basis: calc((100% / 3) - 2rem);
       margin: 0 1rem;
 
+      .image {
+        overflow: hidden;
+
+        img {
+          display: block;
+          transition: 0.3s ease-in-out;
+          transform-origin: center center;
+
+          &:hover {
+            transform: scale(1.05);
+            transition-duration: 0.3s;
+            cursor: pointer;
+          }
+        }
+      }
+
       .text {
         text-align: start;
 
@@ -676,11 +768,21 @@ main {
 
 .ig-images {
   display: flex;
-  .images {
+  .image {
+    overflow: hidden;
+
     img {
+      display: block;
       width: 100%;
       height: auto;
-      display: block;
+      transition: 0.3s ease-in-out;
+      transform-origin: center center;
+
+      &:hover {
+        transform: scale(1.05);
+        transition-duration: 0.3s;
+        cursor: pointer;
+      }
     }
   }
 }
