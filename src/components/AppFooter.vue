@@ -160,6 +160,9 @@ export default {
 
     </div>
   </section>
+  <section class="rights">
+    <span>© 2024 All Rights Reserved. Developed By TemplateMela</span>
+  </section>
   </footer>
   
 </template>
@@ -178,7 +181,8 @@ footer {
       color: white;
       max-width: 1448px;
       margin: 0 auto;
-      padding: 100px 0;
+      padding-top: 100px;
+      padding-bottom: 15px;
       display: flex;
       justify-content: space-between;
 
@@ -270,14 +274,11 @@ footer {
     }
   }
 
-  .last_section {
-    color: white;
-    text-align: center;
-    min-height: 80px;
-    span {
-      line-height: 80px;
+  .rights{
+      text-align: center;
+      padding: 15px 0;
     }
-  }
+  
 
   .fa-chevron-down {
     display: none;
@@ -413,8 +414,11 @@ footer {
         }
       }
     }
+
+  
   }
 
+  
   .last_section {
     color: white;
     text-align: center;
