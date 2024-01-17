@@ -77,15 +77,15 @@ export default {
       </div>
     </section>
     <!-- 2 story of jazz -->
-    <section class="container">
-      <div class="row">
-        <div class="col-text">
+    <section class="story-container">
+      <div class="story-row">
+        <div class="story-col-text">
           <span>WHO WE ARE</span>
           <h2>SENSE THE JAZZ</h2>
           <p>The story of Jazz and Blues Society is the story of determination, passion, idealism, music. Founded in 1985 and incorporated in 1986, as a community based, not-for organization located in Vancouver, British Columbia, the society, from the very begi to establish Vancouver as a centre for the creation and exchange of sounds</p>
           <a href="#" class="btn">READ MORE</a>
         </div>
-        <div class="col-image">
+        <div class="story-col-image">
           <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/about_img.jpg" alt="img_1">
         </div>
       </div>
@@ -99,12 +99,12 @@ export default {
       </div>
     </section>
     <!-- 4 FAQ -->
-    <section class="container">
-      <div class="row">
-        <div class="col-image">
+    <section class="faqs-container">
+      <div class="faqs-row">
+        <div class="faqs-col-image">
           <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/Img-02.jpg" alt="img_2">
         </div>
-        <div class="col-text">
+        <div class="faqs-col-text">
           <div class="faqs" v-for="(faq, i) in faqs" :key="i" @click="toggleAnswer(i)">
             <div class="accordion" :class="{ 'no-border': faq.isOpen }">
               <h4 :class="{ 'open': faq.isOpen }">{{ faq.question }}</h4>
@@ -127,9 +127,9 @@ export default {
     </section>
     <!-- 6 staff--->
     <section class="staff-container">
-      <span>INSTRUMENTAL ROCK</span>
-      <h1>ALBUM OUT NOW</h1>
-      <div class="row">
+      <span>WHO WE ARE</span>
+      <h1>OUR STAFF</h1>
+      <div class="staff-row">
         <div v-for="(staff, i) in staffs" :key="i" class="col">
           <div class="staff-photo">
             <img :src="staff.photo" :alt="staff.name">
@@ -187,13 +187,12 @@ i {
 
 .about-entry {
   margin-top: 100px;
-  height: 300px;
+  height: 320px;
   background-color: $main_gray;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
 
   h1 {
     font-size: 60px;
@@ -211,20 +210,44 @@ i {
     color: $main_orange;
   }
 }
+
+/* section 1 responsive */
+@media all and (max-width: 1024px) {
+  .about-entry {
+    h1{
+      font-size: 50px;
+    }
+  }
+}
+
+@media all and (max-width: 767px) {
+  .about-entry {
+    height: 200px;
+
+    h1{
+      font-size: 38px;
+    }
+  }
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////
-/*section 2/4 */
-.container,
+/* section 2/4 (containers) */
+.story-container,
+.faqs-container,
 .staff-container {
   background-color: #000;
   padding: 100px 0;
 }
-.row {
+.story-row,
+.faqs-row,
+.staff-row {
   display: flex;
   width: 75%;
   margin: 0 auto;
   min-height: 500px;
 
-  .col-text {
+  .story-col-text,
+  .faqs-col-text {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -245,19 +268,94 @@ i {
     h2,
     p {
       margin-bottom: 25px;
-    } 
+    }
   }
-  .col-image {
+  .story-col-image,
+  .faqs-col-image {
     width: 50%;
   }
   img {
     width: 100%;
   }
 }
+
+/* section 2/4 (containers) responsive */
+@media all and (max-width: 1400px) {
+  .story-row,
+  .faqs-row {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .story-container,
+  .faqs-container {
+    padding-bottom: 25px;
+  }
+}
+
+
+@media all and (max-width: 1024px) {
+
+.story-container,
+.faqs-container,
+.staff-container {
+  padding: 75px 0;
+}
+  .story-row,
+  .faqs-row {
+    min-height: 200px;
+    .story-col-text {
+      h2 {
+        font-size: 22px;
+      }
+      span,
+      h2,
+      p {
+        margin-bottom: 10px;
+      }
+
+      .btn {
+        width: 100px;
+        padding: 10px 0;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 880px) {
+  .faqs-row {
+    flex-wrap: wrap;
+    .faqs-col-text {
+      width: 100%;
+    }
+    .faqs-col-image {
+      width: 100%;
+    }
+  }
+}
+
+@media all and (max-width: 767px) {
+
+  .story-row {
+    flex-wrap: wrap;
+    .story-col-text {
+      width: 100%;
+
+      .btn {
+        margin-bottom: 20px;
+      }
+    }
+    .story-col-image {
+      width: 100%;
+    }
+  }
+}
 //////////////////////////////////////////////////////////////////////////////////////////////
 /*section 3 */
 .about-album {
-  min-height: 850px;
+  min-height: 750px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -271,6 +369,41 @@ i {
 
   h1 {
     font-size: 100px;
+    margin: 20px 0;
+  }
+}
+
+/* section 3 responsive */
+@media all and (max-width: 1365px) {
+  .about-album {
+    background-image: url(../assets/img/cms_parallax.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  .about-album {
+    min-height: 500px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .about-album {
+    min-height: 350px;
+
+    span {
+      font-size: 16px;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    .btn {
+      width: 100px;
+      padding: 10px 0;
+    }
   }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -282,7 +415,7 @@ i {
   padding: 18px 0;
   width: 85%;
   border-bottom: 1px solid #222222;
-  font-size: 20PX;
+  font-size: 20px;
   font-weight: bold;
   margin-left: 100px;
 }
@@ -304,25 +437,64 @@ i {
 .closed {
   color: #fff;
 }
+
+/* section 4 responsive */
+@media all and (max-width: 1400px) {
+  .accordion {
+    margin-left: 50px;
+  }
+
+  .panel {
+    margin-left: 50px;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .accordion {
+    width: 95%;
+    margin-left: 25px;
+  }
+
+  .panel {
+    width: 95%;
+    margin-left: 25px;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  .accordion {
+    font-size: 18px;
+  }
+}
+
+@media all and (max-width: 880px) {
+  .accordion {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .panel {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////
-/*prova per counter */
+/*section 5 prova per counter */
 .prova {
   height: 500px;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////
+/// 
 /*staff section 6 */ 
-
 .staff-container {
   border-bottom: 1px solid #222222;
 
-  .row {
+  .staff-row {
     justify-content: space-between;
     .col {
       width: calc((100% / 4) - 20px);
-
-      /*da vedere per la transizione delle immagini */
-      overflow: hidden;
     }
 
     h2,
@@ -350,32 +522,72 @@ i {
   }
 }
 
-
-
-
-/*da vedere per la transizione delle immagini */
 .col .staff-photo {
-  transition: 0.3s ease-in-out;
+  overflow: hidden;
+
+  img {
+    display: block;
+    transition: 0.3s ease-in-out;
+    transform-origin: center center;
+
+    &:hover {
+      transform: scale(1.05);
+      transition-duration: 0.3s;
+    }
+  }
 }
 
-.col .staff-photo:hover {
-  transform: scale(1.05);
+/* section 6 responsive */
+@media all and (max-width: 1400px) {
+
+  .staff-container {
+    padding: 75px 0 20px;
+    .staff-row {
+      width: 90%;
+    }
+  }
 }
 
-// Soluzione Hover Img (.image è il div dentro cui è l'img)
-// .image {
-//         overflow: hidden;
+@media all and (max-width: 1200px) {
+  
+  .staff-row {
+    min-height: 400px;
+  }
+}
 
-//         img {
-//           display: block;
-//           transition: 0.3s ease-in-out;
-//           transform-origin: center center;
+@media all and (max-width: 880px) {
+  
+  .staff-row {
+    min-height: 350px;
+  }
+}
 
-//           &:hover {
-//             transform: scale(1.05);
-//             transition-duration: 0.3s;
-//             cursor: pointer;
-//           }
-//         }
-//       }
+@media all and (max-width: 767px) {
+  
+  .staff-container {
+    .staff-row {
+      flex-wrap: wrap;
+      width: 50%;
+      margin: 0 auto;
+
+      .col {
+        width: 100%;
+      }
+    }
+
+    h1 {
+    font-size: 34px;
+  }
+  }
+}
+
+@media all and (max-width: 576px) {
+  
+  .staff-container {
+
+    .staff-row {
+      width: 70%;
+    }
+  }
+}
 </style>
