@@ -619,32 +619,6 @@ main {
   }
 }
 
-// .counter {
-//   background-image: url(../assets/img/counter_parallax.jpg);
-//   min-height: 500px;
-//   background-attachment: fixed;
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   position: relative;
-//   padding: 0 3rem;
-//   text-align: start;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-
-//   .card {
-//     color: #fff;
-//     width: calc(25% - 2rem);
-//     margin: 0 1rem;
-//     text-align: center;
-
-//     i {
-//       font-size: 4rem;
-//     }
-//   }
-// }
-
 .music-blog {
   padding: 0 3rem 6rem;
   position: relative;
