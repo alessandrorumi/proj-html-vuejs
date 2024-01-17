@@ -5,99 +5,140 @@ export default {
   name: 'AppHome',
   components: { Counter },
   data() {
-      return {
-          // Array di oggetti (Home)
-          homeCarousel: [
-              {
-                  title: 'MUSIC OF THE SPIRIT',
-                  image: 'public/carousel/home-1.png'
-              },
-              {
-                  title: 'MUSIC IN THIS VIDEO',
-                  image: 'public/carousel/home-2.png'
-              }
-          ],
-          // Array di oggetti (Blog)
-          blog: [
-              {
-                  title: 'HIP HOP WIRED TO DANCE MAKE',
-                  date: '06 November  2021',
-                  description: 'Driving short distances music is a music genre that includes traditional folk music and the contemporary genre that evolved from the former',
-                  image: 'public/music-blog/1.jpg'
-              },
-              {
-                  title: 'MUSIC BUSINESS WORLDWIDE',
-                  date: '27 May  2022',
-                  description: 'Accelerate work and drive productivity The Beatles experimentation and creative freedom led other bands to experiment in various ways as well.',
-                  image: 'public/music-blog/2.jpg'
-              },
-              {
-                  title: 'GIVEAWAYS ROCK TO ALL',
-                  date: '07 May  2022',
-                  description: 'Signs Your Car Battery Has To Be Replaced When the dashboard lights start flashing, this is a sign the battery is dying. Several issues arise and.',
-                  image: 'public/music-blog/3.jpg'
-              },
-              {
-                  title: 'DROWNED IN SOUND FEEL JOY',
-                  date: '10 April  2022',
-                  description: 'Different Types of Music Content For most music creators, they take their work very seriously because of the emotional attachment they may harbor.',
-                  image: 'public/music-blog/4.jpg'
-              },
-              {
-                  title: 'DANCING ASTRONAUT BOUNCE IPSUM',
-                  date: '01 March  2022',
-                  description: 'Signs Your Car Battery Has To Be Replaced When the dashboard lights start flashing, this is a sign the battery is dying. Several issues arise and.',
-                  image: 'public/music-blog/5.jpg'
-              },
-              {
-                  title: 'CONSEQUENCE OF SOUNDMAKE US',
-                  date: '14 February  2022',
-                  description: 'Electronic Dance Music Rhythm and Blues Before this, R & B was known as ‘race music,’ a term that originated in the African American',
-                  image: 'public/music-blog/6.jpg'
-              },
-              {
-                  title: 'ARTIST DEVELOPMENT AND PRODUCTION',
-                  date: '07 December  2021',
-                  description: 'Characterised by its own beat patterns, the lyrics feature what is often extreme violence snd talk of criminal acts. As a result, there’s been',
-                  image: 'public/music-blog/7.jpg'
-              },
-          ],
-          // Array Img (Instagram)
-          intagram: [
-              {
-                  image: 'public/ig-images/instagram_img1.jpg'
-              },
-              {
-                  image: 'public/ig-images/instagram_img2.jpg'
-              },
-              {
-                  image: 'public/ig-images/instagram_img3.jpg'
-              },
-              {
-                  image: 'public/ig-images/instagram_img4.jpg'
-              },
-              {
-                  image: 'public/ig-images/instagram_img5.jpg'
-              },
-              {
-                  image: 'public/ig-images/instagram_img6.jpg'
-              },
-              {
-                  image: 'public/ig-images/instagram_img7.jpg'
-              },
-              {
-                  image: 'public/ig-images/instagram_img8.jpg'
-              },
-              {
-                  image: 'public/ig-images/instagram_img9.jpg'
-              },
-              {
-                  image: 'public/ig-images/instagram_img10.jpg'
-              }
-          ],
-          homeIndex: 0,
-          musicBlogIndex: 0,
-      };
+    return {
+      // Array di oggetti (Home)
+      homeCarousel: [
+        {
+            title: 'MUSIC OF THE SPIRIT',
+            image: 'public/carousel/home-1.png'
+        },
+        {
+            title: 'MUSIC IN THIS VIDEO',
+            image: 'public/carousel/home-2.png'
+        }
+      ],
+
+      // Array di oggetti (Who We Are (Main))
+      cards: [
+        {
+          id: 1,
+          image: "public/who-we-are-main/gallery1.jpg",
+          title: "A ROLL AND BANG ON THE FLOOR",
+          icons: ["fa-brands fa-spotify", "fa-brands fa-youtube", "fa-solid fa-music", "fa-brands fa-soundcloud", "fa-solid fa-compass"]
+        },
+        {
+          id: 2,
+          image: "public/who-we-are-main/gallery2.jpg",
+          title: "YOUR MELODY TO OUR MUSIC",
+          icons: ["fa-brands fa-spotify", "fa-brands fa-youtube", "fa-solid fa-music", "fa-brands fa-soundcloud", "fa-solid fa-compass"]
+        },
+        {
+          id: 3,
+          image: "public/who-we-are-main/gallery3.jpg",
+          title: "TOUCHING HEAVEN ON FREQUENCY",
+          icons: ["fa-brands fa-spotify", "fa-brands fa-youtube", "fa-solid fa-music", "fa-brands fa-soundcloud", "fa-solid fa-compass"]
+        },
+        {
+          id: 4,
+          image: "public/who-we-are-main/gallery4.jpg",
+          title: "MUSIC MAKES STRONGER BEATS",
+          icons: ["fa-brands fa-spotify", "fa-brands fa-youtube", "fa-solid fa-music", "fa-brands fa-soundcloud", "fa-solid fa-compass"]
+        },
+        {
+          id: 5,
+          image: "public/who-we-are-main/gallery5.jpg",
+          title: "SOUND IS THE SPARK OF TIME",
+          icons: ["fa-brands fa-spotify", "fa-brands fa-youtube", "fa-solid fa-music", "fa-brands fa-soundcloud", "fa-solid fa-compass"]
+        },
+        {
+          id: 6,
+          image: "public/who-we-are-main/gallery6.jpg",
+          title: "MAKE YOUR NIGHT GROOVY",
+          icons: ["fa-brands fa-spotify", "fa-brands fa-youtube", "fa-solid fa-music", "fa-brands fa-soundcloud", "fa-solid fa-compass"]
+        },
+      ],
+
+      // Array di oggetti (Blog)
+      blog: [
+        {
+          title: 'HIP HOP WIRED TO DANCE MAKE',
+          date: '06 November  2021',
+          description: 'Driving short distances music is a music genre that includes traditional folk music and the contemporary genre that evolved from the former',
+          image: 'public/music-blog/1.jpg'
+        },
+        {
+          title: 'MUSIC BUSINESS WORLDWIDE',
+          date: '27 May  2022',
+          description: 'Accelerate work and drive productivity The Beatles experimentation and creative freedom led other bands to experiment in various ways as well.',
+          image: 'public/music-blog/2.jpg'
+        },
+        {
+          title: 'GIVEAWAYS ROCK TO ALL',
+          date: '07 May  2022',
+          description: 'Signs Your Car Battery Has To Be Replaced When the dashboard lights start flashing, this is a sign the battery is dying. Several issues arise and.',
+          image: 'public/music-blog/3.jpg'
+        },
+        {
+          title: 'DROWNED IN SOUND FEEL JOY',
+          date: '10 April  2022',
+          description: 'Different Types of Music Content For most music creators, they take their work very seriously because of the emotional attachment they may harbor.',
+          image: 'public/music-blog/4.jpg'
+        },
+        {
+          title: 'DANCING ASTRONAUT BOUNCE IPSUM',
+          date: '01 March  2022',
+          description: 'Signs Your Car Battery Has To Be Replaced When the dashboard lights start flashing, this is a sign the battery is dying. Several issues arise and.',
+          image: 'public/music-blog/5.jpg'
+        },
+        {
+          title: 'CONSEQUENCE OF SOUNDMAKE US',
+          date: '14 February  2022',
+          description: 'Electronic Dance Music Rhythm and Blues Before this, R & B was known as ‘race music,’ a term that originated in the African American',
+          image: 'public/music-blog/6.jpg'
+        },
+        {
+          title: 'ARTIST DEVELOPMENT AND PRODUCTION',
+          date: '07 December  2021',
+          description: 'Characterised by its own beat patterns, the lyrics feature what is often extreme violence snd talk of criminal acts. As a result, there’s been',
+          image: 'public/music-blog/7.jpg'
+        },
+      ],
+      // Array Img (Instagram)
+      intagram: [
+        {
+          image: 'public/ig-images/instagram_img1.jpg'
+        },
+        {
+          image: 'public/ig-images/instagram_img2.jpg'
+        },
+        {
+          image: 'public/ig-images/instagram_img3.jpg'
+        },
+        {
+          image: 'public/ig-images/instagram_img4.jpg'
+        },
+        {
+          image: 'public/ig-images/instagram_img5.jpg'
+        },
+        {
+          image: 'public/ig-images/instagram_img6.jpg'
+        },
+        {
+          image: 'public/ig-images/instagram_img7.jpg'
+        },
+        {
+          image: 'public/ig-images/instagram_img8.jpg'
+        },
+        {
+          image: 'public/ig-images/instagram_img9.jpg'
+        },
+        {
+          image: 'public/ig-images/instagram_img10.jpg'
+        }
+      ],
+      homeIndex: 0,
+      musicBlogIndex: 0,
+    };
   },
   computed: {
       activeMusicBlogImages() {
@@ -222,91 +263,22 @@ export default {
 
     <!-- Who We Are (Main)-->
     <section class="who-we-are-main">
-      <div class="text sense-jazz">
-        <h3>WHO WE ARE</h3>
-        <h2>SENSE THE JAZZ</h2>
-        <div class="cards-main">
-          <div class="card-main">
-            <div class="image">
-              <img src="../assets/img/who-we-are-main/gallery1.jpg" alt="">
-            </div>
-            <h4>A ROLL AND BANG ON THE FLOOR</h4>
-            <p>Stream On:
-              <i class="fa-brands fa-spotify"></i>
-              <i class="fa-brands fa-youtube"></i>
-              <i class="fa-solid fa-music"></i>
-              <i class="fa-brands fa-soundcloud"></i>
-              <i class="fa-solid fa-compass"></i>
-            </p>
+    <div class="text sense-jazz">
+      <h3>WHO WE ARE</h3>
+      <h2>SENSE THE JAZZ</h2>
+      <div class="cards-main">
+        <div class="card-main" v-for="card in cards" :key="card.id">
+          <div class="image">
+            <img :src="card.image" alt="">
           </div>
-          <div class="card-main">
-            <div class="image">
-              <img src="../assets/img/who-we-are-main/gallery2.jpg" alt="">
-            </div>
-            <h4>A ROLL AND BANG ON THE FLOOR</h4>
-            <p>Stream On:
-              <i class="fa-brands fa-spotify"></i>
-              <i class="fa-brands fa-youtube"></i>
-              <i class="fa-solid fa-music"></i>
-              <i class="fa-brands fa-soundcloud"></i>
-              <i class="fa-solid fa-compass"></i>
-            </p>
-          </div>
-          <div class="card-main">
-            <div class="image">
-              <img src="../assets/img/who-we-are-main/gallery3.jpg" alt="">
-            </div>
-            <h4>A ROLL AND BANG ON THE FLOOR</h4>
-            <p>Stream On:
-              <i class="fa-brands fa-spotify"></i>
-              <i class="fa-brands fa-youtube"></i>
-              <i class="fa-solid fa-music"></i>
-              <i class="fa-brands fa-soundcloud"></i>
-              <i class="fa-solid fa-compass"></i>
-            </p>
-          </div>
-          <div class="card-main">
-            <div class="image">
-              <img src="../assets/img/who-we-are-main/gallery4.jpg" alt="">
-            </div>
-            <h4>A ROLL AND BANG ON THE FLOOR</h4>
-            <p>Stream On:
-              <i class="fa-brands fa-spotify"></i>
-              <i class="fa-brands fa-youtube"></i>
-              <i class="fa-solid fa-music"></i>
-              <i class="fa-brands fa-soundcloud"></i>
-              <i class="fa-solid fa-compass"></i>
-            </p>
-          </div>
-          <div class="card-main">
-            <div class="image">
-              <img src="../assets/img/who-we-are-main/gallery5.jpg" alt="">
-            </div>
-            <h4>A ROLL AND BANG ON THE FLOOR</h4>
-            <p>Stream On:
-              <i class="fa-brands fa-spotify"></i>
-              <i class="fa-brands fa-youtube"></i>
-              <i class="fa-solid fa-music"></i>
-              <i class="fa-brands fa-soundcloud"></i>
-              <i class="fa-solid fa-compass"></i>
-            </p>
-          </div>
-          <div class="card-main">
-            <div class="image">
-              <img src="../assets/img/who-we-are-main/gallery6.jpg" alt="">
-            </div>
-            <h4>A ROLL AND BANG ON THE FLOOR</h4>
-            <p>Stream On:
-              <i class="fa-brands fa-spotify"></i>
-              <i class="fa-brands fa-youtube"></i>
-              <i class="fa-solid fa-music"></i>
-              <i class="fa-brands fa-soundcloud"></i>
-              <i class="fa-solid fa-compass"></i>
-            </p>
-          </div>
+          <h4>{{ card.title }}</h4>
+          <p>Stream On:
+            <i v-for="icon in card.icons" :class="'' + icon"></i>
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
     <!-- Album Out Now -->
     <section class="album-out-now">
