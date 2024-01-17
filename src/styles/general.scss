@@ -4,6 +4,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Oswald', sans-serif;
   scroll-behavior: smooth;
+}
+
+:root{
+  font-family: 'Oswald', sans-serif;
+  background-color: black;
 }
