@@ -367,7 +367,7 @@ main {
 }
 .carousel {
   position: relative;
-  height: 700px;
+  height: 800px;
 
   &:hover {
     button {
