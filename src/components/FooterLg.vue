@@ -195,6 +195,7 @@ footer {
           border: 1px solid rgb(71, 71, 71);
           margin-bottom: 20px;
           padding: 5px;
+          color: white;
         }
 
         button {
