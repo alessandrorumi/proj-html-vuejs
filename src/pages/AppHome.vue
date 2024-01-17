@@ -289,7 +289,10 @@ export default {
       </div>
     </section>
 
-    <Counter />
+    <!-- Counter (Guitar) -->
+    <section class="background-scroll">
+      <Counter />
+    </section>
 
     <!-- Music Blog -->
     <section class="music-blog">
@@ -806,4 +809,17 @@ main {
   }
 }
 
+
+
+
+
+
+/* prova sul background scegli dove posizionarlo :D */
+.background-scroll {
+  background-image: url(../assets/img/counter_parallax.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 </style>
