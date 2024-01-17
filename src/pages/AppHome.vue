@@ -175,12 +175,12 @@ export default {
               this.musicBlogIndex--;
           }
           else {
-              this.musicBlogIndex = this.blog.length - 3;
+              this.musicBlogIndex = this.blog.length - 1;
           }
       },
       // Img successiva (Blog carousel)
       nextMusicBlogImage() {
-          if (this.musicBlogIndex < this.blog.length - 3) {
+          if (this.musicBlogIndex < this.blog.length - 1) {
               this.musicBlogIndex++;
           }
           else {
@@ -255,7 +255,7 @@ export default {
     <section class="music-video">
       <a href="https://www.youtube.com/watch?v=lTZLlzLJ68o&t=2s">
         <div class="text">
-          <i class="fa-regular fa-circle-play" style="color: #F2870C; font-size: 10rem;"></i>
+          <i class="fa-regular fa-circle-play" style="color: #F2870C; font-size: 5rem;"></i>
           <h2>NEW MUSIC VIDEO</h2>
         </div>
       </a>
@@ -289,7 +289,6 @@ export default {
       </div>
     </section>
 
-    <!-- Counter (Guitar) -->
     <Counter />
 
     <!-- Music Blog -->
@@ -353,7 +352,7 @@ main {
   .sense-jazz {
     h3 {
       color: $main_orange;
-      margin: 6rem 0 1rem;
+      margin: 2rem 0 1rem;
     }
   
     p {
@@ -438,25 +437,49 @@ main {
   display: flex;
   flex-wrap: wrap;
   color: #fff;
+
   .card {
     background-color: $main_gray;
     width: calc((100% / 3) - 2rem);
     margin: 0 1rem;
-    height: 350px;
-    padding: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
+
+    @media only screen and (max-width: 870px) {
+      padding: 0.5rem;
+    }
+
+    @media only screen and (min-width: 871px) {
+      padding: 4rem;
+
+      .image {
+        width: 85px;
+        height: 85px;
+      }
+
+      .text {
+        h3 {
+          font-size: 1.25rem;
+        }
+
+        p {
+          color: #b9b9b9;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 767px) {
+      width: calc(100% - 2rem);
+      margin: 0 1rem 2rem;
+    }
 
     .image {
       display: flex;
       justify-content: center;
       margin-bottom: 1rem;
       position: relative;
-      width: 125px;
-      height: 125px;
-      border-radius: 50%;
 
       &::before {
         content: '';
@@ -469,11 +492,12 @@ main {
       }
 
       &:hover::before {
-        animation: sonar-effect 1s ease-in-out .1s infinite;
+        animation: sonar-effect 1s ease-in-out 0.1s infinite;
       }
 
       img {
-        height: 125px;
+        width: 85px;
+        height: 85px;
         filter: invert(1);
 
         &:hover {
@@ -496,23 +520,13 @@ main {
         opacity: 0;
       }
     }
-
-    .text {
-      h3 {
-        font-size: 1.25rem;
-      }
-
-      p {
-        color: #b9b9b9;
-      }
-    }
   }
 }
 
 .who-we-are-intro {
-  height: 500px;
-  width: 50%;
+  width: 75%;
   margin: 0 auto;
+  padding-bottom: 4rem;
 }
 .music-video {
   background-image: url(../assets/img/Video-2.jpg);
@@ -545,13 +559,20 @@ main {
   h2 {
     margin-bottom: 2rem;
   }
+
   .cards-main {
     padding: 0 3rem;
     display: flex;
     flex-wrap: wrap;
+
     .card-main {
-      width: calc((100% / 3) - 2rem);
-      margin: 0 1rem;
+      width: 100%;
+      margin: 0 0 2rem;
+
+      @media only screen and (min-width: 871px) {
+        width: calc((100% / 3) - 2rem);
+        margin: 0 1rem;
+      }
 
       .image {
         overflow: hidden;
@@ -570,9 +591,9 @@ main {
       }
 
       h4 {
-      color: #fff;
-      font-size: 1.5rem;
-      margin-top: 1rem;
+        color: #fff;
+        font-size: 1.5rem;
+        margin-top: 1rem;
       }
 
       p {
@@ -587,10 +608,18 @@ main {
           color: $main_orange;
         }
       }
+
+      @media only screen and (max-width: 870px) {
+        .image {
+          display: flex;
+          justify-content: center;
+        }
+      }
     }
   }
 }
 
+// Album Out Now
 .album-out-now {
   background-image: url(../assets/img/cms_parallax.jpg);
   min-height: 850px;
@@ -617,7 +646,43 @@ main {
       margin-bottom: 2rem;
     }
   }
+
+  @media only screen and (max-width: 479px) {
+    min-height: 600px;
+    padding: 0 1rem;
+
+    .text {
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  @media only screen and (min-width: 479px) and (max-width: 767px) {
+    min-height: 700px;
+
+    .text {
+      h2 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    min-height: 850px;
+
+    .text {
+      h2 {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+      }
+    }
+  }
 }
+
+// Music Blog
 
 .music-blog {
   padding: 0 3rem 6rem;
@@ -636,7 +701,7 @@ main {
 
   h3 {
       color: #fff;
-      font-size: 4rem;
+      font-size: 2rem;
       padding-bottom: 2rem;
   }
 
@@ -719,6 +784,7 @@ main {
   }
 }
 
+//////////////////////////////////////////////////////////////////////////////////
 .ig-images {
   display: flex;
   .image {
