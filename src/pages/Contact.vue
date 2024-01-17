@@ -1,6 +1,14 @@
 <script>
 export default {
   name: 'Contact',
+
+  data() {
+    return {
+      mapURL: `
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d317893.9737282887!2d-0.11951900000000001!3d51.503186!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b900d26973%3A0x4291f3172409ea92!2slastminute.com%20London%20Eye!5e0!3m2!1sen!2sus!4v1705486068726!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      `,
+    };
+  },
  
 }
 </script>
@@ -49,7 +57,7 @@ export default {
     </form> 
          
         </div>
-        <div class="story-col-text">
+        <div class="story-col-text updates">
           <span>GET IN TOUCH</span>
           <h2>GET LATEST UPDATE</h2>
 
@@ -125,16 +133,15 @@ export default {
     </section>
     <!-- 3 album -->
     <section>
-      <div >
-       
-      </div>
+      <div class="map" v-html="mapURL"></div>
     </section>
    
   </main>
 </template>
 
 <style lang="scss" scoped>
-@import '../styles/partials/_partials.scss';
+main{
+  @import '../styles/partials/_partials.scss';
 
 /* general styles */
 /*buttons */
@@ -582,13 +589,20 @@ i {
   }
 }
 
+}
 
 
-// miei
+// ===ContaCt US====
 
-.story-col-text{
+
+.updates{
+  padding-left: 50px;
+}
+.story-row{
+ 
+  .story-col-text{
   color: white;
-
+  
     label{
     color: white;
     margin-bottom: 10px;
@@ -670,6 +684,15 @@ div{
 
        
 }
+}
+
+
+.map{
+  height:450px;
+  width: 100vW;
+ background-color: #000;
+}
+
        
 
 </style>
