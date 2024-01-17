@@ -1,15 +1,566 @@
 <script>
 export default {
-  name: 'Contact'
+  name: 'Contact',
+ 
 }
 </script>
 
 <template>
-  <header>
-    <h4>Contact</h4>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident illum inventore dolorum voluptate ex architecto nam. Ab placeat ratione, reprehenderit aliquam ex veritatis! Tenetur veniam sunt ipsam, praesentium quo vel.</p>
-  </header>
+  <main class="about-background">
+    <!-- 1 section with navigation -->
+    <section>
+      <div class="about-entry">
+        <h1>CONTACT US</h1>
+        <span>
+          <router-link class="link" :to="{ name: 'home' }">Home</router-link> / Contact Us
+        </span>
+      </div>
+    </section>
+    <!-- 2 story of jazz -->
+    <section class="story-container">
+      <div class="story-row">
+        <div class="story-col-text">
+           <form @submit.prevent="submitForm">
+
+            <div class="row">
+              <div>
+                <label for="name">Your name</label>
+                <input type="text" id="name"  required />
+              </div>
+
+              <div>
+                <label for="email">Your email</label>
+                <input type="email" id="email"  required />
+              </div>
+            </div>
+      
+
+            <div>
+              <label for="subject">Subject</label>
+              <input type="text" id="subject"  required />
+            </div>
+
+            <div>
+              <label for="message">Your message (optional)</label>
+              <textarea rows="5"  id="message" ></textarea>
+            </div>
+
+      <a class="btn" type="submit">Submit</a>
+    </form> 
+         
+        </div>
+        <div class="story-col-image">
+          <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/about_img.jpg" alt="img_1">
+        </div>
+      </div>
+    </section>
+    <!-- 3 album -->
+    <section>
+      <div >
+       
+      </div>
+    </section>
+   
+  </main>
 </template>
 
 <style lang="scss" scoped>
+@import '../styles/partials/_partials.scss';
+
+/* general styles */
+/*buttons */
+.btn {
+  text-align: center;
+  width: 175px;
+  padding: 15px 20px;
+  border: 1px solid $main-orange;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: $main-orange;
+  transition: all 0.3s;
+}
+
+/*texts */
+h1,
+h2,
+h4,
+span,
+p,
+i {
+  color: #fff;
+  letter-spacing: 1px;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////
+/*section 1 */
+.about-background {
+  background-image: url(../assets/img/cms_parallax.jpg); //probabilmente da applicare al body, da parlarne insieme
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.about-entry {
+  margin-top: 100px;
+  height: 320px;
+  background-color: $main_gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 60px;
+  }
+
+  span,
+  .link {
+    color: #fff;
+    letter-spacing: 2px;
+    padding-top: 10px;
+    background-color: transparent;
+  }
+
+  .link:hover {
+    color: $main_orange;
+  }
+}
+
+/* section 1 responsive */
+@media all and (max-width: 1024px) {
+  .about-entry {
+    h1{
+      font-size: 50px;
+    }
+  }
+}
+
+@media all and (max-width: 767px) {
+  .about-entry {
+    height: 200px;
+
+    h1{
+      font-size: 38px;
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+/* section 2/4 (containers) */
+.story-container,
+.faqs-container,
+.staff-container {
+  background-color: #000;
+  padding: 100px 0;
+}
+.story-row,
+.faqs-row,
+.staff-row {
+  display: flex;
+  width: 85%;
+  margin: 0 auto;
+  min-height: 500px;
+
+  .story-col-text,
+  .faqs-col-text {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+
+    h2 {
+      font-size: 50px;
+    }
+
+    span {
+      color: $main_orange;
+    }
+
+    p {
+      margin-right: 50px;
+    }
+
+    span,
+    h2,
+    p {
+      margin-bottom: 25px;
+    }
+  }
+  .story-col-image,
+  .faqs-col-image {
+    width: 50%;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+/* section 2/4 (containers) responsive */
+@media all and (max-width: 1400px) {
+  .story-row,
+  .faqs-row {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .story-container,
+  .faqs-container {
+    padding-bottom: 25px;
+  }
+}
+
+
+@media all and (max-width: 1024px) {
+
+.story-container,
+.faqs-container,
+.staff-container {
+  padding: 75px 0;
+}
+  .story-row,
+  .faqs-row {
+    min-height: 200px;
+    .story-col-text {
+      h2 {
+        font-size: 22px;
+      }
+      span,
+      h2,
+      p {
+        margin-bottom: 10px;
+      }
+
+      .btn {
+        width: 100px;
+        padding: 10px 0;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 880px) {
+  .faqs-row {
+    flex-wrap: wrap;
+    .faqs-col-text {
+      width: 100%;
+    }
+    .faqs-col-image {
+      width: 100%;
+    }
+  }
+}
+
+@media all and (max-width: 767px) {
+
+  .story-row {
+    flex-wrap: wrap;
+    .story-col-text {
+      width: 100%;
+
+      .btn {
+        margin-bottom: 20px;
+      }
+    }
+    .story-col-image {
+      width: 100%;
+    }
+  }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////
+/*section 3 */
+.about-album {
+  min-height: 750px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  span {
+    color: $main-orange;
+    font-size: 25px;
+  }
+
+  h1 {
+    font-size: 100px;
+    margin: 20px 0;
+  }
+}
+
+/* section 3 responsive */
+@media all and (max-width: 1365px) {
+  .about-album {
+    background-image: url(../assets/img/cms_parallax.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  .about-album {
+    min-height: 500px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .about-album {
+    min-height: 350px;
+
+    span {
+      font-size: 16px;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    .btn {
+      width: 100px;
+      padding: 10px 0;
+    }
+  }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////
+/*text FAQs section 4 */
+.accordion {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 18px 0;
+  width: 85%;
+  border-bottom: 1px solid #222222;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 100px;
+}
+
+.no-border {
+  border-bottom: none;
+}
+
+.panel {
+  width: 85%;
+  padding: 18px 0;
+  margin-left: 100px;
+}
+
+.open {
+  color: $main-orange;
+}
+
+.closed {
+  color: #fff;
+}
+
+/* section 4 responsive */
+@media all and (max-width: 1400px) {
+  .accordion {
+    margin-left: 50px;
+  }
+
+  .panel {
+    margin-left: 50px;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .accordion {
+    width: 95%;
+    margin-left: 25px;
+  }
+
+  .panel {
+    width: 95%;
+    margin-left: 25px;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  .accordion {
+    font-size: 18px;
+  }
+}
+
+@media all and (max-width: 880px) {
+  .accordion {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .panel {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+/*section 5 prova per counter */
+.prova {
+  height: 500px;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+/// 
+/*staff section 6 */ 
+.staff-container {
+  border-bottom: 1px solid #222222;
+
+  .staff-row {
+    justify-content: space-between;
+    .col {
+      width: calc((100% / 4) - 20px);
+    }
+
+    h2,
+    span {
+      text-align: center;
+      display: block;
+    }
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  span {
+    text-align: center;
+    color: $main-orange;
+    display: block;
+  }
+
+  h1,
+  .role {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+.col .staff-photo {
+  overflow: hidden;
+
+  img {
+    display: block;
+    transition: 0.3s ease-in-out;
+    transform-origin: center center;
+
+    &:hover {
+      transform: scale(1.05);
+      transition-duration: 0.3s;
+    }
+  }
+}
+
+/* section 6 responsive */
+@media all and (max-width: 1400px) {
+
+  .staff-container {
+    padding: 75px 0 20px;
+    .staff-row {
+      width: 90%;
+    }
+  }
+}
+
+@media all and (max-width: 1200px) {
+  
+  .staff-row {
+    min-height: 400px;
+  }
+}
+
+@media all and (max-width: 880px) {
+  
+  .staff-row {
+    min-height: 350px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  
+  .staff-container {
+    .staff-row {
+      flex-wrap: wrap;
+      width: 50%;
+      margin: 0 auto;
+
+      .col {
+        width: 100%;
+      }
+    }
+
+    h1 {
+    font-size: 34px;
+  }
+  }
+}
+
+@media all and (max-width: 576px) {
+  
+  .staff-container {
+
+    .staff-row {
+      width: 70%;
+    }
+  }
+}
+
+
+
+// miei
+
+label{
+  color: white;
+  margin-bottom: 10px;
+}
+
+
+form{
+  display: flex;
+  border: 1px solid rgb(71, 71, 71);
+  padding: 25px; 
+  margin-right: 30px;
+  height: 100%;
+  flex-wrap: wrap;
+
+
+div{
+  width: 100%;
+}
+.row{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+
+.btn{
+  margin-top: 20px;
+  max-height: 80px;
+  line-height:40px ;
+}
+
+      textarea,
+        input {
+          width: 100%;
+          background-color: black;
+          border: 1px solid rgb(71, 71, 71);
+          margin-bottom: 20px;
+          margin-top: 10px;
+          padding: 5px;
+          color: white;
+        }
+
+       
+}
+       
+
 </style>
