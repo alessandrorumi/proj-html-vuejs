@@ -112,7 +112,7 @@ export default {
               <i class="fa-solid fa-phone" style="color:white;"></i> 
 
               <div>
-              <h3>Address info</h3>
+              <h3>Working Hours </h3>
             <ul>
             <li>
               Open: 8:00AM – Close: 18:00PM
