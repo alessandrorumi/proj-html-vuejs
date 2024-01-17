@@ -1,153 +1,152 @@
 <script>
+import Counter from '../components/Counter.vue';
 
 export default {
   name: 'AppHome',
+  components: { Counter },
   data() {
-    return {
-
-      // Array di oggetti (Home)
-      homeCarousel: [
-        {
-          title: 'MUSIC OF THE SPIRIT',
-          image: 'public/carousel/home-1.png'
-        },
-        {
-          title: 'MUSIC IN THIS VIDEO',
-          image: 'public/carousel/home-2.png'
-        }
-      ],
-
-      // Array di oggetti (Blog)
-      blog: [
-        {
-          title: 'HIP HOP WIRED TO DANCE MAKE',
-          date: '06 November  2021',
-          description: 'Driving short distances music is a music genre that includes traditional folk music and the contemporary genre that evolved from the former',
-          image: 'public/music-blog/1.jpg'
-        },
-        {
-          title: 'MUSIC BUSINESS WORLDWIDE',
-          date: '27 May  2022',
-          description: 'Accelerate work and drive productivity The Beatles experimentation and creative freedom led other bands to experiment in various ways as well.',
-          image: 'public/music-blog/2.jpg'
-          
-        },
-        {
-          title: 'GIVEAWAYS ROCK TO ALL',
-          date: '07 May  2022',
-          description: 'Signs Your Car Battery Has To Be Replaced When the dashboard lights start flashing, this is a sign the battery is dying. Several issues arise and.',
-          image: 'public/music-blog/3.jpg'
-        },
-        {
-          title: 'DROWNED IN SOUND FEEL JOY',
-          date: '10 April  2022',
-          description: 'Different Types of Music Content For most music creators, they take their work very seriously because of the emotional attachment they may harbor.',
-          image: 'public/music-blog/4.jpg'
-        },
-        {
-          title: 'DANCING ASTRONAUT BOUNCE IPSUM',
-          date: '01 March  2022',
-          description: 'Signs Your Car Battery Has To Be Replaced When the dashboard lights start flashing, this is a sign the battery is dying. Several issues arise and.',
-          image: 'public/music-blog/5.jpg'
-        },
-        {
-          title: 'CONSEQUENCE OF SOUNDMAKE US',
-          date: '14 February  2022',
-          description: 'Electronic Dance Music Rhythm and Blues Before this, R & B was known as ‘race music,’ a term that originated in the African American',
-          image: 'public/music-blog/6.jpg'
-        },
-        {
-          title: 'ARTIST DEVELOPMENT AND PRODUCTION',
-          date: '07 December  2021',
-          description: 'Characterised by its own beat patterns, the lyrics feature what is often extreme violence snd talk of criminal acts. As a result, there’s been',
-          image: 'public/music-blog/7.jpg'
-        },
-      ],
-
-      // Array Img (Instagram)
-      intagram: [
-        {
-          image: 'public/ig-images/instagram_img1.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img2.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img3.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img4.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img5.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img6.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img7.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img8.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img9.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img10.jpg'
-        }
-      ],
-      homeIndex: 0,
-      musicBlogIndex: 0,
-    }
+      return {
+          // Array di oggetti (Home)
+          homeCarousel: [
+              {
+                  title: 'MUSIC OF THE SPIRIT',
+                  image: 'public/carousel/home-1.png'
+              },
+              {
+                  title: 'MUSIC IN THIS VIDEO',
+                  image: 'public/carousel/home-2.png'
+              }
+          ],
+          // Array di oggetti (Blog)
+          blog: [
+              {
+                  title: 'HIP HOP WIRED TO DANCE MAKE',
+                  date: '06 November  2021',
+                  description: 'Driving short distances music is a music genre that includes traditional folk music and the contemporary genre that evolved from the former',
+                  image: 'public/music-blog/1.jpg'
+              },
+              {
+                  title: 'MUSIC BUSINESS WORLDWIDE',
+                  date: '27 May  2022',
+                  description: 'Accelerate work and drive productivity The Beatles experimentation and creative freedom led other bands to experiment in various ways as well.',
+                  image: 'public/music-blog/2.jpg'
+              },
+              {
+                  title: 'GIVEAWAYS ROCK TO ALL',
+                  date: '07 May  2022',
+                  description: 'Signs Your Car Battery Has To Be Replaced When the dashboard lights start flashing, this is a sign the battery is dying. Several issues arise and.',
+                  image: 'public/music-blog/3.jpg'
+              },
+              {
+                  title: 'DROWNED IN SOUND FEEL JOY',
+                  date: '10 April  2022',
+                  description: 'Different Types of Music Content For most music creators, they take their work very seriously because of the emotional attachment they may harbor.',
+                  image: 'public/music-blog/4.jpg'
+              },
+              {
+                  title: 'DANCING ASTRONAUT BOUNCE IPSUM',
+                  date: '01 March  2022',
+                  description: 'Signs Your Car Battery Has To Be Replaced When the dashboard lights start flashing, this is a sign the battery is dying. Several issues arise and.',
+                  image: 'public/music-blog/5.jpg'
+              },
+              {
+                  title: 'CONSEQUENCE OF SOUNDMAKE US',
+                  date: '14 February  2022',
+                  description: 'Electronic Dance Music Rhythm and Blues Before this, R & B was known as ‘race music,’ a term that originated in the African American',
+                  image: 'public/music-blog/6.jpg'
+              },
+              {
+                  title: 'ARTIST DEVELOPMENT AND PRODUCTION',
+                  date: '07 December  2021',
+                  description: 'Characterised by its own beat patterns, the lyrics feature what is often extreme violence snd talk of criminal acts. As a result, there’s been',
+                  image: 'public/music-blog/7.jpg'
+              },
+          ],
+          // Array Img (Instagram)
+          intagram: [
+              {
+                  image: 'public/ig-images/instagram_img1.jpg'
+              },
+              {
+                  image: 'public/ig-images/instagram_img2.jpg'
+              },
+              {
+                  image: 'public/ig-images/instagram_img3.jpg'
+              },
+              {
+                  image: 'public/ig-images/instagram_img4.jpg'
+              },
+              {
+                  image: 'public/ig-images/instagram_img5.jpg'
+              },
+              {
+                  image: 'public/ig-images/instagram_img6.jpg'
+              },
+              {
+                  image: 'public/ig-images/instagram_img7.jpg'
+              },
+              {
+                  image: 'public/ig-images/instagram_img8.jpg'
+              },
+              {
+                  image: 'public/ig-images/instagram_img9.jpg'
+              },
+              {
+                  image: 'public/ig-images/instagram_img10.jpg'
+              }
+          ],
+          homeIndex: 0,
+          musicBlogIndex: 0,
+      };
   },
-
   computed: {
-    activeMusicBlogImages() {
-    return this.blog.slice(this.musicBlogIndex, this.musicBlogIndex + 3);
-    }
+      activeMusicBlogImages() {
+          return this.blog.slice(this.musicBlogIndex, this.musicBlogIndex + 3);
+      }
   },
-
   // All'avvio dell'app
   created() {
-    // Gestione cambio img Home Carousel ogni 5 sec
-    setInterval(this.nextHomeImage, 5000);
+      // Gestione cambio img Home Carousel ogni 5 sec
+      setInterval(this.nextHomeImage, 5000);
   },
-
   methods: {
-    // Img precendente Home Carousel
-    prevHomeImage() {
-      if (this.homeIndex > 0) {
-        this.homeIndex--;
-      } else {
-        this.homeIndex = this.homeCarousel.length - 1;
+      // Img precendente Home Carousel
+      prevHomeImage() {
+          if (this.homeIndex > 0) {
+              this.homeIndex--;
+          }
+          else {
+              this.homeIndex = this.homeCarousel.length - 1;
+          }
+      },
+      // Img successiva (Home Carousel)
+      nextHomeImage() {
+          if (this.homeIndex < this.homeCarousel.length - 1) {
+              this.homeIndex++;
+          }
+          else {
+              this.homeIndex = 0;
+          }
+      },
+      // Img precendente (Blog carousel)
+      prevMusicBlogImage() {
+          if (this.musicBlogIndex > 0) {
+              this.musicBlogIndex--;
+          }
+          else {
+              this.musicBlogIndex = this.blog.length - 3;
+          }
+      },
+      // Img successiva (Blog carousel)
+      nextMusicBlogImage() {
+          if (this.musicBlogIndex < this.blog.length - 3) {
+              this.musicBlogIndex++;
+          }
+          else {
+              this.musicBlogIndex = 0;
+          }
       }
-    },
-    // Img successiva (Home Carousel)
-    nextHomeImage() {
-      if (this.homeIndex < this.homeCarousel.length - 1) {
-        this.homeIndex++;
-      } else {
-        this.homeIndex = 0;
-      }
-    },
-    // Img precendente (Blog carousel)
-    prevMusicBlogImage() {
-      if (this.musicBlogIndex > 0) {
-        this.musicBlogIndex--;
-      } else {
-        this.musicBlogIndex = this.blog.length - 3;
-      }
-    },
-    // Img successiva (Blog carousel)
-    nextMusicBlogImage() {
-      if (this.musicBlogIndex < this.blog.length - 3) {
-        this.musicBlogIndex++;
-      } else {
-        this.musicBlogIndex = 0;
-      }
-    }
-  }
+  },
 }
 </script>
 
@@ -319,28 +318,7 @@ export default {
     </section>
 
     <!-- Counter (Guitar) -->
-    <section class="counter">
-      <div class="card">
-        <i class="fa-solid fa-child-reaching"></i>
-        <h2>900</h2>
-        <h3>CONCERTS</h3>
-      </div>
-      <div class="card">
-        <i class="fa-solid fa-rocket"></i>
-        <h2>800</h2>
-        <h3>HAPPY CLIENTS</h3>
-      </div>
-      <div class="card">
-        <i class="fa-solid fa-trophy"></i>
-        <h2>400</h2>
-        <h3>MUSIC AWARDS</h3>
-      </div>
-      <div class="card">
-        <i class="fa-solid fa-music"></i>
-        <h2>1001</h2>
-        <h3>TOTAL SONGS</h3>
-      </div>
-    </section>
+    <Counter />
 
     <!-- Music Blog -->
     <section class="music-blog">
@@ -372,7 +350,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@import '../styles/partials/_partials.scss';
+@import '../styles/partials/partials';
 @import '../styles/partials/mixins';
 
 main {
@@ -388,6 +366,7 @@ main {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    display: none;
   }
 
   h2 {
@@ -415,6 +394,12 @@ main {
 .carousel {
   position: relative;
   height: 700px;
+
+  &:hover {
+    button {
+      display: block;
+    }
+  }
 
   .item {
     opacity: 0;
@@ -662,34 +647,42 @@ main {
   }
 }
 
-.counter {
-  background-image: url(../assets/img/counter_parallax.jpg);
-  min-height: 500px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  padding: 0 3rem;
-  text-align: start;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+// .counter {
+//   background-image: url(../assets/img/counter_parallax.jpg);
+//   min-height: 500px;
+//   background-attachment: fixed;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   position: relative;
+//   padding: 0 3rem;
+//   text-align: start;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
 
-  .card {
-    color: #fff;
-    width: calc(25% - 2rem);
-    margin: 0 1rem;
-    text-align: center;
+//   .card {
+//     color: #fff;
+//     width: calc(25% - 2rem);
+//     margin: 0 1rem;
+//     text-align: center;
 
-    i {
-      font-size: 4rem;
-    }
-  }
-}
+//     i {
+//       font-size: 4rem;
+//     }
+//   }
+// }
 
 .music-blog {
-  padding-bottom: 7rem;
+  padding: 0 3rem 6rem;
+  position: relative;
+
+  &:hover {
+    button {
+      display: block;
+    }
+  }
+
   h4 {
       color: $main_orange;
       padding-top: 5rem;
@@ -701,9 +694,23 @@ main {
       padding-bottom: 2rem;
   }
 
-  // DEBUG
   button {
-      position: relative;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+      &.prev {
+        left: 1rem;
+      }
+
+      &.next {
+        right: 1rem;
+      }
+
+      &:hover {
+        background-color: #000;
+        cursor: pointer;
+      }
     }
 
   .carousel-blog {
