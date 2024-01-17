@@ -8,7 +8,22 @@ export default {
   data() {
     return {
       showEventsSideNav: false,
-      showBurgerMenu:false
+      showBurgerMenu: false,
+      menuItems: [
+        { name: 'Home', link: { name: 'home' } },
+        { name: 'Blog', link: '*' },
+        { name: 'Events', subItems: ['choral music', 'concert band', 'opera concerts', 'symphony orchestra', 'family concerts'] },
+        { name: 'Gallery', link: '*' },
+        { name: 'About', link: { name: 'about' } },
+        { name: 'Contact', link: { name: 'contact' } },
+        {
+          name: "Shop",
+  subItems: [
+    { name: "Product type", "subItems": ["Simple product", "external/affiliate product", "downloadable product", "Group product", "In stock product", "Variable product"] },
+    { name: "Shop Page", "subItems": ["check out", "cart", "downloads", "my account"] }
+          ],
+        },
+      ],
     };
   },
 
@@ -17,44 +32,35 @@ export default {
     SideNavbar,
   },
 
-  
-  
   methods: {
     toggleSideNav() {
       this.showEventsSideNav = !this.showEventsSideNav;
       setTimeout(() => {
         this.showBurgerMenu = !this.showBurgerMenu;
-    document.querySelector('.side-navbar').classList.toggle('open');
-  }, 200);
+        document.querySelector('.side-navbar').classList.toggle('open');
+      }, 200);
     },
     hideSideNav() {
       document.querySelector('.side-navbar').classList.remove('open');
       this.showBurgerMenu = !this.showBurgerMenu;
       setTimeout(() => {
-        this.showEventsSideNav = false;;
-  }, 200);
+        this.showEventsSideNav = false;
+      }, 200);
     },
   },
- 
-}
+};
 </script>
 
 <template>
   <header>
     <img src="../assets/img/Logo.png" alt="">
-    
-    
-   
-    <div> 
-      <HeaderNavbar class="header_navbar" />
-      <i @click="toggleSideNav" class="fa-solid fa-bars"  style="color: #ffffff;" v-show="!showBurgerMenu"></i>
+    <div>
+      <HeaderNavbar class="header_navbar" :menuItems="menuItems" />
+      <i @click="toggleSideNav" class="fa-solid fa-bars" style="color: #ffffff;" v-show="!showBurgerMenu"></i>
       <i class="fa-solid fa-magnifying-glass"></i>
     </div>
-   
-    <SideNavbar v-show="showEventsSideNav" @close="hideSideNav"  />
-    <button @click="hideSideNav" class="close-sidenav" v-show="showEventsSideNav" @close="hideSideNav">
-
-</button>
+    <SideNavbar v-show="showEventsSideNav" @close="hideSideNav" :menuItems="menuItems" />
+    <button @click="hideSideNav" class="close-sidenav" v-show="showEventsSideNav"></button>
   </header>
 </template>
 

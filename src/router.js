@@ -33,7 +33,12 @@ const router = createRouter({
         window.scrollTo(0, 0);
         next();
       }
-    }
+    },
+    //  Cambia redirect con componente 404
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/',
+    },
   ]
 });
 

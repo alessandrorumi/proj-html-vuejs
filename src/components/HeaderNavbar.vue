@@ -1,227 +1,195 @@
 <script>
 export default {
-  name: 'HeaderNavbar',
+  props: ['menuItems'],
   data() {
     return {
-      showEventsDropdown: false,
-      showShopDropdown: false,
-      showPTypeDropleft: false,
-      showSPageDropleft: false,
+      currentSubMenu: null,
+      currentSubSubMenu: null,
     };
   },
   methods: {
-    showEventsMenu() {
-      this.showEventsDropdown = true;
+    showSubMenu(index) {
+      this.currentSubMenu = index;
     },
-    hideEventsMenu() {
-      this.showEventsDropdown = false;
+    hideSubMenu() {
+      setTimeout(() => {
+        this.currentSubMenu = null;
+      }, 30);
     },
-    showShopMenu() {
-      this.showShopDropdown = true;
+    showSubSubMenu(index) {
+      this.currentSubSubMenu = index;
     },
-    hideShopMenu() {
-      this.showShopDropdown = false;
+    hideSubSubMenu() {
+      setTimeout(() => {
+      this.currentSubSubMenu = null;
+    }, 30);
     },
-    showPTypeMenu() {
-      this.showPTypeDropleft = true;
-    },
-    hidePTypeMenu() {
-      this.showPTypeDropleft = false;
-    },
-    showSPageMenu() {
-      this.showSPageDropleft = true;
-    },
-    hideSPageMenu() {
-      this.showSPageDropleft = false;
-    },
+  
   },
-}
+};
 </script>
 
 <template>
- <div>
-      <nav>
+  <div>
+    <nav>
       <ul>
-      <li class="menu_li">
-        <router-link :to="{ name: 'home' }">Home</router-link>
-      </li>
-      <li class="menu_li">
-        <a href="*">Blog</a>
-      </li>
-      <li class="menu_li" @mouseover="showEventsMenu" @mouseleave="hideEventsMenu">
-          <a href="#">Events <i class="fa-solid fa-chevron-down"></i></a>
-          <div v-show="showEventsDropdown" class="events_submenu submenu">
-            <ul>
-              <li><a href="#">choral music</a></li>
-              <li><a href="#">concert band</a></li>
-              <li><a href="#">opera concerts</a></li>
-              <li><a href="#">symphony orchestra</a></li>
-              <li><a href="#">family concerts</a></li>
-            </ul>
+        <li v-for="(menuItem, index) in menuItems" :key="index" class="menu_li">
+          <router-link v-if="menuItem.link" :to="menuItem.link">{{ menuItem.name }}</router-link>
+          <div
+            v-else
+            class="menu-container"
+            @mouseover="showSubMenu(index)"
+            @mouseleave="hideSubMenu"
+          >
+            {{ menuItem.name }} <i v-if="menuItem.subItems || menuItem.subItems[0].subItems" class="fa-solid fa-chevron-down"></i>
+            <div v-if="menuItem.subItems && currentSubMenu === index" class="submenu">
+              <ul>
+                <li v-for="(subItem, subIndex) in menuItem.subItems" @mouseover="showSubSubMenu(subIndex)"
+                    @mouseleave="hideSubSubMenu" :key="subIndex">
+                  <a
+                    href="#"
+                    
+                  >
+                    {{ subItem.name || subItem }}
+                  </a>
+                  <!-- Aggiunta sub_submenu solo per Product Type e Shop Page -->
+                  <div
+                    v-if="subItem.subItems && currentSubSubMenu === subIndex"
+                    class="sub_submenu"
+                  >
+                    <ul>
+                      <li
+                        v-for="(subSubMenu, subSubMenuIndex) in subItem.subItems"
+                        :key="subSubMenuIndex"
+                      >
+                        <a href="#">{{ subSubMenu.name || subSubMenu }}</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </li>
-      <li class="menu_li">
-        <a href="*">Gallery</a>
-      </li>
-      <li class="menu_li">
-        <router-link :to="{ name: 'about' }">About</router-link>
-      </li>
-      <li class="menu_li">
-        <router-link :to="{ name: 'contact' }">Contact</router-link>
-      </li>
-      <li class="menu_li" @mouseover="showShopMenu" @mouseleave="hideShopMenu">
-          <a href="#">Shop <i class="fa-solid fa-chevron-down"></i></a>
-          <div v-show="showShopDropdown" class="shop_submenu submenu">
-            <ul>
-              <li @mouseover="showPTypeMenu" @mouseleave="hidePTypeMenu"><a href="#"><i class="fa-solid fa-angle-left"></i> Product type</a>
-              
-                <ul v-show="showPTypeDropleft" class="ptype_submenu submenu">
-                <li>
-                  <a href="">Simple product</a>
-                </li>
-                <li>
-                  <a href="">external/affiliate product</a>
-                </li>
-                <li>
-                  <a href="">downloadable product</a>
-                </li>
-                <li>
-                  <a href="">Group product</a>
-                </li>
-                <li>
-                  <a href="">In stock product</a>
-                </li>
-                <li>
-                  <a href="">Variavle product</a>
-                </li>
-            </ul></li>
-              <li @mouseover="showSPageMenu" @mouseleave="hideSPageMenu"><a href="#"><i class="fa-solid fa-angle-left"></i> Shop Page</a>
-             
-
-            <ul v-show="showSPageDropleft" class="spage_submenu submenu">
-                <li>
-                  <a href="">ceck out</a>
-                </li>
-                <li>
-                  <a href="">cart</a>
-                </li>
-                <li>
-                  <a href="">downloads</a>
-                </li>
-                <li>
-                  <a href="">my account</a>
-                </li>
-                
-            </ul>
-              </li>
-            </ul>
-          </div>
-        </li>
-      
-    </ul>
+      </ul>
     </nav>
-   
-    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 @import '../styles/partials/_partials.scss';
- div{
-    display: flex;
-    nav{
-    ul{
+
+div {
+  display: flex;
+  nav {
+    ul {
       display: flex;
       justify-content: end;
       align-items: center;
       list-style-type: none;
       text-decoration: none;
-      
-      .menu_li{
+
+      .menu_li {
         margin-left: 10px;
       }
-      li{
-       font-weight: bold;
+
+      li {
+        font-weight: bold;
         text-transform: uppercase;
         position: relative;
-        a{
-        text-decoration: none;
-        text-transform: uppercase;
-        color: white;
-      }
-     
-      a:hover{
-        color: $main_orange;
-      }
 
-
-    
-
-
-      .submenu{
-        z-index: 500;
-      
-      
-        position: absolute;
-        min-width: 250px;
-
-       
-
-        
-
-        ul{
-          flex-direction: column;
-          width: 100%;
-          li{
-            
-            width: 100%;
-            padding: 7px 5px;
-            border-bottom:1px solid rgb(71, 71, 71) ;
-            padding-left: 10px;
-          }
-          li:last-of-type{
-            border-bottom:none ;
+        div {
+          i {
+            padding-top: 3px;
           }
         }
-    
-      }
 
-
-      .shop_submenu, .events_submenu{
-        background: linear-gradient(
-          to bottom,
-          transparent 42px,
-          $main_gray 42px 100%,
-        );
-        padding-top: 62px;
-        top:20px;
-        right:0;
-      }
-
-      .ptype_submenu, .spage_submenu{
-        background-color: $main_gray;
-        top: 0px;
-        right: 250px;
-        padding: 7px 5px;
-      }
-
-     
-      }
-
-    
-      
-    }
-    
-  }
-
-  i{
-        margin-left:10px
-      }
-
-      i:hover{
-        margin: 0 10px;
+        .menu-container:hover {
           color: $main_orange;
+        }
+
+        a {
+          text-decoration: none;
+          text-transform: uppercase;
+          color: white;
+
+          &:hover {
+            color: $main_orange;
+          }
+        }
+
+        .submenu {
+          z-index: 500;
+          position: absolute;
+          min-width: 250px;
+          right: 0;
+          padding-top: 62px;
+          top: 20px;
+          right: 0;
+          background: linear-gradient(
+            to bottom,
+            transparent 42px,
+            $main_gray 42px 100%,
+          );
+
+          ul {
+            flex-direction: column;
+            width: 100%;
+
+            li {
+              width: 100%;
+              padding: 7px 5px;
+              border-bottom: 1px solid rgb(71, 71, 71);
+              padding-left: 10px;
+
+              &:last-of-type {
+                border-bottom: none;
+              }
+            }
+          }
+        }
+
+        .sub_submenu {
+          background-color: $main_gray;
+          display: none;
+          z-index: 600;
+          position: absolute;
+          min-width: 250px;
+          top: 0;
+          right: 100%;
+          padding-top: 0;
+
+          ul {
+            flex-direction: column;
+            width: 100%;
+
+            li {
+              width: 100%;
+              padding: 7px 5px;
+              border-bottom: 1px solid rgb(71, 71, 71);
+              padding-left: 10px;
+
+              &:last-of-type {
+                border-bottom: none;
+              }
+            }
+          }
+        }
       }
-
-
+    }
   }
+
+  i {
+    margin-left: 10px;
+
+    &:hover {
+      color: $main_orange;
+    }
+  }
+}
+
+.submenu:hover .sub_submenu,
+.menu-container:hover .submenu {
+  display: block;
+}
 </style>

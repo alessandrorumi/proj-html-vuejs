@@ -1,126 +1,41 @@
 <!-- Da Sistemare: click invece che hover su side submenu / hover orange su sidemebu / bordi di sidesmenu / subsubmenu -->
 
 <script>
-
 export default {
-    name: 'SideNavbar',
-
-    data() {
+  props: ['menuItems'],
+  data() {
     return {
-      showEventsDropdown: false,
-      showShopDropdown: false,
-      showPTypeDropdown: false,
-      showSPageDropdown: false,
+      showSubMenu: null,
     };
   },
-
-    methods: {
+  methods: {
     closeSideNav() {
       this.$emit('close');
     },
-    toggleEventsMenu() {
-      this.showEventsDropdown = !this.showEventsDropdown;
+    toggleSubMenu(index) {
+      this.showSubMenu = this.showSubMenu === index ? null : index;
     },
-    toggleShopMenu() {
-      this.showShopDropdown = !this.showShopDropdown;
-    },
-    togglePTypeMenu() {
-      this.showPTypeDropdown = !this.showPTypeDropdown;
-    },
-    toggleSPageMenu() {
-      this.showSPageDropdown = !this.showSPageDropdown;
-    },
-  }
-  }
+  },
+};
 </script>
 
 <template>
-    <div class="side-navbar">
-        <i @click="closeSideNav" class="fa-solid fa-x"></i>
-
-        <nav>
+  <div class="side-navbar">
+    <i @click="closeSideNav" class="fa-solid fa-x"></i>
+    <nav>
       <ul>
-      <li class="menu_li">
-        <router-link :to="{ name: 'home' }">Home</router-link>
-      </li>
-      <li class="menu_li">
-        <a href="*">Blog</a>
-      </li>
-      <li class="menu_li" >
-          <a @click="toggleEventsMenu" href="#">Events <i  class="fa-solid fa-chevron-down"></i></a>
-          
-            <ul v-show="showEventsDropdown" class="events_submenu submenu">
-              <li><a href="#">choral music</a></li>
-              <li><a href="#">concert band</a></li>
-              <li><a href="#">opera concerts</a></li>
-              <li><a href="#">symphony orchestra</a></li>
-              <li><a href="#">family concerts</a></li>
-            </ul>
-          
+        <li v-for="(menuItem, index) in menuItems" :key="index" class="menu_li">
+          <router-link v-if="menuItem.link" :to="menuItem.link">{{ menuItem.name }}</router-link>
+          <a v-else href="#" @click="toggleSubMenu(index)">{{ menuItem.name }} <i v-if="menuItem.subItems" class="fa-solid fa-chevron-down"></i></a>
+          <ul v-if="menuItem.subItems && showSubMenu === index" class="submenu">
+            <li v-for="(subItem, subIndex) in menuItem.subItems" :key="subIndex">
+              <a href="#">{{ subItem.name || subItem }}</a>
+            </li>
+          </ul>
         </li>
-      <li class="menu_li">
-        <a href="*">Gallery</a>
-      </li>
-      <li class="menu_li">
-        <router-link :to="{ name: 'about' }">About</router-link>
-      </li>
-      <li class="menu_li">
-        <router-link :to="{ name: 'contact' }">Contact</router-link>
-      </li>
-      <li class="menu_li" >
-          <a @click="toggleShopMenu" href="#">Shop <i  class="fa-solid fa-chevron-down"></i></a>
-          
-            <ul v-show="showShopDropdown" class="shop_submenu submenu">
-              <li @click="togglePTypeMenu"><a href="#"> Product type <i  class="fa-solid fa-chevron-down"></i></a>
-              
-                <ul v-show="showPTypeDropdown" class="ptype_submenu submenu">
-                <li>
-                  <a href="">Simple product</a>
-                </li>
-                <li>
-                  <a href="">external/affiliate product</a>
-                </li>
-                <li>
-                  <a href="">downloadable product</a>
-                </li>
-                <li>
-                  <a href="">Group product</a>
-                </li>
-                <li>
-                  <a href="">In stock product</a>
-                </li>
-                <li>
-                  <a href="">Variavle product</a>
-                </li>
-            </ul></li>
-              <li @click="toggleSPageMenu"><a href="#"> Shop Page <i  class="fa-solid fa-chevron-down"></i></a>
-             
-
-            <ul v-show="showSPageDropdown" class="spage_submenu submenu">
-                <li>
-                  <a href="">ceck out</a>
-                </li>
-                <li>
-                  <a href="">cart</a>
-                </li>
-                <li>
-                  <a href="">downloads</a>
-                </li>
-                <li>
-                  <a href="">my account</a>
-                </li>
-                
-            </ul>
-              </li>
-            </ul>
-          
-        </li>
-      
-    </ul>
+      </ul>
     </nav>
-       
-    </div>
- 
+  </div>
 </template>
 
 <style scoped lang="scss">
