@@ -1,3 +1,12 @@
+<!-- Ho aggiunto un attributo ref all'elemento <section> per ottenere un riferimento ad esso nell'istanza del componente (ref="counterSection").
+  Ho aggiunto una nuova proprietà di dati chiamata isInViewport per tenere traccia se l'elemento è nella viewport.
+  Ho aggiunto il metodo animateIfInViewport per verificare se l'elemento è nella viewport prima di chiamare animateCounter.
+  Ho aggiunto il metodo handleIntersection, chiamato quando l'intersezione dell'elemento con la viewport cambia. Aggiorna la proprietà isInViewport in base allo stato di intersezione.
+  Nel hook mounted, ho impostato un Intersection Observer per osservare l'elemento <section> e chiamare il metodo handleIntersection quando la sua intersezione con la viewport cambia.
+
+Regola l'opzione threshold nella configurazione dell'Intersection Observer secondo le tue esigenze. Il threshold rappresenta la percentuale dell'elemento di destinazione che deve essere visibile affinché il callback venga attivato (qui è impostato su 0,5, il che significa che almeno il 50% dell'elemento deve essere visibile). -->
+
+
 <script>
 export default {
   data() {
@@ -10,9 +19,15 @@ export default {
       start2: 0,
       start3: 0,
       start4: 0,
+      isInViewport: false,
     };
   },
   methods: {
+    animateIfInViewport() {
+      if (this.isInViewport) {
+        this.animateCounter();
+      }
+    },
     animateCounter() {
       const animationSpeed = 10;
 
@@ -48,16 +63,29 @@ export default {
         }
       }, animationSpeed);
     },
+    handleIntersection(entries) {
+      const entry = entries[0];
+      this.isInViewport = entry.isIntersecting;
+      this.animateIfInViewport();
+    },
   },
   mounted() {
-    this.animateCounter();
+    // Utilizzo dell'Intersection Observer per rilevare quando l'elemento è nella viewport
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5, // Modifica se necessario
+    };
+
+    const observer = new IntersectionObserver(this.handleIntersection, options);
+    observer.observe(this.$refs.counterSection);
   },
 };
 </script>
 
 <template>
   <!-- Counter (Guitar) -->
-  <section class="counter">
+  <section class="counter" ref="counterSection">
     <div class="card">
       <i class="fa-solid fa-child-reaching"></i>
       <h2>{{ start1 }}</h2>
