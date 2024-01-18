@@ -106,39 +106,7 @@ export default {
           image: 'public/music-blog/7.jpg'
         },
       ],
-      // Array Img (Instagram)
-      // intagram: [
-      //   {
-      //     image: 'public/ig-images/instagram_img1.jpg'
-      //   },
-      //   {
-      //     image: 'public/ig-images/instagram_img2.jpg'
-      //   },
-      //   {
-      //     image: 'public/ig-images/instagram_img3.jpg'
-      //   },
-      //   {
-      //     image: 'public/ig-images/instagram_img4.jpg'
-      //   },
-      //   {
-      //     image: 'public/ig-images/instagram_img5.jpg'
-      //   },
-      //   {
-      //     image: 'public/ig-images/instagram_img6.jpg'
-      //   },
-      //   {
-      //     image: 'public/ig-images/instagram_img7.jpg'
-      //   },
-      //   {
-      //     image: 'public/ig-images/instagram_img8.jpg'
-      //   },
-      //   {
-      //     image: 'public/ig-images/instagram_img9.jpg'
-      //   },
-      //   {
-      //     image: 'public/ig-images/instagram_img10.jpg'
-      //   }
-      // ],
+   
       homeIndex: 0,
       musicBlogIndex: 0,
     };
@@ -316,13 +284,9 @@ export default {
       <button class="next" @click="nextMusicBlogImage"><i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></button>
     </section>
 
-    <!-- Instagram Images -->
+   
     <IgSlider/>
-    <!-- <section class="ig-images">
-      <div class="image" v-for="igImages in intagram">
-        <img :src="igImages.image" alt="">
-      </div>
-    </section> -->
+   
   </main>
 </template>
 
@@ -833,27 +797,5 @@ main {
   }
 }
 
-// Sezione IG Images
 
-
-// .ig-images {
-//   display: flex;
-//   .image {
-//     overflow: hidden;
-
-//     img {
-//       display: block;
-//       width: 100%;
-//       height: auto;
-//       transition: 0.3s ease-in-out;
-//       transform-origin: center center;
-
-//       &:hover {
-//         transform: scale(1.05);
-//         transition-duration: 0.3s;
-//         cursor: pointer;
-//       }
-//     }
-//   }
-// }
 </style>
