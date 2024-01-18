@@ -371,7 +371,7 @@ main {
 
 .carousel {
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 7;
   width: 100%;
 
   &:hover {
@@ -455,13 +455,25 @@ main {
 // Sezione Cards
 
 .cards {
-  margin-top: -2.5rem;
+  margin-top: -7rem;
   position: relative;
   z-index: 100;
   padding: 0 3rem;
   display: flex;
   flex-wrap: wrap;
   color: #fff;
+
+  @media only screen and (min-width: 880px) and (max-width: 1024px)  {
+    margin-top: -5rem;
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 880px)  {
+    margin-top: -4rem;
+  }
+
+  @media only screen and (max-width: 767px) {
+    margin-top: -3rem;
+  }
 
   .card {
     background-color: $main_gray;
