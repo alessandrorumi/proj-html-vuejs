@@ -120,12 +120,13 @@ export default {
     @mouseover="isHovered = true"
     @mouseleave="isHovered = false"
     :navigation="isHovered ? true : false"
+    :lazy="true"
     :style="{
       '--swiper-navigation-color': '#fff'
     }"
     :rewind="true"
     :modules="modules"
-    :spaceBetween="30"
+    :spaceBetween="0"
     @swiper="onSwiper"
     @slideChange="onSlideChange"
     :breakpoints="{
@@ -163,12 +164,10 @@ export default {
 .music_blog_slider {
   max-width: 1400px;
   margin: 0 auto;
-  .swiper-button-next,
-  .swiper-button-prev {
-    color: white !important;
-  }
-  padding: 50px 0;
+
+  padding: 50px 10px;
   .card {
+    padding: 0 10px;
     .image {
       overflow: hidden;
 

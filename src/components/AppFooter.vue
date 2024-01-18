@@ -24,12 +24,13 @@ export default {
         // Se lo schermo è largo, apri automaticamente il dropdown
         this.dropdowns[column] = !this.dropdowns[column];
       } else {
-        // Chiudi gli altri dropdown e apri solo quello cliccato
+        // Chiudi gli altri dropdown 
         for (const key in this.dropdowns) {
           if (key !== column) {
             this.dropdowns[key] = false;
           }
         }
+        // e apri solo quello cliccato
         this.dropdowns[column] = !this.dropdowns[column];
       }
     },
@@ -56,6 +57,7 @@ export default {
   // Inizializza lo stato dei dropdown in base alla larghezza iniziale della finestra
   this.isWideScreen = window.innerWidth > 1024;
   for (const key in this.dropdowns) {
+    // assegna a ciascun dropdown lo stato iniziale in base alla larghezza dello schermo.
     this.dropdowns[key] = this.isWideScreen;
   }
 },
