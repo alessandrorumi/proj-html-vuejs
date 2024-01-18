@@ -118,7 +118,10 @@ export default {
       </div>
       <div class="text">
         <h4>{{ musicBlog.title }}</h4>
-        <h5><i class="fa-solid fa-calendar-days" style="color: #f2870c;"></i> {{ musicBlog.date }}</h5>
+        <h5>
+          <i class="fa-solid fa-calendar-days" style="color: #f2870c"></i>
+          {{ musicBlog.date }}
+        </h5>
         <p>{{ musicBlog.description }}</p>
       </div>
     </swiper-slide>
