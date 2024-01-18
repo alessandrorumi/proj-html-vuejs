@@ -1,12 +1,14 @@
 <script>
 import Counter from '../components/Counter.vue';
 import IgSlider from '../components/IgSlider.vue';
+import MusicBlogSlider from '../components/MusicBlogSlider.vue';
 
 export default {
   name: 'AppHome',
   components: { 
     Counter,
-    IgSlider },
+    IgSlider,
+    MusicBlogSlider },
   data() {
     return {
       // Array di oggetti (Home)
@@ -112,9 +114,9 @@ export default {
     };
   },
   computed: {
-      activeMusicBlogImages() {
-          return this.blog.slice(this.musicBlogIndex, this.musicBlogIndex + 3);
-      }
+      // activeMusicBlogImages() {
+      //     return this.blog.slice(this.musicBlogIndex, this.musicBlogIndex + 3);
+      // }
   },
   // All'avvio dell'app
   created() {
@@ -265,10 +267,12 @@ export default {
     </section>
 
     <!-- Music Blog -->
+    
     <section class="music-blog">
       <h4>MUSIC BLOG</h4>
       <h3>BEST MUSIC BLOG</h3>
-      <div class="carousel-blog">
+      <MusicBlogSlider/>
+      <!-- <div class="carousel-blog">
         <div v-for="musicBlog in activeMusicBlogImages" class="card">
           <div class="image">
             <img :src="musicBlog.image" alt="">
@@ -281,10 +285,10 @@ export default {
         </div>
       </div>
       <button class="prev" @click="prevMusicBlogImage"><i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i></button>
-      <button class="next" @click="nextMusicBlogImage"><i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></button>
+      <button class="next" @click="nextMusicBlogImage"><i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></button> -->
     </section>
 
-   
+   <!-- Instagram -->
     <IgSlider/>
    
   </main>
@@ -737,64 +741,64 @@ main {
 
   // Sezione Carousel (Blog)
 
-  .carousel-blog {
-    position: relative;
-    display: flex;
-    overflow: hidden;
-    width: 100%;
-    justify-content: center;
-    .card {
-      flex-grow: 0;
-      flex-shrink: 0;
-      flex-basis: calc((100% / 3) - 2rem);
-      margin: 0 1rem;
+  // .carousel-blog {
+  //   position: relative;
+  //   display: flex;
+  //   overflow: hidden;
+  //   width: 100%;
+  //   justify-content: center;
+  //   .card {
+  //     flex-grow: 0;
+  //     flex-shrink: 0;
+  //     flex-basis: calc((100% / 3) - 2rem);
+  //     margin: 0 1rem;
 
-      .image {
-        overflow: hidden;
+  //     .image {
+  //       overflow: hidden;
 
-        img {
-          display: block;
-          transition: 0.3s ease-in-out;
-          transform-origin: center center;
+  //       img {
+  //         display: block;
+  //         transition: 0.3s ease-in-out;
+  //         transform-origin: center center;
 
-          &:hover {
-            transform: scale(1.05);
-            transition-duration: 0.3s;
-            cursor: pointer;
-          }
-        }
-      }
+  //         &:hover {
+  //           transform: scale(1.05);
+  //           transition-duration: 0.3s;
+  //           cursor: pointer;
+  //         }
+  //       }
+  //     }
 
-      .text {
-        text-align: start;
+  //     .text {
+  //       text-align: start;
 
-        h4 {
-          color: #fff;
-          padding: 0;
-          font-size: 1.5rem;
+  //       h4 {
+  //         color: #fff;
+  //         padding: 0;
+  //         font-size: 1.5rem;
 
-          &:hover {
-            color: $main_orange;
-            cursor: pointer;
-          }
-        }
+  //         &:hover {
+  //           color: $main_orange;
+  //           cursor: pointer;
+  //         }
+  //       }
 
-        h5 {
-          color: $main_orange;
-          margin: 1rem 0;
-        }
+  //       h5 {
+  //         color: $main_orange;
+  //         margin: 1rem 0;
+  //       }
 
-        p {
-        color: #b9b9b9;
-        }
-      }
+  //       p {
+  //       color: #b9b9b9;
+  //       }
+  //     }
 
 
-      img {
-        width: 100%;
-      }
-    }
-  }
+  //     img {
+  //       width: 100%;
+  //     }
+  //   }
+  // }
 }
 
 
