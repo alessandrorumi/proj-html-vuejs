@@ -247,11 +247,13 @@ export default {
     </section>
 
     <!-- Album Out Now -->
-    <section class="album-out-now">
-      <div class="text">
-        <h3>INSTRUMENTAL ROCK</h3>
-        <h2>ALBUM OUT NOW</h2>
-        <a href="">READ MORE</a>
+    <section class="album-background">
+      <div class="album-out-now">
+        <div class="text">
+          <h3>INSTRUMENTAL ROCK</h3>
+          <h2>ALBUM OUT NOW</h2>
+          <a href="">READ MORE</a>
+        </div>
       </div>
     </section>
 
@@ -605,13 +607,16 @@ main {
 }
 
 // Sezione Album Out Now
-.album-out-now {
+
+.album-background {
   background-image: url(../assets/img/cms_parallax.jpg);
   min-height: 850px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover
+}
+.album-out-now {
   position: relative;
   padding: 0 3rem;
   text-align: start;
@@ -666,6 +671,15 @@ main {
     }
   }
 }
+
+// Background fisso su 1365px
+@media all and (max-width: 1365px) {
+    .album-out-now {
+      background-image: url(../assets/img/cms_parallax.jpg);
+      background-position: center;
+      background-size: cover;
+    }
+  }
 
 // Sezione Counter
 
