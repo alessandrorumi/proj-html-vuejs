@@ -24,13 +24,7 @@ export default {
         // Se lo schermo è largo, apri automaticamente il dropdown
         this.dropdowns[column] = !this.dropdowns[column];
       } else {
-        // Chiudi gli altri dropdown 
-        for (const key in this.dropdowns) {
-          if (key !== column) {
-            this.dropdowns[key] = false;
-          }
-        }
-        // e apri solo quello cliccato
+      //  apri solo quello cliccato
         this.dropdowns[column] = !this.dropdowns[column];
       }
     },
