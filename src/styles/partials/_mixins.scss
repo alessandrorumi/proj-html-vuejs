@@ -1,7 +1,7 @@
 @import './partials';
 
 @mixin btn-standard {
-  padding: .35rem 2rem;
+  padding: 0.35rem 2rem;
   border: 1px solid $main_orange;
   color: #fff;
   text-decoration: none;
@@ -9,4 +9,25 @@
   &:hover {
     background-color: $main_orange;
   }
+}
+
+@mixin translate-horiz-middle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin translate-middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin default-bg-image {
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }

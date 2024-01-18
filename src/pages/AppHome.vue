@@ -291,14 +291,11 @@ main {
     height: 40px;
     border: none;
     background-color: $main_gray;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    @include translate-horiz-middle;
     display: none;
   }
 
   h2 {
-    color: #fff;
     font-size: 4rem;
   }
 
@@ -364,7 +361,7 @@ main {
 
     h1 {
       font-size: 4rem;
-      color: #fff;
+
       margin-bottom: 1rem;
     }
 
@@ -386,10 +383,7 @@ main {
     height: 40px;
     border: none;
     background-color: $main_gray;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-
+    @include translate-horiz-middle;
     &.prev {
       left: 1rem;
     }
@@ -414,7 +408,6 @@ main {
   padding: 0 3rem;
   display: flex;
   flex-wrap: wrap;
-  color: #fff;
 
   @media only screen and (min-width: 880px) and (max-width: 1024px) {
     margin-top: -5rem;
@@ -530,10 +523,7 @@ main {
     }
 
     .text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      @include translate-middle;
     }
   }
 }
@@ -578,7 +568,6 @@ main {
       }
 
       h4 {
-        color: #fff;
         font-size: 1.5rem;
         margin-top: 1rem;
       }
@@ -589,7 +578,6 @@ main {
 
       i {
         margin: 0 0.5rem;
-        color: #fff;
 
         &:hover {
           color: $main_orange;
@@ -611,10 +599,7 @@ main {
 .album-background {
   background-image: url(../assets/img/cms_parallax.jpg);
   min-height: 850px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover
+  @include default-bg-image;
 }
 .album-out-now {
   position: relative;
@@ -622,16 +607,12 @@ main {
   text-align: start;
 
   .text {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-
+    @include translate-horiz-middle;
     h3 {
       color: $main_orange;
     }
 
     h2 {
-      color: #fff;
       font-size: 7rem;
       margin-bottom: 2rem;
     }
@@ -674,21 +655,17 @@ main {
 
 // Background fisso su 1365px
 @media all and (max-width: 1365px) {
-    .album-out-now {
-      background-image: url(../assets/img/cms_parallax.jpg);
-      background-position: center;
-      background-size: cover;
-    }
+  .album-out-now {
+    background-image: url(../assets/img/cms_parallax.jpg);
+    @include default-bg-image;
   }
+}
 
 // Sezione Counter
 
 .background-scroll {
   background-image: url(../assets/img/counter_parallax.jpg);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  @include default-bg-image;
 }
 
 // Sezione Music Blog
@@ -709,16 +686,12 @@ main {
   }
 
   h3 {
-    color: #fff;
     font-size: 2rem;
     padding-bottom: 2rem;
   }
 
   button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-
+    @include translate-horiz-middle;
     &.prev {
       left: 1rem;
     }

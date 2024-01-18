@@ -13,8 +13,12 @@ export default {
     SwiperSlide
   },
   setup() {
-    const onSwiper = swiper => {}
-    const onSlideChange = () => {}
+    const onSwiper = swiper => {
+      console.log(swiper)
+    }
+    const onSlideChange = () => {
+      console.log('slide change')
+    }
     return {
       onSwiper,
       onSlideChange,
@@ -25,39 +29,6 @@ export default {
   data() {
     return {
       isHovered: false,
-
-      intagram: [
-        {
-          image: 'public/ig-images/instagram_img1.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img2.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img3.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img4.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img5.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img6.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img7.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img8.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img9.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img10.jpg'
-        }
-      ],
       // Array di oggetti (Blog)
       blog: [
         {
@@ -213,6 +184,4 @@ export default {
     }
   }
 }
-
-//   }
 </style>
