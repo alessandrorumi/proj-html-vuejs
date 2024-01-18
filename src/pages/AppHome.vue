@@ -1,9 +1,12 @@
 <script>
 import Counter from '../components/Counter.vue';
+import IgSlider from '../components/IgSlider.vue';
 
 export default {
   name: 'AppHome',
-  components: { Counter },
+  components: { 
+    Counter,
+    IgSlider },
   data() {
     return {
       // Array di oggetti (Home)
@@ -104,38 +107,38 @@ export default {
         },
       ],
       // Array Img (Instagram)
-      intagram: [
-        {
-          image: 'public/ig-images/instagram_img1.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img2.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img3.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img4.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img5.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img6.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img7.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img8.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img9.jpg'
-        },
-        {
-          image: 'public/ig-images/instagram_img10.jpg'
-        }
-      ],
+      // intagram: [
+      //   {
+      //     image: 'public/ig-images/instagram_img1.jpg'
+      //   },
+      //   {
+      //     image: 'public/ig-images/instagram_img2.jpg'
+      //   },
+      //   {
+      //     image: 'public/ig-images/instagram_img3.jpg'
+      //   },
+      //   {
+      //     image: 'public/ig-images/instagram_img4.jpg'
+      //   },
+      //   {
+      //     image: 'public/ig-images/instagram_img5.jpg'
+      //   },
+      //   {
+      //     image: 'public/ig-images/instagram_img6.jpg'
+      //   },
+      //   {
+      //     image: 'public/ig-images/instagram_img7.jpg'
+      //   },
+      //   {
+      //     image: 'public/ig-images/instagram_img8.jpg'
+      //   },
+      //   {
+      //     image: 'public/ig-images/instagram_img9.jpg'
+      //   },
+      //   {
+      //     image: 'public/ig-images/instagram_img10.jpg'
+      //   }
+      // ],
       homeIndex: 0,
       musicBlogIndex: 0,
       blogImages: 3
@@ -315,11 +318,12 @@ export default {
     </section>
 
     <!-- Instagram Images -->
-    <section class="ig-images">
+    <IgSlider/>
+    <!-- <section class="ig-images">
       <div class="image" v-for="igImages in intagram">
         <img :src="igImages.image" alt="">
       </div>
-    </section>
+    </section> -->
   </main>
 </template>
 
@@ -831,24 +835,26 @@ main {
 }
 
 // Sezione IG Images
-.ig-images {
-  display: flex;
-  .image {
-    overflow: hidden;
 
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-      transition: 0.3s ease-in-out;
-      transform-origin: center center;
 
-      &:hover {
-        transform: scale(1.05);
-        transition-duration: 0.3s;
-        cursor: pointer;
-      }
-    }
-  }
-}
+// .ig-images {
+//   display: flex;
+//   .image {
+//     overflow: hidden;
+
+//     img {
+//       display: block;
+//       width: 100%;
+//       height: auto;
+//       transition: 0.3s ease-in-out;
+//       transform-origin: center center;
+
+//       &:hover {
+//         transform: scale(1.05);
+//         transition-duration: 0.3s;
+//         cursor: pointer;
+//       }
+//     }
+//   }
+// }
 </style>
