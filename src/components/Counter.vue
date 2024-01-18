@@ -159,7 +159,7 @@ export default {
 @media all and (max-width: 1365px) {
   .counter {
     background-image: url(../assets/img/counter_parallax.jpg);
-    background-position: center;
+    @include static-bg-image;
   }
 }
 

@@ -150,6 +150,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '../styles/partials/_partials.scss';
+@import '../styles/partials/mixins';
 
 /* general styles */
 /* overlay square animation sections 2/4 */
@@ -218,10 +219,7 @@ i {
 .about-background {
   background-image: url(../assets/img/cms_parallax.jpg); //probabilmente da applicare al body, da parlarne insieme
   min-height: 100vh;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  @include default-bg-image;
 }
 
 .about-entry {
@@ -418,8 +416,7 @@ i {
 @media all and (max-width: 1365px) {
   .about-album {
     background-image: url(../assets/img/cms_parallax.jpg);
-    background-position: center;
-    background-size: cover;
+    @include static-bg-image;
   }
 }
 

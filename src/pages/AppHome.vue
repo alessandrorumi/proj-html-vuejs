@@ -657,7 +657,7 @@ main {
 @media all and (max-width: 1365px) {
   .album-out-now {
     background-image: url(../assets/img/cms_parallax.jpg);
-    @include default-bg-image;
+    @include static-bg-image;
   }
 }
 
