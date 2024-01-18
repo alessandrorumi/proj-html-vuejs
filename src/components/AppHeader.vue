@@ -56,7 +56,7 @@ export default {
     <img src="../assets/img/Logo.png" alt="">
     <div>
       <HeaderNavbar class="header_navbar" :menuItems="menuItems" />
-      <i @click="toggleSideNav" class="fa-solid fa-bars" style="color: #ffffff;" v-show="!showBurgerMenu"></i>
+      <i @click="toggleSideNav" class="fa-solid fa-bars" v-show="!showBurgerMenu"></i>
       <i class="fa-solid fa-magnifying-glass"></i>
     </div>
     <SideNavbar v-show="showEventsSideNav" @close="hideSideNav" :menuItems="menuItems" />
@@ -86,6 +86,11 @@ header{
   .fa-bars{
     display: none;
     padding-right: 5px;
+
+    &:hover {
+      color: $main-orange;
+      cursor: pointer;
+    }
   
   }
   .header_navbar{
@@ -122,6 +127,7 @@ header{
   }
 }
 
-
-
+img:hover {
+  cursor: pointer;
+}
 </style>
