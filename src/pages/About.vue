@@ -89,6 +89,8 @@ export default {
           <a href="#" class="btn">READ MORE</a>
         </div>
         <div class="story-col-image">
+          <div class="overlay-square top-left"></div>
+          <div class="overlay-square bottom-right"></div>
           <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/about_img.jpg" alt="img_1">
         </div>
       </div>
@@ -105,6 +107,8 @@ export default {
     <section class="faqs-container">
       <div class="faqs-row">
         <div class="faqs-col-image">
+          <div class="overlay-square top-left"></div>
+          <div class="overlay-square bottom-right"></div>
           <img src="https://wordpressthemes.live/WP01/WP015/wp-content/uploads/2022/06/Img-02.jpg" alt="img_2">
         </div>
         <div class="faqs-col-text">
@@ -148,6 +152,39 @@ export default {
 @import '../styles/partials/_partials.scss';
 
 /* general styles */
+/* overlay square animation sections 2/4 */
+.story-col-image,
+.faqs-col-image {
+  position: relative;
+  overflow: hidden;
+
+  .overlay-square {
+    position: absolute;
+    background-color: rgba(255,255,255,.04);
+    width: 0;
+    height: 0;
+    transition: 0.6s ease-in-out;
+  }
+
+  .overlay-square.top-left {
+    top: 0;
+    left: 0;
+  }
+
+  .overlay-square.bottom-right {
+    bottom: 0;
+    right: 0;
+  }
+
+  &:hover {
+    .overlay-square {
+      width: 100%;
+      height: 100%;
+      transform: rotate(180deg);
+    }
+  }
+}
+
 /*buttons */
 .btn {
   text-align: center;
@@ -278,6 +315,8 @@ i {
   }
   img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
