@@ -209,11 +209,10 @@ export default {
 
     <!-- Cards -->
     <section class="cards">
-
       <div class="card">
-        <div class="image">
-          <img src="../assets/img/cards/speaker.svg" alt="">
-        </div>
+          <div class="image">
+            <img src="../assets/img/cards/speaker.svg" alt="">
+          </div>
         <div class="text">
           <h3>ORIGINAL IDEAS</h3>
           <p>Contrary popular belief, Lorem Ipsum not simply ipsum random text.</p>
@@ -327,6 +326,8 @@ export default {
 @import '../styles/partials/partials';
 @import '../styles/partials/mixins';
 
+// CSS Main(generali)
+
 main {
   background-color: #000;
   text-align: center;
@@ -365,6 +366,9 @@ main {
     }
   }
 }
+
+// Sezione Carousel (Home)
+
 .carousel {
   position: relative;
   aspect-ratio: 16 / 9;
@@ -448,6 +452,8 @@ main {
   }
 }
 
+// Sezione Cards
+
 .cards {
   margin-top: -2.5rem;
   position: relative;
@@ -465,33 +471,19 @@ main {
     flex-direction: column;
     align-items: center;
     position: relative;
+    padding: 3rem;
 
     @media only screen and (max-width: 870px) {
       padding: 0.5rem;
     }
 
-    @media only screen and (min-width: 871px) {
-      padding: 3rem;
-
-      .image {
-        width: 85px;
-        height: 85px;
-      }
-
-      .text {
-        h3 {
-          font-size: 1.25rem;
-        }
-
-        p {
-          color: #b9b9b9;
-        }
-      }
-    }
-
     @media only screen and (max-width: 767px) {
       width: calc(100% - 2rem);
       margin: 0 1rem 2rem;
+    }
+
+    &:hover .image::before {
+      animation: sonar-effect 1s ease-in-out 0.1s infinite;
     }
 
     .image {
@@ -510,10 +502,6 @@ main {
         left: 0;
       }
 
-      &:hover::before {
-        animation: sonar-effect 1s ease-in-out 0.1s infinite;
-      }
-
       img {
         width: 85px;
         height: 85px;
@@ -525,22 +513,34 @@ main {
       }
     }
 
-    @keyframes sonar-effect {
-      0% {
-        opacity: 0.3;
+    .text {
+      h3 {
+        font-size: 1.25rem;
       }
-      40% {
-        opacity: 0.5;
-        box-shadow: 0 0 0 5px #fff, 0 0 10px 10px #fff, 0 0 0 10px #fff;
-      }
-      100% {
-        box-shadow: 0 0 0 5px #fff, 0 0 10px 10px #fff, 0 0 0 10px #fff;
-        transform: scale(1.5);
-        opacity: 0;
+
+      p {
+        color: #b9b9b9;
       }
     }
   }
 }
+
+@keyframes sonar-effect {
+  0% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 0.5;
+    box-shadow: 0 0 0 5px #fff, 0 0 10px 10px #fff, 0 0 0 10px #fff;
+  }
+  100% {
+    box-shadow: 0 0 0 5px #fff, 0 0 10px 10px #fff, 0 0 0 10px #fff;
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+// Sezione Who We Are (Intro)
 
 .who-we-are-intro {
   width: 75%;
@@ -571,6 +571,8 @@ main {
     }
   }
 }
+
+// Sezione Who We Are (Main)
 
 .who-we-are-main {
   padding: 3rem 0 5rem;
@@ -638,7 +640,7 @@ main {
   }
 }
 
-// Album Out Now
+// Sezione Album Out Now
 .album-out-now {
   background-image: url(../assets/img/cms_parallax.jpg);
   min-height: 850px;
@@ -701,7 +703,17 @@ main {
   }
 }
 
-// Music Blog
+// Sezione Counter
+
+.background-scroll {
+  background-image: url(../assets/img/counter_parallax.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+// Sezione Music Blog
 
 .music-blog {
   padding: 0 3rem 6rem;
@@ -742,6 +754,8 @@ main {
         cursor: pointer;
       }
     }
+
+  // Sezione Carousel (Blog)
 
   .carousel-blog {
     position: relative;
@@ -803,7 +817,7 @@ main {
   }
 }
 
-//////////////////////////////////////////////////////////////////////////////////
+// Sezione IG Images
 .ig-images {
   display: flex;
   .image {
@@ -823,19 +837,5 @@ main {
       }
     }
   }
-}
-
-
-
-
-
-
-/* prova sul background scegli dove posizionarlo :D */
-.background-scroll {
-  background-image: url(../assets/img/counter_parallax.jpg);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 </style>
