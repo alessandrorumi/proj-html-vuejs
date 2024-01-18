@@ -39,4 +39,10 @@ export default {
   padding: .3rem .5rem;
   z-index: 200;
 }
+
+@media all and (max-width: 720px) {
+  .arrow-button {
+    display: none;
+  }
+}
 </style>
