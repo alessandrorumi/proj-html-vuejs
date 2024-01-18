@@ -138,12 +138,13 @@ export default {
       ],
       homeIndex: 0,
       musicBlogIndex: 0,
+      blogImages: 3
     };
   },
   computed: {
-      activeMusicBlogImages() {
-          return this.blog.slice(this.musicBlogIndex, this.musicBlogIndex + 3);
-      }
+    activeMusicBlogImages() {
+        return this.blog.slice(this.musicBlogIndex, this.musicBlogIndex + this.blogImages);
+    }
   },
   // All'avvio dell'app
   created() {
@@ -175,12 +176,12 @@ export default {
               this.musicBlogIndex--;
           }
           else {
-              this.musicBlogIndex = this.blog.length - 3;
+              this.musicBlogIndex = this.blog.length - this.blogImages;
           }
       },
       // Img successiva (Blog carousel)
       nextMusicBlogImage() {
-          if (this.musicBlogIndex < this.blog.length - 3) {
+          if (this.musicBlogIndex < this.blog.length - this.blogImages) {
               this.musicBlogIndex++;
           }
           else {
@@ -414,16 +415,16 @@ main {
     color: #fff;
     margin-bottom: 1rem;
   }
+  
+  @media only screen and (min-width: 768px) and (max-width: 880px) {
+    h1 {
+      font-size: 3rem;
+    }
+  }
 
   @media only screen and (max-width: 767px) {
     h1 {
       font-size: 2rem;
-    }
-  }
-
-  @media only screen and (min-width: 768px) and (max-width: 880px) {
-    h1 {
-      font-size: 3rem;
     }
   }
 }
@@ -485,7 +486,7 @@ main {
     position: relative;
     padding: 3rem;
 
-    @media only screen and (max-width: 870px) {
+    @media only screen and (max-width: 880px) {
       padding: 0.5rem;
     }
 
@@ -680,7 +681,7 @@ main {
     }
   }
 
-  @media only screen and (max-width: 479px) {
+  @media only screen and (max-width: 478px) {
     min-height: 600px;
     padding: 0 1rem;
 
@@ -692,7 +693,7 @@ main {
     }
   }
 
-  @media only screen and (min-width: 479px) and (max-width: 767px) {
+  @media only screen and (min-width: 478px) and (max-width: 767px) {
     min-height: 700px;
 
     .text {
@@ -767,7 +768,7 @@ main {
       }
     }
 
-  // Sezione Carousel (Blog)
+  // Carousel (Blog)
 
   .carousel-blog {
     position: relative;
