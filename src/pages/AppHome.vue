@@ -453,7 +453,7 @@ main {
     position: relative;
     padding: 3rem;
 
-    @media only screen and (max-width: 870px) {
+    @media only screen and (max-width: 880px) {
       padding: 0.5rem;
     }
 
@@ -649,7 +649,7 @@ main {
     }
   }
 
-  @media only screen and (max-width: 479px) {
+  @media only screen and (max-width: 478px) {
     min-height: 600px;
     padding: 0 1rem;
 
@@ -661,7 +661,7 @@ main {
     }
   }
 
-  @media only screen and (min-width: 479px) and (max-width: 767px) {
+  @media only screen and (min-width: 478px) and (max-width: 767px) {
     min-height: 700px;
 
     .text {
