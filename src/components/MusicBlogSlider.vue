@@ -118,7 +118,7 @@ export default {
       </div>
       <div class="text">
         <h4>{{ musicBlog.title }}</h4>
-        <h5>{{ musicBlog.date }}</h5>
+        <h5><i class="fa-solid fa-calendar-days" style="color: #f2870c;"></i> {{ musicBlog.date }}</h5>
         <p>{{ musicBlog.description }}</p>
       </div>
     </swiper-slide>
@@ -166,8 +166,14 @@ export default {
       }
 
       h5 {
+        display: flex;
+        align-items: center;
         color: $main_orange;
         margin: 1rem 0;
+
+        i {
+          margin-right: 10px;
+        }
       }
 
       p {
