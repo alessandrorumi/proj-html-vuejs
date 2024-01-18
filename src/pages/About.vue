@@ -521,7 +521,7 @@ i {
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////
-/*section 5 prova per counter */
+/*section 5 counter */
 .background-scroll {
   background-image: url(../assets/img/counter_parallax.jpg);
   background-attachment: fixed;
@@ -529,9 +529,7 @@ i {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 //////////////////////////////////////////////////////////////////////////////////////////////
-/// 
 /*staff section 6 */ 
 .staff-container {
   border-bottom: 1px solid #222222;
