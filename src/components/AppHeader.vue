@@ -65,6 +65,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import '../styles/partials/partials';
  
 
 header{
@@ -114,6 +115,11 @@ header{
 
 .fa-magnifying-glass{
   padding-left: 10px;
+
+  &:hover {
+    cursor: pointer;
+    color: $main-orange;
+  }
 }
 
 
