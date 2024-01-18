@@ -99,7 +99,6 @@ export default {
           ]
         }
       ],
-
       homeIndex: 0,
       musicBlogIndex: 0
     }
@@ -125,22 +124,6 @@ export default {
         this.homeIndex++
       } else {
         this.homeIndex = 0
-      }
-    },
-    // Img precendente (Blog carousel)
-    prevMusicBlogImage() {
-      if (this.musicBlogIndex > 0) {
-        this.musicBlogIndex--
-      } else {
-        this.musicBlogIndex = this.blog.length - 3
-      }
-    },
-    // Img successiva (Blog carousel)
-    nextMusicBlogImage() {
-      if (this.musicBlogIndex < this.blog.length - 3) {
-        this.musicBlogIndex++
-      } else {
-        this.musicBlogIndex = 0
       }
     }
   }

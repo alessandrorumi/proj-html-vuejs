@@ -1,35 +1,29 @@
 <!-- NotFound.vue -->
 <script>
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
+import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 
 export default {
   name: 'IgSlider',
   components: {
-      Swiper,
-      SwiperSlide,
-    },
-    setup() {
-      const onSwiper = (swiper) => {
-        console.log(swiper);
-      };
-      const onSlideChange = () => {
-        console.log('slide change');
-      };
-      return {
-        onSwiper,
-        onSlideChange,
-        modules: [Autoplay, Pagination, Navigation],
-      };
-    },
-    data(){
-        return{
-
-            intagram: [
+    Swiper,
+    SwiperSlide
+  },
+  setup() {
+    const onSwiper = swiper => {}
+    const onSlideChange = () => {}
+    return {
+      onSwiper,
+      onSlideChange,
+      modules: [Autoplay, Pagination, Navigation]
+    }
+  },
+  data() {
+    return {
+      intagram: [
         {
           image: 'public/ig-images/instagram_img1.jpg'
         },
@@ -60,83 +54,70 @@ export default {
         {
           image: 'public/ig-images/instagram_img10.jpg'
         }
-      ],
-        }
+      ]
     }
-};
+  }
+}
 </script>
 
 <template>
-    <swiper
-      :loop="true"
-      :modules="modules"
-      :autoplay="{
+  <swiper
+    :loop="true"
+    :modules="modules"
+    :autoplay="{
       delay: 2500,
-      disableOnInteraction: false,
+      disableOnInteraction: false
     }"
-
-     
-      @swiper="onSwiper"
-      @slideChange="onSlideChange"
-      :breakpoints="{
-    
-    '300': {
+    @swiper="onSwiper"
+    @slideChange="onSlideChange"
+    :breakpoints="{
+      '300': {
         slidesPerView: 2,
-        spaceBetween: 10,
+        spaceBetween: 10
       },
       '870': {
         slidesPerView: 6,
-        spaceBetween: 0,
+        spaceBetween: 0
       },
       '1024': {
         slidesPerView: 8,
-        spaceBetween: 0,
-      },
-    }"
-   
-    class="ig_slider"
-    >
-   
-        <swiper-slide class="image" v-for="igImages in intagram">
-         <img :src="igImages.image" alt="">
-        </swiper-slide>    
-    </swiper>
-  </template>
-  
-
-  
-  <style lang="scss" scoped>
-  
-  .image {
-    overflow: hidden;
-
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-      transition: 0.3s ease-in-out;
-      transform-origin: center center;
-
-      &:hover {
-        transform: scale(1.05);
-        transition-duration: 0.3s;
-        cursor: pointer;
+        spaceBetween: 0
       }
-    }
+    }"
+    class="ig_slider"
+  >
+    <swiper-slide class="image" v-for="igImages in intagram">
+      <img :src="igImages.image" alt="" />
+    </swiper-slide>
+  </swiper>
+</template>
 
+<style lang="scss" scoped>
+.image {
+  overflow: hidden;
 
-    @media(max-width:870px) {
-        img{
-            padding:40px
-        }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: 0.3s ease-in-out;
+    transform-origin: center center;
+
+    &:hover {
+      transform: scale(1.05);
+      transition-duration: 0.3s;
+      cursor: pointer;
     }
-    
   }
 
- 
+  @media (max-width: 870px) {
+    img {
+      padding: 40px;
+    }
+  }
+}
 
- div{
-    color: white;
- }
-  </style>
-  
+div {
+  color: white;
+}
+</style>
