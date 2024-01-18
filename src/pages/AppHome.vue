@@ -1,25 +1,26 @@
 <script>
-import Counter from '../components/Counter.vue';
-import IgSlider from '../components/IgSlider.vue';
-import MusicBlogSlider from '../components/MusicBlogSlider.vue';
+import Counter from '../components/Counter.vue'
+import IgSlider from '../components/IgSlider.vue'
+import MusicBlogSlider from '../components/MusicBlogSlider.vue'
 
 export default {
   name: 'AppHome',
-  components: { 
+  components: {
     Counter,
     IgSlider,
-    MusicBlogSlider },
+    MusicBlogSlider
+  },
   data() {
     return {
       // Array di oggetti (Home)
       homeCarousel: [
         {
-            title: 'MUSIC OF THE SPIRIT',
-            image: 'public/carousel/home-1.png'
+          title: 'MUSIC OF THE SPIRIT',
+          image: 'public/carousel/home-1.png'
         },
         {
-            title: 'MUSIC IN THIS VIDEO',
-            image: 'public/carousel/home-2.png'
+          title: 'MUSIC IN THIS VIDEO',
+          image: 'public/carousel/home-2.png'
         }
       ],
 
@@ -27,140 +28,122 @@ export default {
       cards: [
         {
           id: 1,
-          image: "public/who-we-are-main/gallery1.jpg",
-          title: "A ROLL AND BANG ON THE FLOOR",
-          icons: ["fa-brands fa-spotify", "fa-brands fa-youtube", "fa-solid fa-music", "fa-brands fa-soundcloud", "fa-solid fa-compass"]
+          image: 'public/who-we-are-main/gallery1.jpg',
+          title: 'A ROLL AND BANG ON THE FLOOR',
+          icons: [
+            'fa-brands fa-spotify',
+            'fa-brands fa-youtube',
+            'fa-solid fa-music',
+            'fa-brands fa-soundcloud',
+            'fa-solid fa-compass'
+          ]
         },
         {
           id: 2,
-          image: "public/who-we-are-main/gallery2.jpg",
-          title: "YOUR MELODY TO OUR MUSIC",
-          icons: ["fa-brands fa-spotify", "fa-brands fa-youtube", "fa-solid fa-music", "fa-brands fa-soundcloud", "fa-solid fa-compass"]
+          image: 'public/who-we-are-main/gallery2.jpg',
+          title: 'YOUR MELODY TO OUR MUSIC',
+          icons: [
+            'fa-brands fa-spotify',
+            'fa-brands fa-youtube',
+            'fa-solid fa-music',
+            'fa-brands fa-soundcloud',
+            'fa-solid fa-compass'
+          ]
         },
         {
           id: 3,
-          image: "public/who-we-are-main/gallery3.jpg",
-          title: "TOUCHING HEAVEN ON FREQUENCY",
-          icons: ["fa-brands fa-spotify", "fa-brands fa-youtube", "fa-solid fa-music", "fa-brands fa-soundcloud", "fa-solid fa-compass"]
+          image: 'public/who-we-are-main/gallery3.jpg',
+          title: 'TOUCHING HEAVEN ON FREQUENCY',
+          icons: [
+            'fa-brands fa-spotify',
+            'fa-brands fa-youtube',
+            'fa-solid fa-music',
+            'fa-brands fa-soundcloud',
+            'fa-solid fa-compass'
+          ]
         },
         {
           id: 4,
-          image: "public/who-we-are-main/gallery4.jpg",
-          title: "MUSIC MAKES STRONGER BEATS",
-          icons: ["fa-brands fa-spotify", "fa-brands fa-youtube", "fa-solid fa-music", "fa-brands fa-soundcloud", "fa-solid fa-compass"]
+          image: 'public/who-we-are-main/gallery4.jpg',
+          title: 'MUSIC MAKES STRONGER BEATS',
+          icons: [
+            'fa-brands fa-spotify',
+            'fa-brands fa-youtube',
+            'fa-solid fa-music',
+            'fa-brands fa-soundcloud',
+            'fa-solid fa-compass'
+          ]
         },
         {
           id: 5,
-          image: "public/who-we-are-main/gallery5.jpg",
-          title: "SOUND IS THE SPARK OF TIME",
-          icons: ["fa-brands fa-spotify", "fa-brands fa-youtube", "fa-solid fa-music", "fa-brands fa-soundcloud", "fa-solid fa-compass"]
+          image: 'public/who-we-are-main/gallery5.jpg',
+          title: 'SOUND IS THE SPARK OF TIME',
+          icons: [
+            'fa-brands fa-spotify',
+            'fa-brands fa-youtube',
+            'fa-solid fa-music',
+            'fa-brands fa-soundcloud',
+            'fa-solid fa-compass'
+          ]
         },
         {
           id: 6,
-          image: "public/who-we-are-main/gallery6.jpg",
-          title: "MAKE YOUR NIGHT GROOVY",
-          icons: ["fa-brands fa-spotify", "fa-brands fa-youtube", "fa-solid fa-music", "fa-brands fa-soundcloud", "fa-solid fa-compass"]
-        },
+          image: 'public/who-we-are-main/gallery6.jpg',
+          title: 'MAKE YOUR NIGHT GROOVY',
+          icons: [
+            'fa-brands fa-spotify',
+            'fa-brands fa-youtube',
+            'fa-solid fa-music',
+            'fa-brands fa-soundcloud',
+            'fa-solid fa-compass'
+          ]
+        }
       ],
 
-      // Array di oggetti (Blog)
-      blog: [
-        {
-          title: 'HIP HOP WIRED TO DANCE MAKE',
-          date: '06 November  2021',
-          description: 'Driving short distances music is a music genre that includes traditional folk music and the contemporary genre that evolved from the former',
-          image: 'public/music-blog/1.jpg'
-        },
-        {
-          title: 'MUSIC BUSINESS WORLDWIDE',
-          date: '27 May  2022',
-          description: 'Accelerate work and drive productivity The Beatles experimentation and creative freedom led other bands to experiment in various ways as well.',
-          image: 'public/music-blog/2.jpg'
-        },
-        {
-          title: 'GIVEAWAYS ROCK TO ALL',
-          date: '07 May  2022',
-          description: 'Signs Your Car Battery Has To Be Replaced When the dashboard lights start flashing, this is a sign the battery is dying. Several issues arise and.',
-          image: 'public/music-blog/3.jpg'
-        },
-        {
-          title: 'DROWNED IN SOUND FEEL JOY',
-          date: '10 April  2022',
-          description: 'Different Types of Music Content For most music creators, they take their work very seriously because of the emotional attachment they may harbor.',
-          image: 'public/music-blog/4.jpg'
-        },
-        {
-          title: 'DANCING ASTRONAUT BOUNCE IPSUM',
-          date: '01 March  2022',
-          description: 'Signs Your Car Battery Has To Be Replaced When the dashboard lights start flashing, this is a sign the battery is dying. Several issues arise and.',
-          image: 'public/music-blog/5.jpg'
-        },
-        {
-          title: 'CONSEQUENCE OF SOUNDMAKE US',
-          date: '14 February  2022',
-          description: 'Electronic Dance Music Rhythm and Blues Before this, R & B was known as ‘race music,’ a term that originated in the African American',
-          image: 'public/music-blog/6.jpg'
-        },
-        {
-          title: 'ARTIST DEVELOPMENT AND PRODUCTION',
-          date: '07 December  2021',
-          description: 'Characterised by its own beat patterns, the lyrics feature what is often extreme violence snd talk of criminal acts. As a result, there’s been',
-          image: 'public/music-blog/7.jpg'
-        },
-      ],
-   
       homeIndex: 0,
-      musicBlogIndex: 0,
-    };
+      musicBlogIndex: 0
+    }
   },
-  computed: {
-      // activeMusicBlogImages() {
-      //     return this.blog.slice(this.musicBlogIndex, this.musicBlogIndex + 3);
-      // }
-  },
+
   // All'avvio dell'app
   created() {
-      // Gestione cambio img Home Carousel ogni 5 sec
-      setInterval(this.nextHomeImage, 5000);
+    // Gestione cambio img Home Carousel ogni 5 sec
+    setInterval(this.nextHomeImage, 5000)
   },
   methods: {
-      // Img precendente Home Carousel
-      prevHomeImage() {
-          if (this.homeIndex > 0) {
-              this.homeIndex--;
-          }
-          else {
-              this.homeIndex = this.homeCarousel.length - 1;
-          }
-      },
-      // Img successiva (Home Carousel)
-      nextHomeImage() {
-          if (this.homeIndex < this.homeCarousel.length - 1) {
-              this.homeIndex++;
-          }
-          else {
-              this.homeIndex = 0;
-          }
-      },
-      // Img precendente (Blog carousel)
-      prevMusicBlogImage() {
-          if (this.musicBlogIndex > 0) {
-              this.musicBlogIndex--;
-          }
-          else {
-              this.musicBlogIndex = this.blog.length - 3;
-          }
-      },
-      // Img successiva (Blog carousel)
-      nextMusicBlogImage() {
-          if (this.musicBlogIndex < this.blog.length - 3) {
-              this.musicBlogIndex++;
-          }
-          else {
-              this.musicBlogIndex = 0;
-          }
+    // Img precendente Home Carousel
+    prevHomeImage() {
+      if (this.homeIndex > 0) {
+        this.homeIndex--
+      } else {
+        this.homeIndex = this.homeCarousel.length - 1
       }
-  },
+    },
+    // Img successiva (Home Carousel)
+    nextHomeImage() {
+      if (this.homeIndex < this.homeCarousel.length - 1) {
+        this.homeIndex++
+      } else {
+        this.homeIndex = 0
+      }
+    },
+    // Img precendente (Blog carousel)
+    prevMusicBlogImage() {
+      if (this.musicBlogIndex > 0) {
+        this.musicBlogIndex--
+      } else {
+        this.musicBlogIndex = this.blog.length - 3
+      }
+    },
+    // Img successiva (Blog carousel)
+    nextMusicBlogImage() {
+      if (this.musicBlogIndex < this.blog.length - 3) {
+        this.musicBlogIndex++
+      } else {
+        this.musicBlogIndex = 0
+      }
+    }
+  }
 }
 </script>
 
@@ -168,47 +151,62 @@ export default {
   <main>
     <!-- Carousel -->
     <section class="carousel">
-      <div v-for="(carouselItem, index) in homeCarousel" :key="index" class="item" :class="{ active: index === homeIndex }">
-        <img :src="carouselItem.image" alt="">
+      <div
+        v-for="(carouselItem, index) in homeCarousel"
+        :key="index"
+        class="item"
+        :class="{ active: index === homeIndex }"
+      >
+        <img :src="carouselItem.image" alt="" />
         <div class="titles">
           <h3>INSTRUMENTAL ROCK</h3>
           <h1>{{ carouselItem.title }}</h1>
           <a href="">READ MORE</a>
         </div>
-        <button class="prev" @click="prevHomeImage"><i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i></button>
-        <button class="next" @click="nextHomeImage"><i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></button>
+        <button class="prev" @click="prevHomeImage">
+          <i class="fa-solid fa-chevron-left" style="color: #ffffff"></i>
+        </button>
+        <button class="next" @click="nextHomeImage">
+          <i class="fa-solid fa-chevron-right" style="color: #ffffff"></i>
+        </button>
       </div>
     </section>
 
     <!-- Cards -->
     <section class="cards">
       <div class="card">
-          <div class="image">
-            <img src="../assets/img/cards/speaker.svg" alt="">
-          </div>
+        <div class="image">
+          <img src="../assets/img/cards/speaker.svg" alt="" />
+        </div>
         <div class="text">
           <h3>ORIGINAL IDEAS</h3>
-          <p>Contrary popular belief, Lorem Ipsum not simply ipsum random text.</p>
+          <p>
+            Contrary popular belief, Lorem Ipsum not simply ipsum random text.
+          </p>
         </div>
       </div>
 
       <div class="card">
         <div class="image">
-          <img src="../assets/img/cards/disc.svg" alt="">          
+          <img src="../assets/img/cards/disc.svg" alt="" />
         </div>
         <div class="text">
           <h3>MUSIC STUDIO</h3>
-          <p>Contrary popular belief, Lorem Ipsum not simply ipsum random text.</p>
+          <p>
+            Contrary popular belief, Lorem Ipsum not simply ipsum random text.
+          </p>
         </div>
       </div>
 
       <div class="card">
         <div class="image">
-          <img src="../assets/img/cards/headphones.svg" alt="">          
+          <img src="../assets/img/cards/headphones.svg" alt="" />
         </div>
         <div class="text">
           <h3>ACOUSTIC COVERS</h3>
-          <p>Contrary popular belief, Lorem Ipsum not simply ipsum random text.</p>
+          <p>
+            Contrary popular belief, Lorem Ipsum not simply ipsum random text.
+          </p>
         </div>
       </div>
     </section>
@@ -218,7 +216,16 @@ export default {
       <div class="text sense-jazz">
         <h3>WHO WE ARE</h3>
         <h2>SENSE THE JAZZ</h2>
-        <p>The story of Jazz and Blues Society is the story of determination, passion, idealism, community, and of course, music. Founded in 1985 and incorporated in 1986, as a community based, not-for-profit, charitable arts organization located in Vancouver, British Columbia, the society, from the very beginning, has worked diligently to establish Vancouver as a centre for the creation and exchange of sounds and ideas between the local, national and international music communities. </p>
+        <p>
+          The story of Jazz and Blues Society is the story of determination,
+          passion, idealism, community, and of course, music. Founded in 1985
+          and incorporated in 1986, as a community based, not-for-profit,
+          charitable arts organization located in Vancouver, British Columbia,
+          the society, from the very beginning, has worked diligently to
+          establish Vancouver as a centre for the creation and exchange of
+          sounds and ideas between the local, national and international music
+          communities.
+        </p>
         <a href="">READ MORE</a>
       </div>
     </section>
@@ -227,7 +234,10 @@ export default {
     <section class="music-video">
       <a href="https://www.youtube.com/watch?v=lTZLlzLJ68o&t=2s">
         <div class="text">
-          <i class="fa-regular fa-circle-play" style="color: #F2870C; font-size: 5rem;"></i>
+          <i
+            class="fa-regular fa-circle-play"
+            style="color: #f2870c; font-size: 5rem"
+          ></i>
           <h2>NEW MUSIC VIDEO</h2>
         </div>
       </a>
@@ -235,22 +245,23 @@ export default {
 
     <!-- Who We Are (Main)-->
     <section class="who-we-are-main">
-    <div class="text sense-jazz">
-      <h3>WHO WE ARE</h3>
-      <h2>SENSE THE JAZZ</h2>
-      <div class="cards-main">
-        <div class="card-main" v-for="card in cards" :key="card.id">
-          <div class="image">
-            <img :src="card.image" alt="">
+      <div class="text sense-jazz">
+        <h3>WHO WE ARE</h3>
+        <h2>SENSE THE JAZZ</h2>
+        <div class="cards-main">
+          <div class="card-main" v-for="card in cards" :key="card.id">
+            <div class="image">
+              <img :src="card.image" alt="" />
+            </div>
+            <h4>{{ card.title }}</h4>
+            <p>
+              Stream On:
+              <i v-for="icon in card.icons" :class="'' + icon"></i>
+            </p>
           </div>
-          <h4>{{ card.title }}</h4>
-          <p>Stream On:
-            <i v-for="icon in card.icons" :class="'' + icon"></i>
-          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
     <!-- Album Out Now -->
     <section class="album-out-now">
@@ -267,30 +278,15 @@ export default {
     </section>
 
     <!-- Music Blog -->
-    
+
     <section class="music-blog">
       <h4>MUSIC BLOG</h4>
       <h3>BEST MUSIC BLOG</h3>
-      <MusicBlogSlider/>
-      <!-- <div class="carousel-blog">
-        <div v-for="musicBlog in activeMusicBlogImages" class="card">
-          <div class="image">
-            <img :src="musicBlog.image" alt="">
-          </div>
-          <div class="text">
-            <h4>{{ musicBlog.title }}</h4>
-            <h5>{{ musicBlog.date }}</h5>
-            <p>{{ musicBlog.description }}</p>
-          </div>
-        </div>
-      </div>
-      <button class="prev" @click="prevMusicBlogImage"><i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i></button>
-      <button class="next" @click="nextMusicBlogImage"><i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></button> -->
+      <MusicBlogSlider />
     </section>
 
-   <!-- Instagram -->
-    <IgSlider/>
-   
+    <!-- Instagram -->
+    <IgSlider />
   </main>
 </template>
 
@@ -330,7 +326,7 @@ main {
       color: $main_orange;
       margin: 2rem 0 1rem;
     }
-  
+
     p {
       color: #b9b9b9;
       line-height: 1.75rem;
@@ -370,35 +366,35 @@ main {
     width: 100%;
     height: 100%;
   }
-.titles {
-  width: 100%;
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-  h3 {
-    color: $main_orange;
-  }
+  .titles {
+    width: 100%;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-  h1 {
-    font-size: 4rem;
-    color: #fff;
-    margin-bottom: 1rem;
-  }
+    h3 {
+      color: $main_orange;
+    }
 
-  @media only screen and (max-width: 767px) {
     h1 {
-      font-size: 2rem;
+      font-size: 4rem;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    @media only screen and (max-width: 767px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 880px) {
+      h1 {
+        font-size: 3rem;
+      }
     }
   }
-
-  @media only screen and (min-width: 768px) and (max-width: 880px) {
-    h1 {
-      font-size: 3rem;
-    }
-  }
-}
 
   button {
     width: 40px;
@@ -435,11 +431,11 @@ main {
   flex-wrap: wrap;
   color: #fff;
 
-  @media only screen and (min-width: 880px) and (max-width: 1024px)  {
+  @media only screen and (min-width: 880px) and (max-width: 1024px) {
     margin-top: -5rem;
   }
 
-  @media only screen and (min-width: 768px) and (max-width: 880px)  {
+  @media only screen and (min-width: 768px) and (max-width: 880px) {
     margin-top: -4rem;
   }
 
@@ -492,7 +488,8 @@ main {
         filter: invert(1);
 
         &:hover {
-          filter: invert(57%) sepia(67%) saturate(1247%) hue-rotate(352deg) brightness(95%) contrast(101%);
+          filter: invert(57%) sepia(67%) saturate(1247%) hue-rotate(352deg)
+            brightness(95%) contrast(101%);
         }
       }
     }
@@ -606,7 +603,7 @@ main {
       }
 
       i {
-        margin: 0 .5rem;
+        margin: 0 0.5rem;
         color: #fff;
 
         &:hover {
@@ -710,14 +707,14 @@ main {
   }
 
   h4 {
-      color: $main_orange;
-      padding-top: 5rem;
+    color: $main_orange;
+    padding-top: 5rem;
   }
 
   h3 {
-      color: #fff;
-      font-size: 2rem;
-      padding-bottom: 2rem;
+    color: #fff;
+    font-size: 2rem;
+    padding-bottom: 2rem;
   }
 
   button {
@@ -725,81 +722,18 @@ main {
     top: 50%;
     transform: translateY(-50%);
 
-      &.prev {
-        left: 1rem;
-      }
-
-      &.next {
-        right: 1rem;
-      }
-
-      &:hover {
-        background-color: #000;
-        cursor: pointer;
-      }
+    &.prev {
+      left: 1rem;
     }
 
-  // Sezione Carousel (Blog)
+    &.next {
+      right: 1rem;
+    }
 
-  // .carousel-blog {
-  //   position: relative;
-  //   display: flex;
-  //   overflow: hidden;
-  //   width: 100%;
-  //   justify-content: center;
-  //   .card {
-  //     flex-grow: 0;
-  //     flex-shrink: 0;
-  //     flex-basis: calc((100% / 3) - 2rem);
-  //     margin: 0 1rem;
-
-  //     .image {
-  //       overflow: hidden;
-
-  //       img {
-  //         display: block;
-  //         transition: 0.3s ease-in-out;
-  //         transform-origin: center center;
-
-  //         &:hover {
-  //           transform: scale(1.05);
-  //           transition-duration: 0.3s;
-  //           cursor: pointer;
-  //         }
-  //       }
-  //     }
-
-  //     .text {
-  //       text-align: start;
-
-  //       h4 {
-  //         color: #fff;
-  //         padding: 0;
-  //         font-size: 1.5rem;
-
-  //         &:hover {
-  //           color: $main_orange;
-  //           cursor: pointer;
-  //         }
-  //       }
-
-  //       h5 {
-  //         color: $main_orange;
-  //         margin: 1rem 0;
-  //       }
-
-  //       p {
-  //       color: #b9b9b9;
-  //       }
-  //     }
-
-
-  //     img {
-  //       width: 100%;
-  //     }
-  //   }
-  // }
+    &:hover {
+      background-color: #000;
+      cursor: pointer;
+    }
+  }
 }
-
-
 </style>
