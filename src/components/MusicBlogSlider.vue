@@ -132,9 +132,9 @@ export default {
   max-width: 1400px;
   margin: 0 auto;
 
-  padding: 50px 10px;
+  padding: 50px 25px;
   .card {
-    padding: 0 10px;
+    padding: 0 25px;
     .image {
       overflow: hidden;
 
