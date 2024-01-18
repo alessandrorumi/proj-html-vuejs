@@ -175,12 +175,12 @@ export default {
               this.musicBlogIndex--;
           }
           else {
-              this.musicBlogIndex = this.blog.length - 1;
+              this.musicBlogIndex = this.blog.length - 3;
           }
       },
       // Img successiva (Blog carousel)
       nextMusicBlogImage() {
-          if (this.musicBlogIndex < this.blog.length - 1) {
+          if (this.musicBlogIndex < this.blog.length - 3) {
               this.musicBlogIndex++;
           }
           else {
