@@ -367,7 +367,8 @@ main {
 }
 .carousel {
   position: relative;
-  height: 800px;
+  aspect-ratio: 16 / 9;
+  width: 100%;
 
   &:hover {
     button {
@@ -382,6 +383,7 @@ main {
     top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
   }
 
   .active {
@@ -390,6 +392,7 @@ main {
 
   img {
     width: 100%;
+    height: 100%;
   }
 .titles {
   width: 100%;
@@ -403,8 +406,21 @@ main {
   }
 
   h1 {
-    font-size: 6rem;
+    font-size: 4rem;
     color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  @media only screen and (max-width: 767px) {
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 880px) {
+    h1 {
+      font-size: 3rem;
+    }
   }
 }
 
@@ -433,7 +449,7 @@ main {
 }
 
 .cards {
-  margin-top: -10rem;
+  margin-top: -2.5rem;
   position: relative;
   z-index: 100;
   padding: 0 3rem;
@@ -455,7 +471,7 @@ main {
     }
 
     @media only screen and (min-width: 871px) {
-      padding: 4rem;
+      padding: 3rem;
 
       .image {
         width: 85px;
