@@ -276,7 +276,8 @@ footer {
 
   .rights{
       text-align: center;
-      padding: 15px 0;
+      padding: 15px 0 35px 0;
+      margin-top: 25px;
     }
   
 

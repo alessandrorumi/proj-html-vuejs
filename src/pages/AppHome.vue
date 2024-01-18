@@ -175,12 +175,12 @@ export default {
               this.musicBlogIndex--;
           }
           else {
-              this.musicBlogIndex = this.blog.length - 1;
+              this.musicBlogIndex = this.blog.length - 3;
           }
       },
       // Img successiva (Blog carousel)
       nextMusicBlogImage() {
-          if (this.musicBlogIndex < this.blog.length - 1) {
+          if (this.musicBlogIndex < this.blog.length - 3) {
               this.musicBlogIndex++;
           }
           else {
@@ -209,11 +209,10 @@ export default {
 
     <!-- Cards -->
     <section class="cards">
-
       <div class="card">
-        <div class="image">
-          <img src="../assets/img/cards/speaker.svg" alt="">
-        </div>
+          <div class="image">
+            <img src="../assets/img/cards/speaker.svg" alt="">
+          </div>
         <div class="text">
           <h3>ORIGINAL IDEAS</h3>
           <p>Contrary popular belief, Lorem Ipsum not simply ipsum random text.</p>
@@ -327,6 +326,8 @@ export default {
 @import '../styles/partials/partials';
 @import '../styles/partials/mixins';
 
+// CSS Main(generali)
+
 main {
   background-color: #000;
   text-align: center;
@@ -365,9 +366,13 @@ main {
     }
   }
 }
+
+// Sezione Carousel (Home)
+
 .carousel {
   position: relative;
-  height: 800px;
+  aspect-ratio: 16 / 7;
+  width: 100%;
 
   &:hover {
     button {
@@ -382,6 +387,7 @@ main {
     top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
   }
 
   .active {
@@ -390,6 +396,7 @@ main {
 
   img {
     width: 100%;
+    height: 100%;
   }
 .titles {
   width: 100%;
@@ -403,8 +410,21 @@ main {
   }
 
   h1 {
-    font-size: 6rem;
+    font-size: 4rem;
     color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  @media only screen and (max-width: 767px) {
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 880px) {
+    h1 {
+      font-size: 3rem;
+    }
   }
 }
 
@@ -432,14 +452,28 @@ main {
   }
 }
 
+// Sezione Cards
+
 .cards {
-  margin-top: -10rem;
+  margin-top: -7rem;
   position: relative;
   z-index: 100;
   padding: 0 3rem;
   display: flex;
   flex-wrap: wrap;
   color: #fff;
+
+  @media only screen and (min-width: 880px) and (max-width: 1024px)  {
+    margin-top: -5rem;
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 880px)  {
+    margin-top: -4rem;
+  }
+
+  @media only screen and (max-width: 767px) {
+    margin-top: -3rem;
+  }
 
   .card {
     background-color: $main_gray;
@@ -449,33 +483,19 @@ main {
     flex-direction: column;
     align-items: center;
     position: relative;
+    padding: 3rem;
 
     @media only screen and (max-width: 870px) {
       padding: 0.5rem;
     }
 
-    @media only screen and (min-width: 871px) {
-      padding: 4rem;
-
-      .image {
-        width: 85px;
-        height: 85px;
-      }
-
-      .text {
-        h3 {
-          font-size: 1.25rem;
-        }
-
-        p {
-          color: #b9b9b9;
-        }
-      }
-    }
-
     @media only screen and (max-width: 767px) {
       width: calc(100% - 2rem);
       margin: 0 1rem 2rem;
+    }
+
+    &:hover .image::before {
+      animation: sonar-effect 1s ease-in-out 0.1s infinite;
     }
 
     .image {
@@ -494,10 +514,6 @@ main {
         left: 0;
       }
 
-      &:hover::before {
-        animation: sonar-effect 1s ease-in-out 0.1s infinite;
-      }
-
       img {
         width: 85px;
         height: 85px;
@@ -509,22 +525,34 @@ main {
       }
     }
 
-    @keyframes sonar-effect {
-      0% {
-        opacity: 0.3;
+    .text {
+      h3 {
+        font-size: 1.25rem;
       }
-      40% {
-        opacity: 0.5;
-        box-shadow: 0 0 0 5px #fff, 0 0 10px 10px #fff, 0 0 0 10px #fff;
-      }
-      100% {
-        box-shadow: 0 0 0 5px #fff, 0 0 10px 10px #fff, 0 0 0 10px #fff;
-        transform: scale(1.5);
-        opacity: 0;
+
+      p {
+        color: #b9b9b9;
       }
     }
   }
 }
+
+@keyframes sonar-effect {
+  0% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 0.5;
+    box-shadow: 0 0 0 5px #fff, 0 0 10px 10px #fff, 0 0 0 10px #fff;
+  }
+  100% {
+    box-shadow: 0 0 0 5px #fff, 0 0 10px 10px #fff, 0 0 0 10px #fff;
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+// Sezione Who We Are (Intro)
 
 .who-we-are-intro {
   width: 75%;
@@ -555,6 +583,8 @@ main {
     }
   }
 }
+
+// Sezione Who We Are (Main)
 
 .who-we-are-main {
   padding: 3rem 0 5rem;
@@ -622,7 +652,7 @@ main {
   }
 }
 
-// Album Out Now
+// Sezione Album Out Now
 .album-out-now {
   background-image: url(../assets/img/cms_parallax.jpg);
   min-height: 850px;
@@ -685,7 +715,17 @@ main {
   }
 }
 
-// Music Blog
+// Sezione Counter
+
+.background-scroll {
+  background-image: url(../assets/img/counter_parallax.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+// Sezione Music Blog
 
 .music-blog {
   padding: 0 3rem 6rem;
@@ -726,6 +766,8 @@ main {
         cursor: pointer;
       }
     }
+
+  // Sezione Carousel (Blog)
 
   .carousel-blog {
     position: relative;
@@ -787,7 +829,7 @@ main {
   }
 }
 
-//////////////////////////////////////////////////////////////////////////////////
+// Sezione IG Images
 .ig-images {
   display: flex;
   .image {
@@ -807,19 +849,5 @@ main {
       }
     }
   }
-}
-
-
-
-
-
-
-/* prova sul background scegli dove posizionarlo :D */
-.background-scroll {
-  background-image: url(../assets/img/counter_parallax.jpg);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 </style>

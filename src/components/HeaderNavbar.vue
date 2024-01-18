@@ -192,4 +192,8 @@ div {
 .menu-container:hover .submenu {
   display: block;
 }
+
+li:hover {
+  cursor: pointer;
+}
 </style>
