@@ -385,6 +385,7 @@ main {
         &:hover {
           filter: invert(57%) sepia(67%) saturate(1247%) hue-rotate(352deg)
             brightness(95%) contrast(101%);
+          cursor: pointer;
         }
       }
     }
@@ -543,6 +544,10 @@ main {
 
 // Background fisso su 1365px
 @media all and (max-width: 1365px) {
+  .album-background {
+    background-image: none;
+    min-height: 700px;
+  }
   .album-out-now {
     background-image: url(../assets/img/cms_parallax.jpg);
     @include static-bg-image;
