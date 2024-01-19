@@ -2,13 +2,15 @@
 import Counter from '../components/Counter.vue'
 import IgSlider from '../components/IgSlider.vue'
 import MusicBlogSlider from '../components/MusicBlogSlider.vue'
+import WhoWeAreMain from '../components/WhoWeAreMain.vue'
 
 export default {
   name: 'AppHome',
   components: {
     Counter,
     IgSlider,
-    MusicBlogSlider
+    MusicBlogSlider,
+    WhoWeAreMain
   },
   data() {
     return {
@@ -23,84 +25,7 @@ export default {
           image: 'public/carousel/home-2.png'
         }
       ],
-
-      // Array di oggetti (Who We Are (Main))
-      cards: [
-        {
-          id: 1,
-          image: 'public/who-we-are-main/gallery1.jpg',
-          title: 'A ROLL AND BANG ON THE FLOOR',
-          icons: [
-            'fa-brands fa-spotify',
-            'fa-brands fa-youtube',
-            'fa-solid fa-music',
-            'fa-brands fa-soundcloud',
-            'fa-solid fa-compass'
-          ]
-        },
-        {
-          id: 2,
-          image: 'public/who-we-are-main/gallery2.jpg',
-          title: 'YOUR MELODY TO OUR MUSIC',
-          icons: [
-            'fa-brands fa-spotify',
-            'fa-brands fa-youtube',
-            'fa-solid fa-music',
-            'fa-brands fa-soundcloud',
-            'fa-solid fa-compass'
-          ]
-        },
-        {
-          id: 3,
-          image: 'public/who-we-are-main/gallery3.jpg',
-          title: 'TOUCHING HEAVEN ON FREQUENCY',
-          icons: [
-            'fa-brands fa-spotify',
-            'fa-brands fa-youtube',
-            'fa-solid fa-music',
-            'fa-brands fa-soundcloud',
-            'fa-solid fa-compass'
-          ]
-        },
-        {
-          id: 4,
-          image: 'public/who-we-are-main/gallery4.jpg',
-          title: 'MUSIC MAKES STRONGER BEATS',
-          icons: [
-            'fa-brands fa-spotify',
-            'fa-brands fa-youtube',
-            'fa-solid fa-music',
-            'fa-brands fa-soundcloud',
-            'fa-solid fa-compass'
-          ]
-        },
-        {
-          id: 5,
-          image: 'public/who-we-are-main/gallery5.jpg',
-          title: 'SOUND IS THE SPARK OF TIME',
-          icons: [
-            'fa-brands fa-spotify',
-            'fa-brands fa-youtube',
-            'fa-solid fa-music',
-            'fa-brands fa-soundcloud',
-            'fa-solid fa-compass'
-          ]
-        },
-        {
-          id: 6,
-          image: 'public/who-we-are-main/gallery6.jpg',
-          title: 'MAKE YOUR NIGHT GROOVY',
-          icons: [
-            'fa-brands fa-spotify',
-            'fa-brands fa-youtube',
-            'fa-solid fa-music',
-            'fa-brands fa-soundcloud',
-            'fa-solid fa-compass'
-          ]
-        }
-      ],
-      homeIndex: 0,
-      musicBlogIndex: 0
+      homeIndex: 0
     }
   },
 
@@ -217,34 +142,14 @@ export default {
     <section class="music-video">
       <a href="https://www.youtube.com/watch?v=lTZLlzLJ68o&t=2s">
         <div class="text">
-          <i
-            class="fa-regular fa-circle-play"
-            style="color: #f2870c; font-size: 5rem"
-          ></i>
+          <i class="fa-regular fa-circle-play" style="color: #f2870c"></i>
           <h2>NEW MUSIC VIDEO</h2>
         </div>
       </a>
     </section>
 
     <!-- Who We Are (Main)-->
-    <section class="who-we-are-main">
-      <div class="text sense-jazz">
-        <h3>WHO WE ARE</h3>
-        <h2>SENSE THE JAZZ</h2>
-        <div class="cards-main">
-          <div class="card-main" v-for="card in cards" :key="card.id">
-            <div class="image">
-              <img :src="card.image" alt="" />
-            </div>
-            <h4>{{ card.title }}</h4>
-            <p>
-              Stream On:
-              <i v-for="icon in card.icons" :class="'' + icon"></i>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <WhoWeAreMain />
 
     <!-- Album Out Now -->
     <section class="album-background">
@@ -263,7 +168,6 @@ export default {
     </section>
 
     <!-- Music Blog -->
-
     <section class="music-blog">
       <h4>MUSIC BLOG</h4>
       <h3>BEST MUSIC BLOG</h3>
@@ -513,16 +417,17 @@ main {
 }
 
 // Sezione Who We Are (Intro)
-
 .who-we-are-intro {
   width: 75%;
   margin: 0 auto;
   padding-bottom: 4rem;
 }
+
+// Sezione Music Video
+
 .music-video {
   background-image: url(../assets/img/Video-2.jpg);
   background-position: center;
-  height: 540px;
   position: relative;
 
   a {
@@ -541,67 +446,37 @@ main {
   }
 }
 
-// Sezione Who We Are (Main)
-
-.who-we-are-main {
-  padding: 3rem 0 5rem;
-
-  h2 {
-    margin-bottom: 2rem;
-  }
-
-  .cards-main {
-    padding: 0 3rem;
-    display: flex;
-    flex-wrap: wrap;
-
-    .card-main {
-      width: 100%;
-      margin: 0 0 2rem;
-
-      @media only screen and (min-width: 871px) {
-        width: calc((100% / 3) - 2rem);
-        margin: 0 1rem;
-      }
-
-      .image {
-        overflow: hidden;
-
-        img {
-          display: block;
-          transition: 0.3s ease-in-out;
-          transform-origin: center center;
-
-          &:hover {
-            transform: scale(1.05);
-            transition-duration: 0.3s;
-            cursor: pointer;
-          }
-        }
-      }
-
-      h4 {
-        font-size: 1.5rem;
-        margin-top: 1rem;
-      }
-
-      p {
-        margin: 0 0 2rem;
-      }
-
+@media only screen and (max-width: 767px) {
+  .music-video {
+    height: 270px;
+    .text {
+      h2,
       i {
-        margin: 0 0.5rem;
-
-        &:hover {
-          color: $main_orange;
-        }
+        font-size: 2rem;
       }
+    }
+  }
+}
 
-      @media only screen and (max-width: 870px) {
-        .image {
-          display: flex;
-          justify-content: center;
-        }
+@media only screen and (min-width: 767px) and (max-width: 880px) {
+  .music-video {
+    height: 405px;
+    .text {
+      h2,
+      i {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 880px) {
+  .music-video {
+    height: 540px;
+    .text {
+      h2,
+      i {
+        font-size: 4rem;
       }
     }
   }
