@@ -141,7 +141,7 @@ export default {
         :class="{ active: index === homeIndex }"
       >
         <img :src="carouselItem.image" alt="" />
-        <div class="titles">
+        <div class="titles" :class="{ 'fade-in': index === homeIndex }">
           <h3>INSTRUMENTAL ROCK</h3>
           <h1>{{ carouselItem.title }}</h1>
           <a href="">READ MORE</a>
@@ -357,12 +357,25 @@ main {
 
     h3 {
       color: $main_orange;
+      opacity: 0;
+      transition: opacity 0.75s ease-in-out 0.5s;
     }
 
     h1 {
       font-size: 4rem;
-
       margin-bottom: 1rem;
+      opacity: 0;
+      transition: opacity 0.75s ease-in-out 1s;
+    }
+
+    &.fade-in {
+      h1 {
+        opacity: 1;
+      }
+
+      h3 {
+        opacity: 1;
+      }
     }
 
     @media only screen and (max-width: 767px) {
