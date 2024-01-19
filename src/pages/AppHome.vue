@@ -258,7 +258,7 @@ main {
     box-shadow: 0 0 0 5px #fff, 0 0 10px 10px #fff, 0 0 0 10px #fff;
   }
   100% {
-    box-shadow: 0 0 0 5px #fff, 0 0 10px 10px #fff, 0 0 0 10px #fff;
+    box-shadow: 0 0 0 5px #f2870c, 0 0 10px 10px #f2870c, 0 0 0 10px #f2870c;
     transform: scale(1.5);
     opacity: 0;
   }

@@ -150,6 +150,7 @@ a {
     width: 40px;
     height: 40px;
     border: none;
+    display: none;
     background-color: $main_gray;
     @include translate-horiz-middle;
     &.prev {
