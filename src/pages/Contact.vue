@@ -14,20 +14,20 @@ export default {
 </script>
 
 <template>
-  <main class="about-background">
+  <main>
     <!-- 1 section with navigation -->
     <section>
-      <div class="about-entry">
+      <div class="contact-entry">
         <h1>CONTACT US</h1>
         <span>
           <router-link class="link" :to="{ name: 'home' }">Home</router-link> / Contact Us
         </span>
       </div>
     </section>
-    <!-- 2 story of jazz -->
-    <section class="story-container">
-      <div class="story-row">
-        <div class="story-col-text">
+    <!-- 2 info contact -->
+    <section class="info-container">
+      <div class="info-row">
+        <div class="info-col">
            <form @submit.prevent="submitForm">
 
             <div class="row">
@@ -57,7 +57,7 @@ export default {
     </form> 
          
         </div>
-        <div class="story-col-text updates">
+        <div class="info-col updates">
           <span>GET IN TOUCH</span>
           <h2>GET LATEST UPDATE</h2>
 
@@ -140,8 +140,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-main{
-  @import '../styles/partials/_partials.scss';
+@import '../styles/partials/_partials.scss';
 
 /* general styles */
 /*buttons */
@@ -174,16 +173,8 @@ i {
 }
 //////////////////////////////////////////////////////////////////////////////////////////////
 /*section 1 */
-.about-background {
-  background-image: url(../assets/img/cms_parallax.jpg); //probabilmente da applicare al body, da parlarne insieme
-  min-height: 100vh;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
-.about-entry {
+.contact-entry {
   margin-top: 100px;
   height: 320px;
   background-color: $main_gray;
@@ -211,7 +202,7 @@ i {
 
 /* section 1 responsive */
 @media all and (max-width: 1024px) {
-  .about-entry {
+  .contact-entry {
     h1{
       font-size: 50px;
     }
@@ -219,7 +210,7 @@ i {
 }
 
 @media all and (max-width: 767px) {
-  .about-entry {
+  .contact-entry {
     height: 200px;
 
     h1{
@@ -229,23 +220,19 @@ i {
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////
-/* section 2/4 (containers) */
-.story-container,
-.faqs-container,
-.staff-container {
+/* section 2 */
+.info-container {
   background-color: #000;
   padding: 100px 0;
 }
-.story-row,
-.faqs-row,
-.staff-row {
+
+.info-row {
   display: flex;
   width: 85%;
   margin: 0 auto;
   min-height: 500px;
 
-  .story-col-text,
-  .faqs-col-text {
+  .info-col {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -258,37 +245,24 @@ i {
       color: $main_orange;
     }
 
-    p {
-      margin-right: 50px;
-    }
-
     span,
-    h2,
-    p {
+    h2 {
       margin-bottom: 25px;
     }
   }
-  .story-col-image,
-  .faqs-col-image {
-    width: 50%;
-  }
-  img {
-    width: 100%;
-  }
 }
 
-/* section 2/4 (containers) responsive */
+/* section 2 responsive */
 @media all and (max-width: 1400px) {
-  .story-row,
-  .faqs-row {
+  .info-row {
     width: 95%;
     margin: 0 auto;
   }
+
 }
 
 @media all and (max-width: 1200px) {
-  .story-container,
-  .faqs-container {
+  .info-container {
     padding-bottom: 25px;
   }
 }
@@ -296,301 +270,27 @@ i {
 
 @media all and (max-width: 1024px) {
 
-.story-container,
-.faqs-container,
-.staff-container {
+.info-container {
   padding: 75px 0;
 }
-  .story-row,
-  .faqs-row {
+  .info-row {
     min-height: 200px;
-    .story-col-text {
-      h2 {
-        font-size: 22px;
-      }
-      span,
-      h2,
-      p {
-        margin-bottom: 10px;
-      }
-
-      .btn {
-        width: 100px;
-        padding: 10px 0;
-      }
-    }
-  }
-}
-
-@media all and (max-width: 880px) {
-  .faqs-row {
-    flex-wrap: wrap;
-    .faqs-col-text {
-      width: 100%;
-    }
-    .faqs-col-image {
-      width: 100%;
-    }
   }
 }
 
 @media all and (max-width: 767px) {
 
-  .story-row {
+  .info-row {
     flex-wrap: wrap;
-    .story-col-text {
+    .info-col {
       width: 100%;
 
       .btn {
         margin-bottom: 20px;
       }
     }
-    .story-col-image {
-      width: 100%;
-    }
   }
 }
-//////////////////////////////////////////////////////////////////////////////////////////////
-/*section 3 */
-.about-album {
-  min-height: 750px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  span {
-    color: $main-orange;
-    font-size: 25px;
-  }
-
-  h1 {
-    font-size: 100px;
-    margin: 20px 0;
-  }
-}
-
-/* section 3 responsive */
-@media all and (max-width: 1365px) {
-  .about-album {
-    background-image: url(../assets/img/cms_parallax.jpg);
-    background-position: center;
-    background-size: cover;
-  }
-}
-
-@media all and (max-width: 1024px) {
-  .about-album {
-    min-height: 500px;
-  }
-}
-
-@media all and (max-width: 767px) {
-  .about-album {
-    min-height: 350px;
-
-    span {
-      font-size: 16px;
-    }
-
-    h1 {
-      font-size: 28px;
-    }
-
-    .btn {
-      width: 100px;
-      padding: 10px 0;
-    }
-  }
-}
-//////////////////////////////////////////////////////////////////////////////////////////////
-/*text FAQs section 4 */
-.accordion {
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
-  padding: 18px 0;
-  width: 85%;
-  border-bottom: 1px solid #222222;
-  font-size: 20px;
-  font-weight: bold;
-  margin-left: 100px;
-}
-
-.no-border {
-  border-bottom: none;
-}
-
-.panel {
-  width: 85%;
-  padding: 18px 0;
-  margin-left: 100px;
-}
-
-.open {
-  color: $main-orange;
-}
-
-.closed {
-  color: #fff;
-}
-
-/* section 4 responsive */
-@media all and (max-width: 1400px) {
-  .accordion {
-    margin-left: 50px;
-  }
-
-  .panel {
-    margin-left: 50px;
-  }
-}
-
-@media all and (max-width: 1200px) {
-  .accordion {
-    width: 95%;
-    margin-left: 25px;
-  }
-
-  .panel {
-    width: 95%;
-    margin-left: 25px;
-  }
-}
-
-@media all and (max-width: 1024px) {
-  .accordion {
-    font-size: 18px;
-  }
-}
-
-@media all and (max-width: 880px) {
-  .accordion {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .panel {
-    width: 100%;
-    margin-left: 0;
-  }
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////
-/*section 5 prova per counter */
-.prova {
-  height: 500px;
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////
-/// 
-/*staff section 6 */ 
-.staff-container {
-  border-bottom: 1px solid #222222;
-
-  .staff-row {
-    justify-content: space-between;
-    .col {
-      width: calc((100% / 4) - 20px);
-    }
-
-    h2,
-    span {
-      text-align: center;
-      display: block;
-    }
-  }
-
-  h1 {
-    font-size: 48px;
-  }
-
-  span {
-    text-align: center;
-    color: $main-orange;
-    display: block;
-  }
-
-  h1,
-  .role {
-    color: #fff;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-}
-
-.col .staff-photo {
-  overflow: hidden;
-
-  img {
-    display: block;
-    transition: 0.3s ease-in-out;
-    transform-origin: center center;
-
-    &:hover {
-      transform: scale(1.05);
-      transition-duration: 0.3s;
-    }
-  }
-}
-
-/* section 6 responsive */
-@media all and (max-width: 1400px) {
-
-  .staff-container {
-    padding: 75px 0 20px;
-    .staff-row {
-      width: 90%;
-    }
-  }
-}
-
-@media all and (max-width: 1200px) {
-  
-  .staff-row {
-    min-height: 400px;
-  }
-}
-
-@media all and (max-width: 880px) {
-  
-  .staff-row {
-    min-height: 350px;
-  }
-}
-
-@media all and (max-width: 767px) {
-  
-  .staff-container {
-    .staff-row {
-      flex-wrap: wrap;
-      width: 50%;
-      margin: 0 auto;
-
-      .col {
-        width: 100%;
-      }
-    }
-
-    h1 {
-    font-size: 34px;
-  }
-  }
-}
-
-@media all and (max-width: 576px) {
-  
-  .staff-container {
-
-    .staff-row {
-      width: 70%;
-    }
-  }
-}
-
-}
-
 
 // ===ContaCt US====
 
@@ -598,9 +298,9 @@ i {
 .updates{
   padding-left: 50px;
 }
-.story-row{
+.info-row{
  
-  .story-col-text{
+  .info-col{
   color: white;
   
     label{

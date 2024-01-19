@@ -188,15 +188,12 @@ export default {
 
 /*buttons */
 .btn {
+  @include btn-standard;
   text-align: center;
   width: 175px;
-  padding: 15px 20px;
-  border: 1px solid $main-orange;
   font-size: 16px;
-  color: #fff;
   letter-spacing: 1px;
   cursor: pointer;
-  text-decoration: none;
 }
 
 a:hover {
@@ -336,7 +333,6 @@ i {
 
 
 @media all and (max-width: 1024px) {
-
 .story-container,
 .faqs-container,
 .staff-container {
@@ -366,9 +362,7 @@ i {
 @media all and (max-width: 880px) {
   .faqs-row {
     flex-wrap: wrap;
-    .faqs-col-text {
-      width: 100%;
-    }
+    .faqs-col-text,
     .faqs-col-image {
       width: 100%;
     }
@@ -376,7 +370,6 @@ i {
 }
 
 @media all and (max-width: 767px) {
-
   .story-row {
     flex-wrap: wrap;
     .story-col-text {
@@ -516,15 +509,11 @@ i {
     margin-left: 0;
   }
 }
-
 //////////////////////////////////////////////////////////////////////////////////////////////
 /*section 5 counter */
 .background-scroll {
   background-image: url(../assets/img/counter_parallax.jpg);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  @include default-bg-image;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////
 /*staff section 6 */ 
@@ -579,7 +568,6 @@ i {
 
 /* section 6 responsive */
 @media all and (max-width: 1400px) {
-
   .staff-container {
     padding: 75px 0 20px;
     .staff-row {
@@ -588,22 +576,19 @@ i {
   }
 }
 
-@media all and (max-width: 1200px) {
-  
+@media all and (max-width: 1200px) { 
   .staff-row {
     min-height: 400px;
   }
 }
 
-@media all and (max-width: 880px) {
-  
+@media all and (max-width: 880px) {  
   .staff-row {
     min-height: 350px;
   }
 }
 
 @media all and (max-width: 767px) {
-  
   .staff-container {
     .staff-row {
       flex-wrap: wrap;
@@ -622,7 +607,6 @@ i {
 }
 
 @media all and (max-width: 576px) {
-  
   .staff-container {
 
     .staff-row {
