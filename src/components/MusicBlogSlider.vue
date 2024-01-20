@@ -1,10 +1,14 @@
-<!-- NotFound.vue -->
 <script>
+// Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue'
+
+// Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-import { Autoplay, Pagination, Navigation } from 'swiper/modules'
+
+// import required modules
+import { Pagination, Navigation } from 'swiper/modules'
 
 export default {
   name: 'MusicBlogSlider',
@@ -13,18 +17,12 @@ export default {
     SwiperSlide
   },
   setup() {
-    const onSwiper = swiper => {}
-    const onSlideChange = () => {}
     return {
-      onSwiper,
-      onSlideChange,
-
-      modules: [Autoplay, Pagination, Navigation]
+      modules: [Pagination, Navigation]
     }
   },
   data() {
     return {
-      isHovered: false,
       // Array di oggetti (Blog)
       blog: [
         {
@@ -83,61 +81,63 @@ export default {
 </script>
 
 <template>
-  <swiper
-    @mouseover="isHovered = true"
-    @mouseleave="isHovered = false"
-    :navigation="isHovered ? true : false"
-    :lazy="true"
-    :style="{
-      '--swiper-navigation-color': '#fff'
-    }"
-    :rewind="true"
-    :modules="modules"
-    :spaceBetween="0"
-    @swiper="onSwiper"
-    @slideChange="onSlideChange"
-    :breakpoints="{
-      '480': {
-        slidesPerView: 1
-        // spaceBetween: 40,
-      },
-      '870': {
-        slidesPerView: 2
-        // spaceBetween: 40,
-      },
-      '1024': {
-        slidesPerView: 3
-        // spaceBetween: 40,
-      }
-    }"
-    class="music_blog_slider"
-  >
-    <swiper-slide v-for="musicBlog in blog" class="card">
-      <div class="image">
-        <img :src="musicBlog.image" alt="" />
+  <div>
+    <swiper
+      :navigation="{
+        nextEl: '.swiper-button-next-custom',
+        prevEl: '.swiper-button-prev-custom'
+      }"
+      :spaceBetween="30"
+      :rewind="true"
+      :slidesPerView="1"
+      :breakpoints="{
+        '767': {
+          slidesPerView: 2
+        },
+        '980': {
+          slidesPerView: 3
+        }
+      }"
+      :modules="modules"
+      class="music_blog_slider"
+    >
+      <swiper-slide v-for="musicBlog in blog" :key="musicBlog.title">
+        <div class="card">
+          <div class="image">
+            <img :src="musicBlog.image" alt="" />
+          </div>
+          <div class="text">
+            <h4>{{ musicBlog.title }}</h4>
+            <h5>
+              <i class="fa-solid fa-calendar-days" style="color: #f2870c"></i>
+              {{ musicBlog.date }}
+            </h5>
+            <p>{{ musicBlog.description }}</p>
+          </div>
+        </div>
+      </swiper-slide>
+      <div class="swiper-buttons-container">
+        <div class="swiper-button-next swiper-button-next-custom"></div>
+        <div class="swiper-button-prev swiper-button-prev-custom"></div>
       </div>
-      <div class="text">
-        <h4>{{ musicBlog.title }}</h4>
-        <h5>
-          <i class="fa-solid fa-calendar-days" style="color: #f2870c"></i>
-          {{ musicBlog.date }}
-        </h5>
-        <p>{{ musicBlog.description }}</p>
-      </div>
-    </swiper-slide>
-  </swiper>
+    </swiper>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-@import '../styles/partials/partials';
+@import '../styles/partials/_partials.scss';
 
 .music_blog_slider {
-  max-width: 1400px;
-  margin: 0 auto;
+  padding: 0 1.85rem;
 
-  padding: 50px 25px;
+  &:hover {
+    .swiper-button-next-custom,
+    .swiper-button-prev-custom {
+      display: block;
+    }
+  }
+
   .card {
-    padding: 0 25px;
     .image {
       overflow: hidden;
 
@@ -187,6 +187,34 @@ export default {
     img {
       width: 100%;
     }
+  }
+
+  .swiper-button-next-custom,
+  .swiper-button-prev-custom {
+    display: none;
+    --swiper-navigation-color: #fff;
+    --swiper-navigation-font-size: 1.75rem;
+    position: absolute;
+    top: 45%;
+    transform: translateY(-45%);
+
+    &:after {
+      color: var(--swiper-navigation-color);
+      font-size: var(--swiper-navigation-font-size);
+    }
+  }
+
+  .swiper-button-next-custom {
+    right: 0;
+  }
+
+  .swiper-button-prev-custom {
+    left: 0;
+  }
+
+  .music_blog_slider:hover .swiper-button-next-custom,
+  .music_blog_slider:hover .swiper-button-prev-custom {
+    display: block;
   }
 }
 </style>

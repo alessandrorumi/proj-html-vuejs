@@ -230,8 +230,7 @@ main {
         filter: invert(1);
 
         &:hover {
-          filter: invert(57%) sepia(67%) saturate(1247%) hue-rotate(352deg)
-            brightness(95%) contrast(101%);
+          filter: invert(57%) sepia(67%) saturate(1247%) hue-rotate(352deg) brightness(95%) contrast(101%);
           cursor: pointer;
         }
       }
@@ -253,10 +252,12 @@ main {
   0% {
     opacity: 0.3;
   }
+
   40% {
     opacity: 0.5;
     box-shadow: 0 0 0 5px #fff, 0 0 10px 10px #fff, 0 0 0 10px #fff;
   }
+
   100% {
     box-shadow: 0 0 0 5px #f2870c, 0 0 10px 10px #f2870c, 0 0 0 10px #f2870c;
     transform: scale(1.5);
@@ -297,7 +298,9 @@ main {
 @media only screen and (max-width: 767px) {
   .music-video {
     height: 270px;
+
     .text {
+
       h2,
       i {
         font-size: 2rem;
@@ -309,7 +312,9 @@ main {
 @media only screen and (min-width: 767px) and (max-width: 880px) {
   .music-video {
     height: 405px;
+
     .text {
+
       h2,
       i {
         font-size: 3rem;
@@ -321,7 +326,9 @@ main {
 @media only screen and (min-width: 880px) {
   .music-video {
     height: 540px;
+
     .text {
+
       h2,
       i {
         font-size: 4rem;
@@ -337,6 +344,7 @@ main {
   min-height: 850px;
   @include default-bg-image;
 }
+
 .album-out-now {
   position: relative;
   padding: 0 3rem;
@@ -344,6 +352,7 @@ main {
 
   .text {
     @include translate-horiz-middle;
+
     h3 {
       color: $main_orange;
     }
@@ -395,6 +404,7 @@ main {
     background-image: none;
     min-height: 700px;
   }
+
   .album-out-now {
     background-image: url(../assets/img/cms_parallax.jpg);
     @include static-bg-image;
@@ -411,7 +421,8 @@ main {
 // Sezione Music Blog
 
 .music-blog {
-  padding: 0 3rem 6rem;
+  margin-bottom: 6rem;
+  padding: 0 1.5rem;
   position: relative;
 
   &:hover {
@@ -432,6 +443,7 @@ main {
 
   button {
     @include translate-horiz-middle;
+
     &.prev {
       left: 1rem;
     }
@@ -445,5 +457,4 @@ main {
       cursor: pointer;
     }
   }
-}
-</style>
+}</style>
